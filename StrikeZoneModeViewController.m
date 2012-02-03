@@ -14,8 +14,10 @@
 
 
 @implementation DragView
+@synthesize isActive;
 - (void) touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
+    if (isActive) {
     startPt = [[touches anyObject] locationInView:[self superview]];
     
 	CGPoint pt = [[touches anyObject] locationInView:self];
@@ -30,10 +32,12 @@
             //            [[appDelegate.viewController objStrick] ballMinus];
         }
     }
+    }
 }
 
 - (void) touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
 {
+    if (isActive) {
     CGPoint Spt = [[touches anyObject] locationInView:[self superview]]; 
     if(!CGRectContainsPoint(CGRectMake(10, 74, 305, 230), Spt)) {
         return;
@@ -44,9 +48,11 @@
 	frame.origin.x += pt.x - startLocation.x;
 	frame.origin.y += pt.y - startLocation.y;
 	[self setFrame:frame];
+    }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    if (isActive) {
     endPt = [[touches anyObject] locationInView:[self superview]];
     
     //
@@ -63,6 +69,7 @@
         //        [[appDelegate.viewController objStrick] strikeMinus];
         //        [[appDelegate.viewController objStrick] ballPlus];
         
+    }
     }
     
 }
@@ -135,6 +142,7 @@
                 [UIView animateWithDuration:0.7 
                              animations:^{                              
                                  currentBall.transform = CGAffineTransformMakeScale(1, 1);
+                                 currentBall.alpha = .5;
                              } 
              ];
             }

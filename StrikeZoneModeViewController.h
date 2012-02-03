@@ -13,7 +13,9 @@
 	CGPoint startLocation;
     CGPoint startPt;
     CGPoint endPt;
+    BOOL isActive;
 }
+@property BOOL isActive;
 @end
 @interface StrikeZoneModeViewController : UIViewController<UIPickerViewDelegate> {
     Game *currentGame;
