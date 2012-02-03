@@ -14,7 +14,7 @@
 
 @synthesize datePicker, currentPitcher, appDelegate;
 
-@synthesize managedObjectContext, fetchedResultsController, managedObjectModel;
+@synthesize fetchedResultsController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -272,7 +272,6 @@
 - (NSFetchedResultsController *)fetchedResultsController {
     // Set up the fetched results controller if needed.
     if (fetchedResultsController == nil) {
-        NSManagedObjectContext *tmp = self.managedObjectContext;
         // Create the fetch request for the entity.
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         // Edit the entity name as appropriate.
@@ -306,79 +305,13 @@
 }
 
 
-/**
- Returns the persistent store coordinator for the application.
- If the coordinator doesn't already exist, it is created and the application's store added to it.
- */
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-	
-    if (persistentStoreCoordinator != nil) {
-        return persistentStoreCoordinator;
-    }
-    
-	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"Pitchers.sqlite"];
-	/*
-	 Set up the store.
-	 For the sake of illustration, provide a pre-populated default store.
-	 */
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	// If the expected store doesn't exist, copy the default store.
-	if (![fileManager fileExistsAtPath:storePath]) {
-		NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"Pitchers" ofType:@"sqlite"];
-		if (defaultStorePath) {
-			[fileManager copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
-		}
-	}
-	
-	NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
-	
-	NSError *error;
-    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
-    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
-		/*
-		 Replace this implementation with code to handle the error appropriately.
-		 
-		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-		 
-		 Typical reasons for an error here include:
-		 * The persistent store is not accessible
-		 * The schema for the persistent store is incompatible with current managed object model
-		 Check the error message to determine what the actual problem was.
-		 */
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		abort();
-    }    
-    
-    return persistentStoreCoordinator;
-}
-
-
-- (NSManagedObjectContext *)managedObjectContext {
-	
-    if (managedObjectContext != nil) {
-        return managedObjectContext;
-    }
-	
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        managedObjectContext = [NSManagedObjectContext new];
-        [managedObjectContext setPersistentStoreCoordinator: coordinator];
-    }
-    return managedObjectContext;
-}
-/**
- Returns the path to the application's documents directory.
- */
-- (NSString *)applicationDocumentsDirectory {
-	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"PickAPitcher"]) {
     PitcherListTableViewController *theView = (PitcherListTableViewController *)segue.destinationViewController;
     theView.managedObjectContext = appDelegate.managedObjectContext;
-        theView.fetchedResultsController = self.fetchedResultsController;
-        theView.fetchedResultsController.delegate = theView;
+    theView.fetchedResultsController = self.fetchedResultsController;
+    theView.fetchedResultsController.delegate = theView;
     }
 }
 #pragma mark -
@@ -412,7 +345,7 @@
         [alert show];
         return;
     }
-    Game *game = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:self.managedObjectContext];
+    Game *game = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
     NSMutableSet *games = [currentPitcher mutableSetValueForKey:@"games"];
     [games addObject:game];
     StrikeZoneModeViewController *strikeMode = [[StrikeZoneModeViewController alloc]initWithNibName:nil bundle:nil];

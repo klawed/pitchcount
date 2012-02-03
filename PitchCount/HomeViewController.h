@@ -19,21 +19,12 @@
     UIDatePicker *datePicker;
     Pitcher *currentPitcher;
     AppDelegate *appDelegate;
-
-@private
-    NSFetchedResultsController *fetchedResultsController;
-    NSManagedObjectContext *managedObjectContext;
-    NSManagedObjectModel *managedObjectModel;
-    NSPersistentStoreCoordinator *persistentStoreCoordinator;
 }
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, retain) Pitcher *currentPitcher;
 @property (nonatomic, retain) AppDelegate *appDelegate;
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 -(NSString *)todaysDate;
 -(NSString*)ageForDate:(NSDate *)theDate;
@@ -42,6 +33,5 @@
 
 
 - (void) strikeModeSelected;
-- (NSString *)applicationDocumentsDirectory;
 
 @end
