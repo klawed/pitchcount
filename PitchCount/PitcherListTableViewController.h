@@ -16,7 +16,6 @@
 @private
     NSFetchedResultsController *fetchedResultsController;
     NSManagedObjectContext *managedObjectContext;
-    Pitcher *currentPitcher;
 }
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;

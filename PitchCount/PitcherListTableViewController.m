@@ -41,18 +41,14 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    //UINavigationBar *tableViewNavigationBar = [[UINavigationBar alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
-    
-    
-	//[self.tableView addSubview:tableViewNavigationBar];
-    }
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    self.fetchedResultsController.delegate = (id<NSFetchedResultsControllerDelegate>) self.parentViewController;
     
 }
 
@@ -70,7 +66,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    //
+    //self.fetchedResultsController.delegate = self.parentViewController;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -107,7 +103,7 @@
     }
     Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex: indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", pitcher.firstName, pitcher.lastName];
-    
+
     // Configure the cell...
     
     return cell;
@@ -201,9 +197,7 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
 	// The fetch controller is about to start sending change notifications, so prepare the table view for updates.
-	if (self.tableView != nil) {
-        [self.tableView beginUpdates];
-    }
+	[self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
