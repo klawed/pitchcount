@@ -15,6 +15,15 @@
 
 @implementation DragView
 @synthesize isActive;
+
+- (id) init {
+    self = [super init];
+    if (self != nil) {
+        isActive = YES;
+    }
+    return self;
+}
+
 - (void) touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
     if (isActive) {
@@ -76,7 +85,7 @@
 @end
 
 @implementation StrikeZoneModeViewController
-@synthesize currentGame, strikes, balls, total,percent,warning, warningCountdown, warningImage, inningPicker;
+@synthesize currentGame, strikes, balls, totalLabel,percent,warning, warningCountdown, warningView, inningPicker, currentPitcher;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -110,6 +119,22 @@
     [v.layer setShadowOpacity:0.8];
     [v.layer setShadowRadius:3.0];
     [v.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+    
+    int age = [currentPitcher.age intValue];
+    if(age>=8 && age<=10){
+        weeklyLimit = 52; 
+    }else if(age>=11 && age<=12){
+        weeklyLimit = 68; 
+    }else if(age>=13 && age<=14){
+        weeklyLimit = 76; 
+    }else if(age>=15 && age<=16){
+        weeklyLimit = 91; 
+    }else if(age>=17 && age<=18){
+        weeklyLimit = 106; 
+    }else if(age > 19){
+        weeklyLimit = 106; 
+    }
+
      
 }
 
@@ -151,13 +176,14 @@
                     DragView *dragger = [[DragView alloc] initWithFrame:dragRect];
                     [dragger setImage:[UIImage imageNamed:@"icon_ball.png"]];
                     [dragger setUserInteractionEnabled:YES];
-                    dragger.hidden = YES;
+                    dragger.alpha = 0;
+                    dragger.transform = CGAffineTransformMakeScale(1.5, 1.5);
                     [self.view addSubview:dragger];
                     
                     [UIView beginAnimations:nil context:NULL];
                     [UIView setAnimationDuration:.5];
-                    dragger.hidden = NO;
-            dragger.transform = CGAffineTransformMakeScale(1.5, 1.5);
+                    dragger.alpha = 1;
+           
             currentBall = dragger;
                     [UIView commitAnimations];
         }  
@@ -179,6 +205,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     //NSDictionary *optionForRow = [accuracyOptions objectAtIndex:row];
     //[setupInfo setObject:[optionForRow objectForKey:kAccuracyValueKey] forKey:kSetupInfoKeyAccuracy];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
@@ -188,11 +215,23 @@
 #pragma mark -
 #pragma mark ui helpers
 
+- (void) checkForWarning {
+    int total = [currentGame.balls intValue] + [currentGame.strikes intValue];
+    int diff =  weeklyLimit - total;
+    
+    if (diff < 15) {
+        [UIView animateWithDuration:1 animations:^{
+            warningView.alpha = 1;
+        }];
+        warningCountdown.text = [NSString stringWithFormat:@"%i", diff];;
+    }
+}
 
 -(void)addStrike {
     currentGame.strikes = [NSNumber numberWithInt:[currentGame.strikes intValue] +1];
     self.strikes.text = [NSString  stringWithFormat:@"%@",currentGame.strikes];
     [self updatePercent];
+    [self checkForWarning];
 }
 
 -(void) addBall {

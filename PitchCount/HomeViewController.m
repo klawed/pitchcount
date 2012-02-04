@@ -350,6 +350,7 @@
     [games addObject:game];
     StrikeZoneModeViewController *strikeMode = [[StrikeZoneModeViewController alloc]initWithNibName:nil bundle:nil];
     strikeMode.currentGame = game;
+    strikeMode.currentPitcher = currentPitcher;
     [self.view addSubview:strikeMode.view];
     [self.navigationController presentModalViewController:strikeMode animated:YES];             
 }
