@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38059E0314D93D7400905143 /* icon_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 38059E0214D93D7400905143 /* icon_info.png */; };
+		3830962E14D863F900DB7B61 /* table.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830962A14D863F900DB7B61 /* table.png */; };
+		3830962F14D863F900DB7B61 /* tableBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830962B14D863F900DB7B61 /* tableBack.png */; };
+		3830963414D86A7100DB7B61 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830963314D86A7100DB7B61 /* Default.png */; };
+		3830963614D86A8C00DB7B61 /* icon_ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830963514D86A8C00DB7B61 /* icon_ball.png */; };
+		3830963814D86E4300DB7B61 /* batterRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830963714D86E4300DB7B61 /* batterRight.png */; };
+		3830963B14D86FCD00DB7B61 /* ballZone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830963914D86FCD00DB7B61 /* ballZone.png */; };
+		3830963C14D86FCD00DB7B61 /* strikezone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830963A14D86FCD00DB7B61 /* strikezone.png */; };
+		3830964214D8715F00DB7B61 /* StrikeZoneModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3830964014D8715F00DB7B61 /* StrikeZoneModeViewController.m */; };
+		3830964314D8715F00DB7B61 /* StrikeZoneModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3830964114D8715F00DB7B61 /* StrikeZoneModeViewController.xib */; };
+		3830964514D8719C00DB7B61 /* strikezoneRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830964414D8719C00DB7B61 /* strikezoneRight.png */; };
+		38659F2A14D9300100B6F278 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 38659F2914D9300100B6F278 /* Game.m */; };
+		38659F2E14D9300200B6F278 /* Pitcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 38659F2D14D9300200B6F278 /* Pitcher.m */; };
 		38C18EBD14CB63FD00D0139E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C18EBC14CB63FD00D0139E /* UIKit.framework */; };
 		38C18EBF14CB63FD00D0139E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C18EBE14CB63FD00D0139E /* Foundation.framework */; };
 		38C18EC114CB63FD00D0139E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C18EC014CB63FD00D0139E /* CoreGraphics.framework */; };
@@ -14,17 +27,20 @@
 		38C18EC914CB63FD00D0139E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C18EC814CB63FD00D0139E /* main.m */; };
 		38C18ECD14CB63FD00D0139E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C18ECC14CB63FD00D0139E /* AppDelegate.m */; };
 		38C18ED014CB63FE00D0139E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C18ECE14CB63FD00D0139E /* MainStoryboard.storyboard */; };
-		38C18ED314CB63FE00D0139E /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C18ED214CB63FE00D0139E /* FirstViewController.m */; };
-		38C18ED514CB63FE00D0139E /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C18ED414CB63FE00D0139E /* first.png */; };
-		38C18ED714CB63FE00D0139E /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C18ED614CB63FE00D0139E /* first@2x.png */; };
-		38C18EDA14CB63FE00D0139E /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C18ED914CB63FE00D0139E /* SecondViewController.m */; };
-		38C18EDC14CB63FE00D0139E /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C18EDB14CB63FE00D0139E /* second.png */; };
-		38C18EDE14CB63FE00D0139E /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C18EDD14CB63FE00D0139E /* second@2x.png */; };
+		38C18ED314CB63FE00D0139E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C18ED214CB63FE00D0139E /* HomeViewController.m */; };
+		38C18EDA14CB63FE00D0139E /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C18ED914CB63FE00D0139E /* StatisticsViewController.m */; };
 		38C18EE614CB63FE00D0139E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C18EE514CB63FE00D0139E /* SenTestingKit.framework */; };
 		38C18EE714CB63FE00D0139E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C18EBC14CB63FD00D0139E /* UIKit.framework */; };
 		38C18EE814CB63FE00D0139E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C18EBE14CB63FD00D0139E /* Foundation.framework */; };
 		38C18EF014CB63FE00D0139E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38C18EEE14CB63FE00D0139E /* InfoPlist.strings */; };
 		38C18EF314CB63FE00D0139E /* PitchCountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C18EF214CB63FE00D0139E /* PitchCountTests.m */; };
+		38C18F0214CB688400D0139E /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C18F0114CB688400D0139E /* DateCell.xib */; };
+		38C18F0914CB753400D0139E /* PitcherInfoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C18F0814CB753400D0139E /* PitcherInfoHeader.xib */; };
+		38D677E614D333E0002EF95B /* DataModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 38E9FC3014D22B1A00B48985 /* DataModel.xcdatamodeld */; };
+		38E9FC2E14D1DDDC00B48985 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E9FC2D14D1DDDC00B48985 /* CoreData.framework */; };
+		38E9FC3214D22B1A00B48985 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38E9FC3014D22B1A00B48985 /* DataModel.xcdatamodeld */; };
+		38E9FC3514D22F1B00B48985 /* PitcherListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9FC3414D22F1B00B48985 /* PitcherListTableViewController.m */; };
+		38E9FCD914D2650F00B48985 /* AddPitcherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9FCD814D2650F00B48985 /* AddPitcherTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,31 +54,51 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		38C18EB814CB63FD00D0139E /* PitchCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38059E0214D93D7400905143 /* icon_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_info.png; sourceTree = "<group>"; };
+		3830962A14D863F900DB7B61 /* table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table.png; sourceTree = "<group>"; };
+		3830962B14D863F900DB7B61 /* tableBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableBack.png; sourceTree = "<group>"; };
+		3830963314D86A7100DB7B61 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3830963514D86A8C00DB7B61 /* icon_ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ball.png; sourceTree = "<group>"; };
+		3830963714D86E4300DB7B61 /* batterRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batterRight.png; sourceTree = "<group>"; };
+		3830963914D86FCD00DB7B61 /* ballZone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ballZone.png; sourceTree = "<group>"; };
+		3830963A14D86FCD00DB7B61 /* strikezone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strikezone.png; sourceTree = "<group>"; };
+		3830963F14D8715F00DB7B61 /* StrikeZoneModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StrikeZoneModeViewController.h; path = ../StrikeZoneModeViewController.h; sourceTree = "<group>"; };
+		3830964014D8715F00DB7B61 /* StrikeZoneModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StrikeZoneModeViewController.m; path = ../StrikeZoneModeViewController.m; sourceTree = "<group>"; };
+		3830964114D8715F00DB7B61 /* StrikeZoneModeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StrikeZoneModeViewController.xib; path = ../StrikeZoneModeViewController.xib; sourceTree = "<group>"; };
+		3830964414D8719C00DB7B61 /* strikezoneRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strikezoneRight.png; sourceTree = "<group>"; };
+		38659F2814D9300100B6F278 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../Game.h; sourceTree = "<group>"; };
+		38659F2914D9300100B6F278 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = ../Game.m; sourceTree = "<group>"; };
+		38659F2C14D9300200B6F278 /* Pitcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pitcher.h; path = ../Pitcher.h; sourceTree = "<group>"; };
+		38659F2D14D9300200B6F278 /* Pitcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pitcher.m; path = ../Pitcher.m; sourceTree = "<group>"; };
+		38C18EB814CB63FD00D0139E /* pitchcount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pitchcount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C18EBC14CB63FD00D0139E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		38C18EBE14CB63FD00D0139E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		38C18EC014CB63FD00D0139E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		38C18EC414CB63FD00D0139E /* PitchCount-Info.plist */ = {isa = PBXFileReference; path = "PitchCount-Info.plist"; sourceTree = "<group>"; };
+		38C18EC414CB63FD00D0139E /* PitchCount-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PitchCount-Info.plist"; sourceTree = "<group>"; };
 		38C18EC614CB63FD00D0139E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		38C18EC814CB63FD00D0139E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		38C18ECA14CB63FD00D0139E /* PitchCount-Prefix.pch */ = {isa = PBXFileReference; path = "PitchCount-Prefix.pch"; sourceTree = "<group>"; };
-		38C18ECB14CB63FD00D0139E /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		38C18ECA14CB63FD00D0139E /* PitchCount-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PitchCount-Prefix.pch"; sourceTree = "<group>"; };
+		38C18ECB14CB63FD00D0139E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		38C18ECC14CB63FD00D0139E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		38C18ECF14CB63FD00D0139E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		38C18ED114CB63FE00D0139E /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
-		38C18ED214CB63FE00D0139E /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		38C18ED414CB63FE00D0139E /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		38C18ED614CB63FE00D0139E /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		38C18ED814CB63FE00D0139E /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
-		38C18ED914CB63FE00D0139E /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		38C18EDB14CB63FE00D0139E /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		38C18EDD14CB63FE00D0139E /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		38C18ED114CB63FE00D0139E /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		38C18ED214CB63FE00D0139E /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		38C18ED814CB63FE00D0139E /* StatisticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
+		38C18ED914CB63FE00D0139E /* StatisticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
 		38C18EE414CB63FE00D0139E /* PitchCountTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchCountTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C18EE514CB63FE00D0139E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		38C18EED14CB63FE00D0139E /* PitchCountTests-Info.plist */ = {isa = PBXFileReference; path = "PitchCountTests-Info.plist"; sourceTree = "<group>"; };
+		38C18EED14CB63FE00D0139E /* PitchCountTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PitchCountTests-Info.plist"; sourceTree = "<group>"; };
 		38C18EEF14CB63FE00D0139E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		38C18EF114CB63FE00D0139E /* PitchCountTests.h */ = {isa = PBXFileReference; path = PitchCountTests.h; sourceTree = "<group>"; };
+		38C18EF114CB63FE00D0139E /* PitchCountTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PitchCountTests.h; sourceTree = "<group>"; };
 		38C18EF214CB63FE00D0139E /* PitchCountTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PitchCountTests.m; sourceTree = "<group>"; };
+		38C18F0114CB688400D0139E /* DateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateCell.xib; sourceTree = "<group>"; };
+		38C18F0814CB753400D0139E /* PitcherInfoHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitcherInfoHeader.xib; sourceTree = "<group>"; };
+		38E9FC2D14D1DDDC00B48985 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		38E9FC3114D22B1A00B48985 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		38E9FC3314D22F1B00B48985 /* PitcherListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitcherListTableViewController.h; sourceTree = "<group>"; };
+		38E9FC3414D22F1B00B48985 /* PitcherListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PitcherListTableViewController.m; sourceTree = "<group>"; };
+		38E9FCD714D2650F00B48985 /* AddPitcherTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPitcherTableViewController.h; sourceTree = "<group>"; };
+		38E9FCD814D2650F00B48985 /* AddPitcherTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPitcherTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E9FC2E14D1DDDC00B48985 /* CoreData.framework in Frameworks */,
 				38C18EBD14CB63FD00D0139E /* UIKit.framework in Frameworks */,
 				38C18EBF14CB63FD00D0139E /* Foundation.framework in Frameworks */,
 				38C18EC114CB63FD00D0139E /* CoreGraphics.framework in Frameworks */,
@@ -89,9 +126,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38059E0114D930A200905143 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				38659F2C14D9300200B6F278 /* Pitcher.h */,
+				38659F2D14D9300200B6F278 /* Pitcher.m */,
+				38659F2814D9300100B6F278 /* Game.h */,
+				38659F2914D9300100B6F278 /* Game.m */,
+				38E9FC3014D22B1A00B48985 /* DataModel.xcdatamodeld */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		3830962514D863C200DB7B61 /* Modes */ = {
+			isa = PBXGroup;
+			children = (
+				3830964414D8719C00DB7B61 /* strikezoneRight.png */,
+				3830963F14D8715F00DB7B61 /* StrikeZoneModeViewController.h */,
+				3830964014D8715F00DB7B61 /* StrikeZoneModeViewController.m */,
+				3830964114D8715F00DB7B61 /* StrikeZoneModeViewController.xib */,
+				3830963914D86FCD00DB7B61 /* ballZone.png */,
+				3830963A14D86FCD00DB7B61 /* strikezone.png */,
+				3830963714D86E4300DB7B61 /* batterRight.png */,
+				3830963514D86A8C00DB7B61 /* icon_ball.png */,
+				3830962A14D863F900DB7B61 /* table.png */,
+				3830962B14D863F900DB7B61 /* tableBack.png */,
+			);
+			name = Modes;
+			sourceTree = "<group>";
+		};
+		38357CDF14DBF8F7004AA98A /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
+				38C18ED114CB63FE00D0139E /* HomeViewController.h */,
+				38C18ED214CB63FE00D0139E /* HomeViewController.m */,
+				38C18ED814CB63FE00D0139E /* StatisticsViewController.h */,
+				38C18ED914CB63FE00D0139E /* StatisticsViewController.m */,
+			);
+			name = "Main Views";
+			sourceTree = "<group>";
+		};
 		38C18EAD14CB63FD00D0139E = {
 			isa = PBXGroup;
 			children = (
+				38E9FC2D14D1DDDC00B48985 /* CoreData.framework */,
 				38C18EC214CB63FD00D0139E /* PitchCount */,
 				38C18EEB14CB63FE00D0139E /* PitchCountTests */,
 				38C18EBB14CB63FD00D0139E /* Frameworks */,
@@ -102,7 +180,7 @@
 		38C18EB914CB63FD00D0139E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				38C18EB814CB63FD00D0139E /* PitchCount.app */,
+				38C18EB814CB63FD00D0139E /* pitchcount.app */,
 				38C18EE414CB63FE00D0139E /* PitchCountTests.octest */,
 			);
 			name = Products;
@@ -122,18 +200,20 @@
 		38C18EC214CB63FD00D0139E /* PitchCount */ = {
 			isa = PBXGroup;
 			children = (
+				38059E0214D93D7400905143 /* icon_info.png */,
+				38059E0114D930A200905143 /* Data Model */,
+				3830963314D86A7100DB7B61 /* Default.png */,
+				3830962514D863C200DB7B61 /* Modes */,
+				38C18F0714CB750500D0139E /* Table Cells and Headers */,
 				38C18ECB14CB63FD00D0139E /* AppDelegate.h */,
 				38C18ECC14CB63FD00D0139E /* AppDelegate.m */,
 				38C18ECE14CB63FD00D0139E /* MainStoryboard.storyboard */,
-				38C18ED114CB63FE00D0139E /* FirstViewController.h */,
-				38C18ED214CB63FE00D0139E /* FirstViewController.m */,
-				38C18ED414CB63FE00D0139E /* first.png */,
-				38C18ED614CB63FE00D0139E /* first@2x.png */,
-				38C18ED814CB63FE00D0139E /* SecondViewController.h */,
-				38C18ED914CB63FE00D0139E /* SecondViewController.m */,
-				38C18EDB14CB63FE00D0139E /* second.png */,
-				38C18EDD14CB63FE00D0139E /* second@2x.png */,
+				38357CDF14DBF8F7004AA98A /* Main Views */,
+				38E9FC3314D22F1B00B48985 /* PitcherListTableViewController.h */,
+				38E9FC3414D22F1B00B48985 /* PitcherListTableViewController.m */,
 				38C18EC314CB63FD00D0139E /* Supporting Files */,
+				38E9FCD714D2650F00B48985 /* AddPitcherTableViewController.h */,
+				38E9FCD814D2650F00B48985 /* AddPitcherTableViewController.m */,
 			);
 			path = PitchCount;
 			sourceTree = "<group>";
@@ -168,12 +248,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		38C18F0714CB750500D0139E /* Table Cells and Headers */ = {
+			isa = PBXGroup;
+			children = (
+				38C18F0114CB688400D0139E /* DateCell.xib */,
+				38C18F0814CB753400D0139E /* PitcherInfoHeader.xib */,
+			);
+			name = "Table Cells and Headers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		38C18EB714CB63FD00D0139E /* PitchCount */ = {
+		38C18EB714CB63FD00D0139E /* pitchcount */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 38C18EF614CB63FE00D0139E /* Build configuration list for PBXNativeTarget "PitchCount" */;
+			buildConfigurationList = 38C18EF614CB63FE00D0139E /* Build configuration list for PBXNativeTarget "pitchcount" */;
 			buildPhases = (
 				38C18EB414CB63FD00D0139E /* Sources */,
 				38C18EB514CB63FD00D0139E /* Frameworks */,
@@ -183,9 +272,9 @@
 			);
 			dependencies = (
 			);
-			name = PitchCount;
+			name = pitchcount;
 			productName = PitchCount;
-			productReference = 38C18EB814CB63FD00D0139E /* PitchCount.app */;
+			productReference = 38C18EB814CB63FD00D0139E /* pitchcount.app */;
 			productType = "com.apple.product-type.application";
 		};
 		38C18EE314CB63FE00D0139E /* PitchCountTests */ = {
@@ -227,7 +316,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				38C18EB714CB63FD00D0139E /* PitchCount */,
+				38C18EB714CB63FD00D0139E /* pitchcount */,
 				38C18EE314CB63FE00D0139E /* PitchCountTests */,
 			);
 		};
@@ -238,12 +327,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D677E614D333E0002EF95B /* DataModel.xcdatamodeld in Resources */,
 				38C18EC714CB63FD00D0139E /* InfoPlist.strings in Resources */,
 				38C18ED014CB63FE00D0139E /* MainStoryboard.storyboard in Resources */,
-				38C18ED514CB63FE00D0139E /* first.png in Resources */,
-				38C18ED714CB63FE00D0139E /* first@2x.png in Resources */,
-				38C18EDC14CB63FE00D0139E /* second.png in Resources */,
-				38C18EDE14CB63FE00D0139E /* second@2x.png in Resources */,
+				38C18F0214CB688400D0139E /* DateCell.xib in Resources */,
+				38C18F0914CB753400D0139E /* PitcherInfoHeader.xib in Resources */,
+				3830962E14D863F900DB7B61 /* table.png in Resources */,
+				3830962F14D863F900DB7B61 /* tableBack.png in Resources */,
+				3830963414D86A7100DB7B61 /* Default.png in Resources */,
+				3830963614D86A8C00DB7B61 /* icon_ball.png in Resources */,
+				3830963814D86E4300DB7B61 /* batterRight.png in Resources */,
+				3830963B14D86FCD00DB7B61 /* ballZone.png in Resources */,
+				3830963C14D86FCD00DB7B61 /* strikezone.png in Resources */,
+				3830964314D8715F00DB7B61 /* StrikeZoneModeViewController.xib in Resources */,
+				3830964514D8719C00DB7B61 /* strikezoneRight.png in Resources */,
+				38059E0314D93D7400905143 /* icon_info.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +378,14 @@
 			files = (
 				38C18EC914CB63FD00D0139E /* main.m in Sources */,
 				38C18ECD14CB63FD00D0139E /* AppDelegate.m in Sources */,
-				38C18ED314CB63FE00D0139E /* FirstViewController.m in Sources */,
-				38C18EDA14CB63FE00D0139E /* SecondViewController.m in Sources */,
+				38C18ED314CB63FE00D0139E /* HomeViewController.m in Sources */,
+				38C18EDA14CB63FE00D0139E /* StatisticsViewController.m in Sources */,
+				38E9FC3214D22B1A00B48985 /* DataModel.xcdatamodeld in Sources */,
+				38E9FC3514D22F1B00B48985 /* PitcherListTableViewController.m in Sources */,
+				38E9FCD914D2650F00B48985 /* AddPitcherTableViewController.m in Sources */,
+				3830964214D8715F00DB7B61 /* StrikeZoneModeViewController.m in Sources */,
+				38659F2A14D9300100B6F278 /* Game.m in Sources */,
+				38659F2E14D9300200B6F278 /* Pitcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +402,7 @@
 /* Begin PBXTargetDependency section */
 		38C18EEA14CB63FE00D0139E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 38C18EB714CB63FD00D0139E /* PitchCount */;
+			target = 38C18EB714CB63FD00D0139E /* pitchcount */;
 			targetProxy = 38C18EE914CB63FE00D0139E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -337,7 +441,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Claude Keswani (7UAG3Z5TJA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Claude Keswani (7UAG3Z5TJA)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -352,6 +457,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "2072073B-E59B-419B-B470-F8384CCA4ABA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2072073B-E59B-419B-B470-F8384CCA4ABA";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -362,7 +469,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Claude Keswani (7UAG3Z5TJA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Claude Keswani (7UAG3Z5TJA)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -371,6 +479,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "2072073B-E59B-419B-B470-F8384CCA4ABA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2072073B-E59B-419B-B470-F8384CCA4ABA";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -444,13 +554,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		38C18EF614CB63FE00D0139E /* Build configuration list for PBXNativeTarget "PitchCount" */ = {
+		38C18EF614CB63FE00D0139E /* Build configuration list for PBXNativeTarget "pitchcount" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				38C18EF714CB63FE00D0139E /* Debug */,
 				38C18EF814CB63FE00D0139E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		38C18EF914CB63FE00D0139E /* Build configuration list for PBXNativeTarget "PitchCountTests" */ = {
 			isa = XCConfigurationList;
@@ -459,8 +570,22 @@
 				38C18EFB14CB63FE00D0139E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		38E9FC3014D22B1A00B48985 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				38E9FC3114D22B1A00B48985 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 38E9FC3114D22B1A00B48985 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 38C18EAF14CB63FD00D0139E /* Project object */;
 }
