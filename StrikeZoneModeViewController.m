@@ -177,8 +177,8 @@
 
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    //NSDictionary *optionForRow = [accuracyOptions objectAtIndex:row];
-    //[setupInfo setObject:[optionForRow objectForKey:kAccuracyValueKey] forKey:kSetupInfoKeyAccuracy];
+    currentGame.innings = [NSNumber numberWithInteger:[(NSString *)[innings objectAtIndex:row] integerValue]];
+    [[currentGame managedObjectContext] save:nil];
     [self dismissModalViewControllerAnimated:YES];
 }
 
