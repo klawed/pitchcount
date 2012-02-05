@@ -13,6 +13,7 @@
 
 @synthesize fetchedResultsController;
 @synthesize managedObjectContext;
+@synthesize appDelegate,delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -23,11 +24,20 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        appDelegate = [[UIApplication sharedApplication] delegate];
+    }
+    return self;
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+#warning implement!!!
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -42,14 +52,31 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSError *error = nil;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 
+		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+		 */
+#warning implement better error handling here
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+	}	
+    self.managedObjectContext =  appDelegate.managedObjectContext;
+    fetchedResultsController.delegate = self;
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add:)];
+    self.navigationItem.rightBarButtonItems = [[NSArray alloc]initWithObjects:addButton,self.editButtonItem, nil];
 }
+
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    
+#warning release stuff
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -63,18 +90,17 @@
     [super viewDidAppear:animated];
 }
 
+/*
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    id<NSFetchedResultsControllerDelegate> controller = (id<NSFetchedResultsControllerDelegate>)self.parentViewController;
-    self.fetchedResultsController.delegate = controller;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     }
-
+*/
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -101,7 +127,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        NSLog(@"in table, we have %d objects", [[fetchedResultsController fetchedObjects]count]);
+        NSLog(@"in table, we have %d objects",  [[fetchedResultsController fetchedObjects] count]);
     }
     Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex: indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", pitcher.firstName, pitcher.lastName];
@@ -112,7 +138,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    
+    Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
+    AddPitcherTableViewController *editView =  [self.storyboard instantiateViewControllerWithIdentifier:@"AddPitcherViewController"];
+    editView.delegate = self;
+    editView.pitcher = pitcher;
+    editView.isEdit = YES;
+    [self.navigationController pushViewController:editView animated:YES];
 }
 
 
@@ -130,13 +161,9 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        // Delete the row from the data source
-//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//        Pitcher* pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects]objectAtIndex:indexPath.row];
-//        [pitcher.managedObjectContext deleteObject:pitcher];
-        NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
-		[context deleteObject:[fetchedResultsController objectAtIndexPath:indexPath]];
-		
+        Pitcher *pitcher = [[fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
+		NSManagedObjectContext *context = [pitcher managedObjectContext];
+        [context deleteObject:pitcher];
 		// Save the context.
 		NSError *error;
 		if (![context save:&error]) {
@@ -155,12 +182,12 @@
     } 
 }
 
-/*
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
 }
-*/
+
 
 /*
 // Override to support conditional rearranging of the table view.
@@ -175,12 +202,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger cur = [self.navigationController.viewControllers count];
-    HomeViewController *home = (HomeViewController *)[self.navigationController.viewControllers objectAtIndex:cur - 2];
-    home.currentPitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
-    [(UITableView *)home.view reloadData];
+    Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
+    [delegate pitcherListViewController:self didPickPitcher:pitcher];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)pitcherAddViewController:(AddPitcherTableViewController *)addPitcherViewController didAddPitcher:(Pitcher *)pitcher {
+    [[pitcher managedObjectContext] save:nil];
+    [self.tableView reloadData];
+}
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    // Set up the fetched results controller if needed.
+    if (fetchedResultsController == nil) {
+        // Create the fetch request for the entity.
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        // Edit the entity name as appropriate.
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Pitcher" inManagedObjectContext:appDelegate.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        // Edit the sort key as appropriate.
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+        NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        
+        // Edit the section name key path and cache name if appropriate.
+        // nil for section name key path means "no sections".
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:appDelegate.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+        aFetchedResultsController.delegate = self;
+        self.fetchedResultsController = aFetchedResultsController;
+        
+    }
+	
+	return fetchedResultsController;
+}    
+
+#pragma mark - UI helper stuff
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AddPitcher"]) {
         ((AddPitcherTableViewController *)segue.destinationViewController).delegate = self;
@@ -189,17 +247,25 @@
     }
 }
 
+- (void) add:(id)sender {
+    [self performSegueWithIdentifier:@"AddPitcher" sender:sender];
+}
+
 -(IBAction)selectPitcher:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];                                                            
 }
 
-- (void)pitcherAddViewController:(AddPitcherTableViewController *)addPitcherViewController didAddPitcher:(Pitcher *)pitcher {
-    [self.tableView reloadData];
+-(IBAction)goHome:(id)sender {
+    NSLog(@"go home cclicked");
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark -
+#pragma mark NSFetchedResultsControllerDelegate implementation
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
 	// The fetch controller is about to start sending change notifications, so prepare the table view for updates.
-	[self.tableView beginUpdates];
+	//[self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
@@ -228,6 +294,7 @@
             
         case NSFetchedResultsChangeMove:
             NSLog(@"we have %d objects", [[controller fetchedObjects]count]);
+            return;
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]

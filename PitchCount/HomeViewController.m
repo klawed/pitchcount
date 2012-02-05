@@ -266,6 +266,16 @@
         [self toggleDatePicker:nil];
     }
 }
+
+
+#pragma mark -
+#pragma mark PickPitcherDelegate
+
+- (void)pitcherListViewController:(PitcherListTableViewController *)pitcherListViewController didPickPitcher:(Pitcher *)pitcher {
+    self.currentPitcher = pitcher;
+    [self.tableView reloadData];
+}
+
 #pragma mark -
 #pragma mark Fetched results controller
 
@@ -306,14 +316,6 @@
 
 
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([[segue identifier] isEqualToString:@"PickAPitcher"]) {
-    PitcherListTableViewController *theView = (PitcherListTableViewController *)segue.destinationViewController;
-    theView.managedObjectContext = appDelegate.managedObjectContext;
-    theView.fetchedResultsController = self.fetchedResultsController;
-    theView.fetchedResultsController.delegate = theView;
-    }
-}
 #pragma mark -
 #pragma mark helper methods
 -(NSString*)todaysDate {
@@ -326,6 +328,12 @@
 
 #pragma mark -
 #pragma mark ui actions
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"PickAPitcher"]) {
+        ((PitcherListTableViewController *)segue.destinationViewController).delegate = self;
+    }
+}
+
 -(IBAction)toggleDatePicker:(id)sender {
     datePicker.hidden = NO;
     [UIView beginAnimations:nil context:NULL];

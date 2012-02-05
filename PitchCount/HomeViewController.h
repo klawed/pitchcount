@@ -14,7 +14,7 @@
 #import "PitcherListTableViewController.h"
 #import "StrikeZoneModeViewController.h"
 
-@interface HomeViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+@interface HomeViewController : UITableViewController <PitcherPickDelegate, NSFetchedResultsControllerDelegate> {
     IBOutlet UINavigationBar *navigationBar;
     UIDatePicker *datePicker;
     Pitcher *currentPitcher;
