@@ -9,18 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "Pitcher.h"
 
+//do we need this decleration?
 @protocol PitcherAddDelegate;
 
 @interface AddPitcherTableViewController : UITableViewController {
     Pitcher *pitcher;
     id <PitcherAddDelegate> delegate;
-
+    BOOL isEdit;
  }
 
 @property(nonatomic, retain) id <PitcherAddDelegate> delegate;
 
 @property (nonatomic, retain) Pitcher *pitcher;
 
+@property (nonatomic, assign) BOOL isEdit;
 
 -(IBAction)save:(id)sender;
 @end

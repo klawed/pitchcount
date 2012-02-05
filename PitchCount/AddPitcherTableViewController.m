@@ -14,7 +14,7 @@
 
 @implementation AddPitcherTableViewController
 
-@synthesize pitcher,delegate;
+@synthesize pitcher,delegate,isEdit;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -102,16 +102,28 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:firstName];
         }
+        if (isEdit) {
+            UITextField *field = (UITextField *)[cell viewWithTag:1];
+            field.text = pitcher.firstName;
+        }
     } else if (indexPath.row == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:lastName];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:lastName];
+        }
+        if (isEdit) {
+            UITextField *field = (UITextField *)[cell viewWithTag:1];
+            field.text = pitcher.lastName;
         }
     } else if (indexPath.row == 2) {
         cell = [tableView dequeueReusableCellWithIdentifier:age];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:age];
         } 
+        if (isEdit) {
+            UITextField *field = (UITextField *)[cell viewWithTag:1];
+            field.text = [NSString stringWithFormat:@"%@", pitcher.age];
+        }
     }
     return cell;
 }
@@ -182,7 +194,7 @@
     textField = (UITextField *)[cell viewWithTag:1];
     pitcher.age = [NSNumber numberWithInteger:[textField.text integerValue]];
     NSLog(@"age = %@", pitcher.age);
-    [pitcher.managedObjectContext save:nil];   
+    //[pitcher.managedObjectContext save:nil];   
     [self.delegate pitcherAddViewController:self didAddPitcher:pitcher];
     [self.navigationController popViewControllerAnimated:YES];
 }
