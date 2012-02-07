@@ -354,6 +354,8 @@
         return;
     }
     Game *game = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
+    game.date = datePicker.date;
+    game.pitcher = currentPitcher;
     NSMutableSet *games = [currentPitcher mutableSetValueForKey:@"games"];
     [games addObject:game];
     StrikeZoneModeViewController *strikeMode = [[StrikeZoneModeViewController alloc]initWithNibName:nil bundle:nil];

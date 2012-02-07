@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import "AppDelegate.h"
+#import "Game.h"
 
-@interface StatisticsViewController : UIViewController
+@interface StatisticsViewController : UITableViewController {
+    NSManagedObject *managedObjectContext;
+    AppDelegate *appDelegate;
+
+}
+@property (nonatomic, retain) AppDelegate *appDelegate;
+
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+
 
 @end
