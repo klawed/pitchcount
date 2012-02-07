@@ -40,6 +40,8 @@
 @property (retain, nonatomic) IBOutlet UILabel *warningCountdown;
 @property (retain, nonatomic) IBOutlet UIImageView *warningImage;
 @property (retain, nonatomic) IBOutlet UIView *inningPicker;
+@property int currentBalls;
+@property int currentStrikes;
 
 -(IBAction)tapRecognized:(UITapGestureRecognizer *)sender;
 
@@ -50,4 +52,5 @@
 -(void)  addStrike;
 -(void) addBall;
 -(void) updatePercent;
+-(void) updateTotal;
 @end

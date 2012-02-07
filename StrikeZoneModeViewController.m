@@ -76,7 +76,7 @@
 @end
 
 @implementation StrikeZoneModeViewController
-@synthesize currentGame, strikes, balls, total,percent,warning, warningCountdown, warningImage, inningPicker;
+@synthesize currentGame, strikes, balls, total,percent,warning, warningCountdown, warningImage, inningPicker, currentBalls, currentStrikes;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,6 +84,8 @@
     if (self) {
         // Custom initialization
         innings = [[NSArray alloc]initWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9", nil];
+        currentBalls = 0;
+        currentStrikes = 0;
     }
     return self;
 }
@@ -178,6 +180,8 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     currentGame.innings = [NSNumber numberWithInteger:[(NSString *)[innings objectAtIndex:row] integerValue]];
+    currentGame.strikes = [NSNumber numberWithInt:currentStrikes];
+    currentGame.balls = [NSNumber numberWithInt:currentBalls];
     [[currentGame managedObjectContext] save:nil];
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -191,34 +195,37 @@
 
 
 -(void)addStrike {
-    currentGame.strikes = [NSNumber numberWithInt:[currentGame.strikes intValue] +1];
-    self.strikes.text = [NSString  stringWithFormat:@"%@",currentGame.strikes];
+    currentStrikes++;
+    self.strikes.text = [NSString  stringWithFormat:@"%i",currentStrikes];
     [self updatePercent];
+    [self updateTotal];
+
 }
 
 -(void) addBall {
-    currentGame.balls = [NSNumber numberWithInt:[currentGame.balls intValue] +1];
-    self.balls.text = [NSString  stringWithFormat:@"%@",currentGame.balls];
+    currentBalls++;
+    self.balls.text = [NSString  stringWithFormat:@"%i",currentBalls];
     [self updatePercent];
+    [self updateTotal];
 }
 
 -(void) updatePercent{
-    float str = [currentGame.strikes floatValue];
-    float bls = [currentGame.balls floatValue];
-    float perc = str/(str + bls);
+    float perc = (float)currentStrikes/((float)currentBalls+(float)currentStrikes);
     NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
     [number setNumberStyle:NSNumberFormatterPercentStyle];
     
     self.percent.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
 
 }
+
+-(void) updateTotal {
+    total.text = [NSString stringWithFormat:@"%i", currentBalls + currentStrikes];
+}
 -(IBAction)doneTapped:(id)sender {
     CGRect showFrame = CGRectMake(200, 100, 120, 216);
     [UIView animateWithDuration:.5 animations:^{
         inningPicker.frame = showFrame;
     }];
-    [self.currentGame.managedObjectContext save:nil];
-    //[self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)cancelTapped:(id)sender {
