@@ -5,13 +5,13 @@
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="innings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="strikes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="pitchers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pitcher" inverseName="games" inverseEntity="Pitcher" syncable="YES"/>
+        <relationship name="pitcher" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Pitcher" syncable="YES"/>
     </entity>
     <entity name="Pitcher" representedClassName="Pitcher" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Game" inverseName="pitchers" inverseEntity="Game" syncable="YES"/>
+        <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Game" syncable="YES"/>
     </entity>
     <elements>
         <element name="Game" positionX="54" positionY="-9" width="128" height="120"/>

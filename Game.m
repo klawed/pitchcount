@@ -2,7 +2,7 @@
 //  Game.m
 //  PitchCount
 //
-//  Created by Claude Keswani on 2/1/12.
+//  Created by Claude Keswani on 2/6/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -16,6 +16,6 @@
 @dynamic date;
 @dynamic innings;
 @dynamic strikes;
-@dynamic pitchers;
+@dynamic pitcher;
 
 @end

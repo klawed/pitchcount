@@ -2,7 +2,7 @@
 //  Pitcher.h
 //  PitchCount
 //
-//  Created by Claude Keswani on 2/1/12.
+//  Created by Claude Keswani on 2/6/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
