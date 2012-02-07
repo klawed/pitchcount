@@ -76,7 +76,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-#warning release stuff
+    fetchedResultsController = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -204,6 +204,7 @@
 {
     Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
     [delegate pitcherListViewController:self didPickPitcher:pitcher];
+    fetchedResultsController.delegate = nil;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -257,6 +258,7 @@
 
 -(IBAction)goHome:(id)sender {
     NSLog(@"go home cclicked");
+    fetchedResultsController.delegate = nil;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
