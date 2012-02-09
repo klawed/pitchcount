@@ -14,65 +14,43 @@
 
 
 @implementation DragView
-@synthesize isActive;
-- (void) touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
-{
-    if (isActive) {
-    startPt = [[touches anyObject] locationInView:[self superview]];
-    
-	CGPoint pt = [[touches anyObject] locationInView:self];
-	startLocation = pt;
-	[[self superview] bringSubviewToFront:self];
-    
-    if ([[touches anyObject] tapCount] == 2) {
-        [self removeFromSuperview];
-        if(CGRectContainsPoint(CGRectMake(65, 80, 175, 175), startPt)){
-            //            [[appDelegate.viewController objStrick] strikeMinus];
-        }else  if(!CGRectContainsPoint(CGRectMake(65, 80, 175, 175), startPt)){
-            //            [[appDelegate.viewController objStrick] ballMinus];
+@synthesize  active, throw, delegate;
+
+-(id) initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panGestureRecognized:)];
+        [self addGestureRecognizer:pan];
+    }
+    return self;
+}
+-(void) panGestureRecognized:(UIPanGestureRecognizer *)gesture {
+    NSLog(@"pan recognized");
+    if ((gesture.state == UIGestureRecognizerStateChanged) ||
+        (gesture.state == UIGestureRecognizerStateEnded)) {
+        
+        CGPoint location = [gesture locationInView:self.superview];
+        if (gesture.state == UIGestureRecognizerStateEnded) {
+        if (CGRectContainsPoint(STRIKE_RECTANGLE, location) && throw == kBall) {
+            [delegate didChangeBallToStrike:self];
+            throw = kStrike;
+        } else if (!CGRectContainsPoint(STRIKE_RECTANGLE, location) && CGRectContainsPoint(BALL_RECTANGLE, location) && throw == kStrike) {
+            [delegate didChangeStrikeToBall:self];
+            throw = kBall;
         }
-    }
-    }
-}
-
-- (void) touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
-{
-    if (isActive) {
-    CGPoint Spt = [[touches anyObject] locationInView:[self superview]]; 
-    if(!CGRectContainsPoint(CGRectMake(10, 74, 305, 230), Spt)) {
-        return;
-    }
-	// Move relative to the original touch point
-	CGPoint pt = [[touches anyObject] locationInView:self];
-	CGRect frame = [self frame];
-	frame.origin.x += pt.x - startLocation.x;
-	frame.origin.y += pt.y - startLocation.y;
-	[self setFrame:frame];
+        }
+        [self setCenter:location];
     }
 }
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    if (isActive) {
-    endPt = [[touches anyObject] locationInView:[self superview]];
-    
-    //
-    //i.e. Movement from Outside to Inside //Ball to Strike
-    if(!CGRectContainsPoint(CGRectMake(65, 80, 175, 175), startPt) && CGRectContainsPoint(CGRectMake(65, 80, 175, 175), endPt)){
-        
-        //        [[appDelegate.viewController objStrick] ballMinus];
-        //        [[appDelegate.viewController objStrick] strikePlus];
-        
-    }
-    //i.e. Movement from Inside to Outside //Strike to Ball
-    if(CGRectContainsPoint(CGRectMake(65, 80, 175, 175), startPt) && !CGRectContainsPoint(CGRectMake(65, 80, 175, 175), endPt)){
-        
-        //        [[appDelegate.viewController objStrick] strikeMinus];
-        //        [[appDelegate.viewController objStrick] ballPlus];
-        
-    }
-    }
-    
+-(void)setActive:(BOOL)isActive {
+    if (!isActive) {
+        [self removeGestureRecognizer:pan];
+        pan = nil;
+    } 
+    _active = isActive;
 }
+
 @end
 
 @implementation StrikeZoneModeViewController
@@ -128,19 +106,48 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void) updatePercent{
+    float perc = (float)currentStrikes/((float)currentBalls+(float)currentStrikes);
+    NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
+    [number setNumberStyle:NSNumberFormatterPercentStyle];
+    
+    self.percent.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
+    
+}
+
+-(void) updateTotal {
+    total.text = [NSString stringWithFormat:@"%i", currentBalls + currentStrikes];
+}
+
+-(void) updateStrikes {
+    self.strikes.text = [NSString  stringWithFormat:@"%i",currentStrikes];
+}
+
+-(void) updateBalls {
+    self.balls.text = [NSString  stringWithFormat:@"%i",currentBalls];
+}
+
 -(IBAction)tapRecognized:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateRecognized) {
         CGPoint point = [sender locationInView:self.view];
         NSLog(@"x: %f, y:%f", point.x, point.y);
+        
         if (CGRectContainsPoint(BALL_RECTANGLE, point)) {
-                if (CGRectContainsPoint(STRIKE_RECTANGLE, point)) {
+            CGRect dragRect = CGRectMake(0.0f, 0.0f, 24.0f, 24.0f);
+            dragRect.origin = point;
+            DragView *dragger = [[DragView alloc] initWithFrame:dragRect];
+            dragger.delegate = self;
+            if (CGRectContainsPoint(STRIKE_RECTANGLE, point)) {
                     NSLog(@"Strike!!!");
                     [self addStrike];
+                dragger.throw = kStrike;
                 } else {
                     NSLog(@"Ball!!!");
                     [self addBall];
+                    dragger.throw = kBall;
                 }
             if (currentBall != nil) {
+                currentBall.active = NO;
                 [UIView animateWithDuration:0.7 
                              animations:^{                              
                                  currentBall.transform = CGAffineTransformMakeScale(1, 1);
@@ -148,10 +155,7 @@
                              } 
              ];
             }
-                        CGRect dragRect = CGRectMake(0.0f, 0.0f, 24.0f, 24.0f);
-                    dragRect.origin = point;
-                    DragView *dragger = [[DragView alloc] initWithFrame:dragRect];
-                    [dragger setImage:[UIImage imageNamed:@"icon_ball.png"]];
+                                       [dragger setImage:[UIImage imageNamed:@"icon_ball.png"]];
                     [dragger setUserInteractionEnabled:YES];
                     dragger.hidden = YES;
                     [self.view addSubview:dragger];
@@ -196,33 +200,34 @@
 
 -(void)addStrike {
     currentStrikes++;
-    self.strikes.text = [NSString  stringWithFormat:@"%i",currentStrikes];
+    [self updateStrikes];
     [self updatePercent];
     [self updateTotal];
+}
 
+-(void)removeStrike {
+    currentStrikes--;
+    [self updateStrikes];
+    [self updatePercent];
+    [self updateTotal];
+}
+
+-(void) removeBall {
+    currentBalls--;
+    [self updateBalls];
+    [self updatePercent];
+    [self updateTotal];
 }
 
 -(void) addBall {
     currentBalls++;
-    self.balls.text = [NSString  stringWithFormat:@"%i",currentBalls];
+    [self updateBalls];
     [self updatePercent];
     [self updateTotal];
 }
 
--(void) updatePercent{
-    float perc = (float)currentStrikes/((float)currentBalls+(float)currentStrikes);
-    NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
-    [number setNumberStyle:NSNumberFormatterPercentStyle];
-    
-    self.percent.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
-
-}
-
--(void) updateTotal {
-    total.text = [NSString stringWithFormat:@"%i", currentBalls + currentStrikes];
-}
 -(IBAction)doneTapped:(id)sender {
-    CGRect showFrame = CGRectMake(200, 100, 120, 216);
+    CGRect showFrame = CGRectMake(200, 100, 320, 216);
     [UIView animateWithDuration:.5 animations:^{
         inningPicker.frame = showFrame;
     }];
@@ -230,5 +235,16 @@
 
 -(IBAction)cancelTapped:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - DragViewChangeDelegate
+-(void) didChangeStrikeToBall:(DragView *)sender {
+    [self addBall];
+    [self removeStrike];
+}
+
+-(void) didChangeBallToStrike:(DragView *)sender {
+    [self addStrike];
+    [self removeBall];
 }
 @end

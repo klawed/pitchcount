@@ -8,16 +8,35 @@
 
 #import <UIKit/UIKit.h>
 #import "Game.h"
+
+typedef enum {
+    kBall,
+    kStrike
+} ThrowType;
+@protocol DragViewChangeDelegate;
+
 @interface DragView : UIImageView
 {
 	CGPoint startLocation;
     CGPoint startPt;
     CGPoint endPt;
-    BOOL isActive;
+    BOOL _active;
+    UIPanGestureRecognizer *pan;
+    ThrowType throw;
+    id <DragViewChangeDelegate> delegate;
 }
-@property BOOL isActive;
+//overide the setter here to kill the gesture recognizer
+@property (setter = setActive:,nonatomic) BOOL active;
+
+@property (nonatomic) ThrowType throw;
+
+@property (nonatomic, retain) id <DragViewChangeDelegate> delegate;
+
+-(void) panGestureRecognized:(UIPanGestureRecognizer *)gesture;
+
 @end
-@interface StrikeZoneModeViewController : UIViewController<UIPickerViewDelegate> {
+
+@interface StrikeZoneModeViewController : UIViewController<UIPickerViewDelegate, DragViewChangeDelegate> {
     Game *currentGame;
     IBOutlet UILabel *total;
     IBOutlet UILabel *strikes;
@@ -53,4 +72,14 @@
 -(void) addBall;
 -(void) updatePercent;
 -(void) updateTotal;
+
+
+@end
+
+@protocol DragViewChangeDelegate <NSObject>
+
+-(void) didChangeStrikeToBall:(DragView *)sender;
+
+-(void) didChangeBallToStrike:(DragView *)sender;
+
 @end
