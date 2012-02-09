@@ -54,19 +54,7 @@
 @end
 
 @implementation StrikeZoneModeViewController
-@synthesize currentGame, strikes, balls, total,percent,warning, warningCountdown, warningImage, inningPicker, currentBalls, currentStrikes;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        innings = [[NSArray alloc]initWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9", nil];
-        currentBalls = 0;
-        currentStrikes = 0;
-    }
-    return self;
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -83,14 +71,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     UIView *v = inningPicker;
-    [v.layer setCornerRadius:30.0f];
+    [v.layer setCornerRadius:15.0f];
      [v.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [v.layer setBorderWidth:1.5f];
     [v.layer setShadowColor:[UIColor blackColor].CGColor];
     [v.layer setShadowOpacity:0.8];
     [v.layer setShadowRadius:3.0];
     [v.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
-     
 }
 
 - (void)viewDidUnload
@@ -104,27 +91,6 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
--(void) updatePercent{
-    float perc = (float)currentStrikes/((float)currentBalls+(float)currentStrikes);
-    NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
-    [number setNumberStyle:NSNumberFormatterPercentStyle];
-    
-    self.percent.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
-    
-}
-
--(void) updateTotal {
-    total.text = [NSString stringWithFormat:@"%i", currentBalls + currentStrikes];
-}
-
--(void) updateStrikes {
-    self.strikes.text = [NSString  stringWithFormat:@"%i",currentStrikes];
-}
-
--(void) updateBalls {
-    self.balls.text = [NSString  stringWithFormat:@"%i",currentBalls];
 }
 
 -(IBAction)tapRecognized:(UITapGestureRecognizer *)sender {
@@ -187,7 +153,6 @@
     currentGame.strikes = [NSNumber numberWithInt:currentStrikes];
     currentGame.balls = [NSNumber numberWithInt:currentBalls];
     [[currentGame managedObjectContext] save:nil];
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
@@ -198,36 +163,9 @@
 #pragma mark ui helpers
 
 
--(void)addStrike {
-    currentStrikes++;
-    [self updateStrikes];
-    [self updatePercent];
-    [self updateTotal];
-}
-
--(void)removeStrike {
-    currentStrikes--;
-    [self updateStrikes];
-    [self updatePercent];
-    [self updateTotal];
-}
-
--(void) removeBall {
-    currentBalls--;
-    [self updateBalls];
-    [self updatePercent];
-    [self updateTotal];
-}
-
--(void) addBall {
-    currentBalls++;
-    [self updateBalls];
-    [self updatePercent];
-    [self updateTotal];
-}
 
 -(IBAction)doneTapped:(id)sender {
-    CGRect showFrame = CGRectMake(200, 100, 320, 216);
+    CGRect showFrame = CGRectMake(0, 100, 320, 350);
     [UIView animateWithDuration:.5 animations:^{
         inningPicker.frame = showFrame;
     }];
