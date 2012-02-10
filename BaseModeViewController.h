@@ -7,16 +7,20 @@
 //
 
 #import "Game.h"
+#import "Pitcher.h"
+#import "AppDelegate.h"
+#import "PitcherListTableViewController.h"
+#import <CoreData/CoreData.h>
 
-@interface BaseModeViewController : UIViewController {
+@interface BaseModeViewController : UIViewController<UIAlertViewDelegate, UIPickerViewDelegate> {
     Game *currentGame;
-    IBOutlet UILabel *total;
+    /*IBOutlet UILabel *total;
     IBOutlet UILabel *strikes;
     IBOutlet UILabel *balls;
     IBOutlet UILabel *percent;
     IBOutlet UILabel *warning;
     IBOutlet UILabel *warningCountdown;
-    IBOutlet UIImageView *warningImage;
+    IBOutlet UIImageView *warningImage;*/
     NSArray *innings;
     IBOutlet UIView *inningPicker;
     int currentStrikes;
@@ -33,11 +37,27 @@
 @property (retain, nonatomic) IBOutlet UILabel *warningCountdown;
 @property (retain, nonatomic) IBOutlet UIImageView *warningImage;
 @property (retain, nonatomic) IBOutlet UIView *inningPicker;
+@property (retain, nonatomic) IBOutlet UILabel *pitcherName;
 
--(void)  addStrike;
+@property (retain, nonatomic) NSArray *pitcherList;
+@property (nonatomic, retain) AppDelegate *appDelegate;
+
+
+-(void) addStrike;
 -(void) addBall;
 -(void) removeStrike;
 -(void) removeBall;
 -(void) updatePercent;
 -(void) updateTotal;
+
+-(void) nextGame;
+
+-(IBAction)doneTapped:(id)sender;
+
+-(IBAction)cancelTapped:(id)sender;
+
+-(IBAction)inningDoneButtonTapped:(id)sender;
+
+-(IBAction)inningCancelButtonTapped:(id)sender;
+
 @end

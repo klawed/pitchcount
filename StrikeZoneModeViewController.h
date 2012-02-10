@@ -38,17 +38,15 @@ typedef enum {
 
 #import "BaseModeViewController.h"
 
-@interface StrikeZoneModeViewController : BaseModeViewController<UIPickerViewDelegate, DragViewChangeDelegate> {
+@interface StrikeZoneModeViewController : BaseModeViewController<DragViewChangeDelegate> {
         DragView *currentBall;
+    NSMutableArray *allThrows;
 
 }
 
 
 -(IBAction)tapRecognized:(UITapGestureRecognizer *)sender;
 
--(IBAction)doneTapped:(id)sender;
-
--(IBAction)cancelTapped:(id)sender;
 
 
 

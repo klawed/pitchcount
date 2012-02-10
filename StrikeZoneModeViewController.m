@@ -7,7 +7,6 @@
 //
 
 #import "StrikeZoneModeViewController.h"
-#import <QuartzCore/QuartzCore.h>
 #define STRIKE_RECTANGLE   CGRectMake(48, 136, 120, 178)
 #define BALL_RECTANGLE CGRectMake(6,74,205,300)
 
@@ -55,7 +54,14 @@
 
 @implementation StrikeZoneModeViewController
 
-
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        allThrows = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+/*
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -63,21 +69,13 @@
     
     // Release any cached data, images, etc that aren't in use.
 }
-
+*/
 #pragma mark - View lifecycle
-
+/*
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIView *v = inningPicker;
-    [v.layer setCornerRadius:15.0f];
-     [v.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    [v.layer setBorderWidth:1.5f];
-    [v.layer setShadowColor:[UIColor blackColor].CGColor];
-    [v.layer setShadowOpacity:0.8];
-    [v.layer setShadowRadius:3.0];
-    [v.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
 }
 
 - (void)viewDidUnload
@@ -86,11 +84,17 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
+*/
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void)removeAllThrows {
+    for (UIView* theView in allThrows) {
+        [theView removeFromSuperview];
+    }
 }
 
 -(IBAction)tapRecognized:(UITapGestureRecognizer *)sender {
@@ -102,6 +106,7 @@
             CGRect dragRect = CGRectMake(0.0f, 0.0f, 24.0f, 24.0f);
             dragRect.origin = point;
             DragView *dragger = [[DragView alloc] initWithFrame:dragRect];
+            [allThrows addObject:dragger];
             dragger.delegate = self;
             if (CGRectContainsPoint(STRIKE_RECTANGLE, point)) {
                     NSLog(@"Strike!!!");
@@ -137,43 +142,16 @@
         
 }
 
-#pragma mark Picker DataSource/Delegate
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 9;
-}
-
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    currentGame.innings = [NSNumber numberWithInteger:[(NSString *)[innings objectAtIndex:row] integerValue]];
-    currentGame.strikes = [NSNumber numberWithInt:currentStrikes];
-    currentGame.balls = [NSNumber numberWithInt:currentBalls];
-    [[currentGame managedObjectContext] save:nil];
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [innings objectAtIndex:row];
-}
 
 #pragma mark -
 #pragma mark ui helpers
-
-
-
--(IBAction)doneTapped:(id)sender {
-    CGRect showFrame = CGRectMake(0, 100, 320, 350);
-    [UIView animateWithDuration:.5 animations:^{
-        inningPicker.frame = showFrame;
-    }];
+-(void) nextGame {
+    [super nextGame];
+    [self removeAllThrows];
+    NSLog(@"next game in strikezone");
 }
 
--(IBAction)cancelTapped:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
-}
 
 #pragma mark - DragViewChangeDelegate
 -(void) didChangeStrikeToBall:(DragView *)sender {
@@ -185,4 +163,6 @@
     [self addStrike];
     [self removeBall];
 }
+
+
 @end
