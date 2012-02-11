@@ -60,4 +60,13 @@
 
 -(IBAction)inningCancelButtonTapped:(id)sender;
 
+-(IBAction)addStrike;
+
+-(IBAction)removeStrike;
+
+-(IBAction) removeBall;
+
+-(IBAction) addBall;
+
+
 @end

@@ -47,7 +47,7 @@ typedef enum {
 
 -(IBAction)tapRecognized:(UITapGestureRecognizer *)sender;
 
-
+-(IBAction)wtf:(id)sender;
 
 
 

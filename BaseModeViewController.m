@@ -26,17 +26,26 @@
     pitcherName.text = [NSString stringWithFormat:@"%@ %@", currentGame.pitcher.firstName, currentGame.pitcher.lastName];
 }
 
+- (void) myInitialize {
+    // Custom initialization
+    innings = [[NSArray alloc]initWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9", nil];
+    currentBalls = 0;
+    currentStrikes = 0;
+    appDelegate = [[UIApplication sharedApplication] delegate];
 
-
+}
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self myInitialize];
+    }
+    return self;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        innings = [[NSArray alloc]initWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9", nil];
-        currentBalls = 0;
-        currentStrikes = 0;
-        appDelegate = [[UIApplication sharedApplication] delegate];
+        [self myInitialize];
     }
     return self;
 }
@@ -62,28 +71,28 @@
     self.balls.text = [NSString  stringWithFormat:@"%i",currentBalls];
 }
 
--(void)addStrike {
+-(IBAction)addStrike {
     currentStrikes++;
     [self updateStrikes];
     [self updatePercent];
     [self updateTotal];
 }
 
--(void)removeStrike {
+-(IBAction)removeStrike {
     currentStrikes--;
     [self updateStrikes];
     [self updatePercent];
     [self updateTotal];
 }
 
--(void) removeBall {
+-(IBAction) removeBall {
     currentBalls--;
     [self updateBalls];
     [self updatePercent];
     [self updateTotal];
 }
 
--(void) addBall {
+-(IBAction) addBall {
     currentBalls++;
     [self updateBalls];
     [self updatePercent];
@@ -109,7 +118,9 @@
 }
 
 -(void) newPitcher {
-    [[[UIAlertView alloc]initWithTitle:@"Not implemented" message:@"oops" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    //[[[UIAlertView alloc]initWithTitle:@"Not implemented" message:@"oops" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    //[self dismissModalViewControllerAnimated:YES];
+    [self performSegueWithIdentifier:@"PickAPitcher" sender:self];
 }
 
 -(IBAction)doneTapped:(id)sender {

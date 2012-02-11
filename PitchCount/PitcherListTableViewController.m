@@ -257,7 +257,6 @@
 }
 
 -(IBAction)goHome:(id)sender {
-    NSLog(@"go home cclicked");
     fetchedResultsController.delegate = nil;
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -267,7 +266,7 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
 	// The fetch controller is about to start sending change notifications, so prepare the table view for updates.
-	//[self.tableView beginUpdates];
+	[self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
@@ -296,7 +295,7 @@
             
         case NSFetchedResultsChangeMove:
             NSLog(@"we have %d objects", [[controller fetchedObjects]count]);
-            return;
+            //return;
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]

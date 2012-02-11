@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 
 #define UPFRAME    CGRectMake(0, 155, 320, 216)
-#define DOWNFRAME  CGRectMake(0, 460, 320, 216)
+#define DOWNFRAME  CGRectMake(0, 480, 320, 216)
 @implementation HomeViewController
 
 @synthesize datePicker, currentPitcher, appDelegate;
@@ -71,7 +71,8 @@
     }
     datePicker.hidden = YES;
     datePicker.frame = DOWNFRAME;
-
+    UIImage *img = [UIImage imageNamed:@"tableBGRed.png"];
+	[[self tableView] setBackgroundColor:[UIColor colorWithPatternImage:img]];    
 }
 
 - (void)viewDidUnload
@@ -144,6 +145,9 @@
                 if (cell == nil) {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:dateIdentifier];
                 }
+                UIImage *img = [UIImage imageNamed:@"tableBGRed.png"];
+                [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
+
                 UILabel *label;
                 label = (UILabel *)[cell viewWithTag:1];
                 label.text = [self todaysDate];
@@ -177,16 +181,16 @@
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strikeIdentifier];
             }   
         
-            UIButton *theButton = (UIButton *)[cell viewWithTag:1];
-            [theButton addTarget:self action:@selector(strikeModeSelected) forControlEvents:UIControlEventTouchUpInside];
+            /*UIButton *theButton = (UIButton *)[cell viewWithTag:1];
+            [theButton addTarget:self action:@selector(strikeModeSelected) forControlEvents:UIControlEventTouchUpInside];*/
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:plusIdentifier];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:plusIdentifier];
             }   
             
-            UIButton *theButton = (UIButton *)[cell viewWithTag:1];
-            [theButton addTarget:self action:@selector(strikeModeSelected) forControlEvents:UIControlEventTouchUpInside];
+            /*UIButton *theButton = (UIButton *)[cell viewWithTag:1];
+            [theButton addTarget:self action:@selector(strikeModeSelected) forControlEvents:UIControlEventTouchUpInside];*/
 
         }
     }
@@ -331,6 +335,20 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"PickAPitcher"]) {
         ((PitcherListTableViewController *)segue.destinationViewController).delegate = self;
+    } else if ([segue.identifier isEqualToString:@"ShowStrikeMode"] || [segue.identifier isEqualToString:@"ShowPlusMinusMode"]) {
+        if (currentPitcher == nil) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Select a pitcher?" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+            [alert show];
+            return;
+        }
+        Game *game = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
+        game.date = datePicker.date;
+        game.pitcher = currentPitcher;
+        NSMutableSet *games = [currentPitcher mutableSetValueForKey:@"games"];
+        [games addObject:game];
+        BaseModeViewController *strikeMode = (BaseModeViewController *)segue.destinationViewController;
+        strikeMode.currentGame = game;
+        strikeMode.pitcherList = [[self fetchedResultsController] fetchedObjects];
     }
 }
 
