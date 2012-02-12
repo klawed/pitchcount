@@ -184,12 +184,32 @@
 
 
 // Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-
-
-/*
+- (void)tableView:(UITableView *)tableView 
+moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath 
+      toIndexPath:(NSIndexPath *)destinationIndexPath;
+{  
+    NSMutableArray *things = [[fetchedResultsController fetchedObjects] mutableCopy];
+    
+    // Grab the item we're moving.
+    NSManagedObject *thing = [[self fetchedResultsController] objectAtIndexPath:sourceIndexPath];
+    
+    // Remove the object we're moving from the array.
+    [things removeObject:thing];
+    // Now re-insert it at the destination.
+    [things insertObject:thing atIndex:[destinationIndexPath row]];
+    
+    // All of the objects are now in their correct order. Update each
+    // object's displayOrder field by iterating through the array.
+    int i = 0;
+    for (NSManagedObject *mo in things)
+    {
+        [mo setValue:[NSNumber numberWithInt:i++] forKey:@"battingOrder"];
+    }
+    
+    things = nil;
+    
+    [managedObjectContext save:nil];
+}/*
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -213,6 +233,8 @@
     [self.tableView reloadData];
 }
 
+
+
 - (NSFetchedResultsController *)fetchedResultsController {
     // Set up the fetched results controller if needed.
     if (fetchedResultsController == nil) {
@@ -223,7 +245,7 @@
         [fetchRequest setEntity:entity];
         
         // Edit the sort key as appropriate.
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"battingOrder" ascending:YES];
         NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
         
         [fetchRequest setSortDescriptors:sortDescriptors];
@@ -295,7 +317,6 @@
             
         case NSFetchedResultsChangeMove:
             NSLog(@"we have %d objects", [[controller fetchedObjects]count]);
-            //return;
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]

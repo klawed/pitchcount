@@ -9,12 +9,13 @@
     </entity>
     <entity name="Pitcher" representedClassName="Pitcher" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="battingOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Game" syncable="YES"/>
     </entity>
     <elements>
         <element name="Game" positionX="54" positionY="-9" width="128" height="120"/>
-        <element name="Pitcher" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Pitcher" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>
