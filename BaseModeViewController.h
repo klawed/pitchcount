@@ -12,7 +12,7 @@
 #import "PitcherListTableViewController.h"
 #import <CoreData/CoreData.h>
 
-@interface BaseModeViewController : UIViewController<UIAlertViewDelegate, UIPickerViewDelegate> {
+@interface BaseModeViewController : UIViewController<UIAlertViewDelegate, UIPickerViewDelegate,PitcherPickDelegate> {
     Game *currentGame;
     /*IBOutlet UILabel *total;
     IBOutlet UILabel *strikes;
@@ -25,7 +25,7 @@
     IBOutlet UIView *inningPicker;
     int currentStrikes;
     int currentBalls;
-
+    int weeklyLimit;
 }
 
 @property (retain, nonatomic) Game *currentGame;
@@ -35,7 +35,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *percent;
 @property (retain, nonatomic) IBOutlet UILabel *warning;
 @property (retain, nonatomic) IBOutlet UILabel *warningCountdown;
-@property (retain, nonatomic) IBOutlet UIImageView *warningImage;
+@property (retain, nonatomic) IBOutlet UIView *warningView;
 @property (retain, nonatomic) IBOutlet UIView *inningPicker;
 @property (retain, nonatomic) IBOutlet UILabel *pitcherName;
 
@@ -51,6 +51,10 @@
 -(void) updateTotal;
 
 -(void) nextGame;
+
+-(void) newPitcher;
+
+-(int) weeklyLimitForPitcher;
 
 -(IBAction)doneTapped:(id)sender;
 

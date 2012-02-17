@@ -12,7 +12,7 @@
 
 @implementation BaseModeViewController
 
-@synthesize currentGame, strikes, balls, total,percent,warning, warningCountdown, warningImage, inningPicker, pitcherList, appDelegate, pitcherName;
+@synthesize currentGame, strikes, balls, total,percent,warning, warningCountdown, inningPicker, pitcherList, appDelegate, pitcherName, warningView;
 
 -(void) viewDidLoad {
     UIView *v = inningPicker;
@@ -23,7 +23,19 @@
     [v.layer setShadowOpacity:0.8];
     [v.layer setShadowRadius:3.0];
     [v.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+    
+    v = warningView;
+    [v.layer setCornerRadius:15.0f];
+    [v.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [v.layer setBorderWidth:1.5f];
+    [v.layer setShadowColor:[UIColor blackColor].CGColor];
+    [v.layer setShadowOpacity:0.8];
+    [v.layer setShadowRadius:3.0];
+    [v.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+    
     pitcherName.text = [NSString stringWithFormat:@"%@ %@", currentGame.pitcher.firstName, currentGame.pitcher.lastName];
+    self.tabBarController.tabBar.hidden = YES;
+    weeklyLimit = [self weeklyLimitForPitcher];
 }
 
 - (void) myInitialize {
@@ -50,6 +62,25 @@
     return self;
 }
 
+-(int)weeklyLimitForPitcher {
+    int limit = 0;
+    int age = [currentGame.pitcher.age intValue];
+    if(age>=8 && age<=10){
+        limit = 20;  //52 
+    }else if(age>=11 && age<=12){
+        limit = 68; 
+    }else if(age>=13 && age<=14){
+        limit = 76; 
+    }else if(age>=15 && age<=16){
+        limit = 91; 
+    }else if(age>=17 && age<=18){
+        limit = 106; 
+    }else if(age > 19){
+        limit = 106; 
+    }
+    return limit;
+}
+
 -(void) updatePercent{
     float perc = (currentBalls == 0 && currentStrikes == 0) ? 0 : (float)currentStrikes/((float)currentBalls+(float)currentStrikes);
     NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
@@ -59,12 +90,23 @@
     
 }
 
+-(void) checkWarning {
+    int delta = (weeklyLimit) - (currentBalls + currentStrikes);
+    bool overLimit = delta < 15;
+    if (overLimit) {
+    [UIView animateWithDuration:1.0 animations:^{
+        warningView.alpha = 1.0;
+        warningCountdown.text = [NSString stringWithFormat:@"%i pitches away from the weekly recommended limit of %i.", delta, weeklyLimit];
+    }];
+    }
+}
 -(void) updateTotal {
     total.text = [NSString stringWithFormat:@"%i", currentBalls + currentStrikes];
 }
 
 -(void) updateStrikes {
     self.strikes.text = [NSString  stringWithFormat:@"%i",currentStrikes];
+    
 }
 
 -(void) updateBalls {
@@ -76,6 +118,7 @@
     [self updateStrikes];
     [self updatePercent];
     [self updateTotal];
+    [self checkWarning];
 }
 
 -(IBAction)removeStrike {
@@ -97,6 +140,7 @@
     [self updateBalls];
     [self updatePercent];
     [self updateTotal];
+    [self checkWarning];
 }
 
 - (Pitcher *) nextPitcher {
@@ -104,10 +148,8 @@
     Pitcher *nextPitcher =(Pitcher *) [pitcherList objectAtIndex:nextPitcherIndex];
     return nextPitcher;
 }
--(void) nextGame {
-    Pitcher *nextPitcher = [self nextPitcher];
-    currentGame = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
-    currentGame.pitcher = nextPitcher;
+
+-(void) reset {
     currentBalls = 0;
     currentStrikes = 0;
     [self updateBalls];
@@ -115,12 +157,28 @@
     [self updatePercent];
     [self updateTotal];
     pitcherName.text = [NSString stringWithFormat:@"%@ %@", currentGame.pitcher.firstName, currentGame.pitcher.lastName];
+    weeklyLimit = [self weeklyLimitForPitcher];
+    warningView.alpha = 0.0;
+    
 }
+-(void) nextGame {
+    Pitcher *nextPitcher = [self nextPitcher];
+    currentGame = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
+    currentGame.pitcher = nextPitcher;
+    [self reset];
+    }
 
 -(void) newPitcher {
     //[[[UIAlertView alloc]initWithTitle:@"Not implemented" message:@"oops" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
-    //[self dismissModalViewControllerAnimated:YES];
-    [self performSegueWithIdentifier:@"PickAPitcher" sender:self];
+    [self performSegueWithIdentifier:@"PickANewPitcher" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"PickANewPitcher"]) {
+        PitcherListTableViewController *theView = (PitcherListTableViewController *)segue.destinationViewController;
+        theView.isModal = YES;
+        theView.delegate = self;
+    }
 }
 
 -(IBAction)doneTapped:(id)sender {
@@ -208,5 +266,14 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return [innings objectAtIndex:row];
+}
+
+#pragma mark -
+#pragma mark PickPitcherDelegate
+
+- (void)pitcherListViewController:(PitcherListTableViewController *)pitcherListViewController didPickPitcher:(Pitcher *)pitcher {
+    currentGame = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
+    currentGame.pitcher = pitcher;
+    [self reset];
 }
 @end

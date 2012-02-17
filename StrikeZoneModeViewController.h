@@ -22,6 +22,7 @@ typedef enum {
     CGPoint endPt;
     BOOL _active;
     UIPanGestureRecognizer *pan;
+    UITapGestureRecognizer *doubleTap;
     ThrowType throw;
     id <DragViewChangeDelegate> delegate;
 }
@@ -33,6 +34,8 @@ typedef enum {
 @property (nonatomic, retain) id <DragViewChangeDelegate> delegate;
 
 -(void) panGestureRecognized:(UIPanGestureRecognizer *)gesture;
+
+-(void) doubleTapGestureRecognized:(UITapGestureRecognizer *)gesture;
 
 @end
 
@@ -58,5 +61,9 @@ typedef enum {
 -(void) didChangeStrikeToBall:(DragView *)sender;
 
 -(void) didChangeBallToStrike:(DragView *)sender;
+
+-(void) didRemoveBall:(DragView *)sender;
+
+-(void) didRemoveStrike:(DragView *)sender;
 
 @end

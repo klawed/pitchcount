@@ -20,6 +20,10 @@
     if (self) {
         pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panGestureRecognized:)];
         [self addGestureRecognizer:pan];
+        doubleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doubleTapGestureRecognized:)];
+        doubleTap.numberOfTapsRequired = 2;
+        doubleTap.cancelsTouchesInView = YES;
+        [self addGestureRecognizer:doubleTap];
     }
     return self;
 }
@@ -40,6 +44,15 @@
         }
         [self setCenter:location];
     }
+}
+
+-(void) doubleTapGestureRecognized:(UITapGestureRecognizer *)gesture {
+    if (self.throw == kBall) {
+        [delegate didRemoveBall:self];
+    } else {
+        [delegate didRemoveStrike:self];
+    }
+    [self removeFromSuperview];
 }
 
 -(void)setActive:(BOOL)isActive {
@@ -163,6 +176,11 @@
     NSLog(@"next game in strikezone");
 }
 
+-(void) newPitcher {
+    [super newPitcher];
+    [self removeAllThrows];
+    NSLog(@"new Pitcher in strikezone");
+}
 
 #pragma mark - DragViewChangeDelegate
 -(void) didChangeStrikeToBall:(DragView *)sender {
@@ -175,5 +193,13 @@
     [self removeBall];
 }
 
+-(void) didRemoveBall:(DragView *)sender {
+    [allThrows removeObject:sender];
+    [self removeBall];
+}
 
+-(void) didRemoveStrike:(DragView *)sender {
+    [allThrows removeObject:sender];
+    [self removeStrike];
+}
 @end
