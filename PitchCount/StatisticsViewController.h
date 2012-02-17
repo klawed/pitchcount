@@ -12,14 +12,16 @@
 #import "Game.h"
 
 @interface StatisticsViewController : UITableViewController {
-    NSManagedObject *managedObjectContext;
     AppDelegate *appDelegate;
+    NSArray *gamesByDate;
 
 }
 @property (nonatomic, retain) AppDelegate *appDelegate;
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
+@property (nonatomic, retain, getter = getManagedContext) NSManagedObjectContext *managedObjectContext;
 
+-(void) initGames;
 
 @end

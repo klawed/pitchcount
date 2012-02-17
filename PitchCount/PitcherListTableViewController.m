@@ -14,6 +14,7 @@
 @synthesize fetchedResultsController;
 @synthesize managedObjectContext;
 @synthesize appDelegate,delegate;
+@synthesize isModal;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,7 +33,13 @@
     }
     return self;
 }
-
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        appDelegate = [[UIApplication sharedApplication] delegate];
+    }
+    return self;
+}
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -131,7 +138,7 @@
     }
     Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex: indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", pitcher.firstName, pitcher.lastName];
-
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Age: %@", pitcher.age];
     // Configure the cell...
     
     return cell;
@@ -225,7 +232,11 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
     [delegate pitcherListViewController:self didPickPitcher:pitcher];
     fetchedResultsController.delegate = nil;
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self dismissModalViewControllerAnimated:YES];
+    }
 }
 
 - (void)pitcherAddViewController:(AddPitcherTableViewController *)addPitcherViewController didAddPitcher:(Pitcher *)pitcher {

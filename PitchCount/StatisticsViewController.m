@@ -10,13 +10,14 @@
 
 @implementation StatisticsViewController
 
-@synthesize appDelegate, fetchedResultsController;
+@synthesize appDelegate, fetchedResultsController, managedObjectContext;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
         appDelegate = [[UIApplication sharedApplication] delegate];
+        managedObjectContext = appDelegate.managedObjectContext;
     }
     return self;
 }
@@ -38,16 +39,13 @@
     UISegmentedControl *titleView = (UISegmentedControl *)[nib objectAtIndex:0];
     self.navigationItem.titleView = titleView;
     NSError *error = nil;
-	if (![[self fetchedResultsController] performFetch:&error]) {
-		/*
-		 Replace this implementation with code to handle the error appropriately.
-		 
-		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-		 */
+	/*
+     if (![[self fetchedResultsController] performFetch:&error]) {
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		abort();
-	}	
-
+	}
+     */
+   
 }
 
 - (void)viewDidUnload
@@ -60,6 +58,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self initGames];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -176,12 +176,16 @@
         // Edit the entity name as appropriate.
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
         [fetchRequest setEntity:entity];
-        
+        [fetchRequest setResultType:NSDictionaryResultType];
         // Edit the sort key as appropriate.
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
         NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+        NSDictionary *allAttributes = [entity attributesByName];
         
+        NSAttributeDescription *dateAttribute = [allAttributes objectForKey:@"date"];
         [fetchRequest setSortDescriptors:sortDescriptors];
+        [fetchRequest setPropertiesToGroupBy:[[NSArray alloc]initWithObjects:dateAttribute, nil]];
+         
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
@@ -203,5 +207,17 @@
 	return appDelegate.managedObjectModel;
 }
 
+-(void) initGames {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = [NSEntityDescription entityForName:@"Game" inManagedObjectContext:managedObjectContext];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSError *error;
+    NSArray *results = [managedObjectContext executeFetchRequest:request error:&error];
+    NSArray *parents = [results valueForKeyPath:@"date"];
+    NSArray *children = [results valueForKeyPath:@"@count"];
+    NSArray *payees=[results valueForKeyPath:@"@distinctUnionOfObjects.date"];
+    NSLog(@"par: %@, chil:%@, and!!!%@", parents, children,payees);
+}
 
 @end

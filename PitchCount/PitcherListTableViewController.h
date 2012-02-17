@@ -26,7 +26,7 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) AppDelegate *appDelegate;
 @property (nonatomic, retain) id <PitcherPickDelegate> delegate;
-
+@property (nonatomic) BOOL isModal;
 -(IBAction) selectPitcher:(id)sender;
 - (void) add:(id)sender;
 -(IBAction) goHome:(id)sender;

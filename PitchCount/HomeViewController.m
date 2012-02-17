@@ -71,6 +71,7 @@
     }
     datePicker.hidden = YES;
     datePicker.frame = DOWNFRAME;
+    datePicker.datePickerMode = UIDatePickerModeDate;
     UIImage *img = [UIImage imageNamed:@"tableBGRed.png"];
 	[[self tableView] setBackgroundColor:[UIColor colorWithPatternImage:img]];    
 }
@@ -342,7 +343,9 @@
             return;
         }
         Game *game = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
-        game.date = datePicker.date;
+        NSTimeInterval time = floor([datePicker.date timeIntervalSinceReferenceDate] / 86400.0) * 86400.0;
+        NSDate *newDateTime = [NSDate dateWithTimeIntervalSinceReferenceDate:time];
+        game.date = newDateTime;
         game.pitcher = currentPitcher;
         NSMutableSet *games = [currentPitcher mutableSetValueForKey:@"games"];
         [games addObject:game];
