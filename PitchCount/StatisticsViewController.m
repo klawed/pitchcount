@@ -1,3 +1,4 @@
+
 //
 //  SecondViewController.m
 //  PitchCount
@@ -7,10 +8,12 @@
 //
 
 #import "StatisticsViewController.h"
+#define GAMES 0
+#define PITCHERS 1
 
 @implementation StatisticsViewController
 
-@synthesize appDelegate, fetchedResultsController, managedObjectContext;
+@synthesize appDelegate, fetchedResultsController, managedObjectContext, titleView;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -36,9 +39,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StatisticsTitleView" owner:self options:nil];
-    UISegmentedControl *titleView = (UISegmentedControl *)[nib objectAtIndex:0];
+    titleView = (UISegmentedControl *)[nib objectAtIndex:0];
+    [titleView addTarget:self action:@selector(viewTypeTapped:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = titleView;
-    NSError *error = nil;
+    //NSError *error = nil;
 	/*
      if (![[self fetchedResultsController] performFetch:&error]) {
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -93,9 +97,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return [[fetchedResultsController fetchedObjects] count];
+    switch (titleView.selectedSegmentIndex) {
+        case GAMES:
+            return [gamesByDate count];
+            break;
+            
+            case PITCHERS:
+            return [gamesByPitcher count];
+        default:
+            break;
+    }
+    return 0;
+}
+
+-(void) configureGameCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath
+{
+    NSDate *theDate = (NSDate *)[gamesByDate objectAtIndex:indexPath.row];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM/dd/YY"];
+    cell.textLabel.text = [dateFormat stringFromDate:theDate];
+    NSArray *filtered = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"date = %@", theDate]];
+    NSNumber *total = [filtered valueForKeyPath:@"@sum.strikes"];
+    cell.detailTextLabel.text = [total description];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,12 +130,42 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
-    Game *game = (Game *)[[fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
-    cell.textLabel.text = [game.date description];
+    switch (titleView.selectedSegmentIndex) {
+            
+        case GAMES:
+            [self configureGameCell:cell withIndexPath:indexPath];
+            break;
+            
+        case PITCHERS:
+            cell.textLabel.text = ((Pitcher *)[gamesByPitcher objectAtIndex:indexPath.row]).firstName;
+            break;
+        default:
+            break;
+    }
+    
+    UIView *myView = [[UIView alloc] init];
+    /*if ((indexPath.row % 2) == 0) {
+        myView.backgroundColor = [UIColor grayColor];
+        cell.textLabel.backgroundColor = [UIColor grayColor];
+    }
+    else {
+        myView.backgroundColor = [UIColor whiteColor];
+        cell.textLabel.backgroundColor = [UIColor whiteColor];
+    }
+    
+    cell.backgroundView = myView;
+*/
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StatisticsHeaderView" owner:self options:nil];
+    return [nib objectAtIndex:0];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 35;
+}
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -208,16 +261,33 @@
 }
 
 -(void) initGames {
+    gamesByDate = [[NSMutableArray alloc]init];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = [NSEntityDescription entityForName:@"Game" inManagedObjectContext:managedObjectContext];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
     request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     NSError *error;
-    NSArray *results = [managedObjectContext executeFetchRequest:request error:&error];
-    NSArray *parents = [results valueForKeyPath:@"date"];
-    NSArray *children = [results valueForKeyPath:@"@count"];
-    NSArray *payees=[results valueForKeyPath:@"@distinctUnionOfObjects.date"];
-    NSLog(@"par: %@, chil:%@, and!!!%@", parents, children,payees);
+    results = [managedObjectContext executeFetchRequest:request error:&error];
+    NSArray *count = [results valueForKeyPath:@"@count"];
+    gamesByDate=[results valueForKeyPath:@"@distinctUnionOfObjects.date"];
+    gamesByPitcher = [results valueForKeyPath:@"@distinctUnionOfObjects.pitcher"];
+    //NSLog(@"count:%@, byDate:%@, byPitcher:%@", count, byDate, byPitcher);
 }
 
+#pragma mark -
+#pragma mark UI Helpers
+-(IBAction)viewTypeTapped:(id)sender {
+    switch (titleView.selectedSegmentIndex) {
+        case 0:
+            NSLog(@"games tpped");
+            break;
+            
+        case 1:
+            NSLog(@"pithcers tapped");
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
 @end

@@ -144,9 +144,12 @@
 }
 
 - (Pitcher *) nextPitcher {
+    if ([pitcherList count] > 1) {
     int nextPitcherIndex = ([pitcherList indexOfObject:currentGame.pitcher] == [pitcherList count] - 1) ? 0: [pitcherList indexOfObject:currentGame.pitcher] + 1;
     Pitcher *nextPitcher =(Pitcher *) [pitcherList objectAtIndex:nextPitcherIndex];
     return nextPitcher;
+    } 
+    return nil;
 }
 
 -(void) reset {
@@ -170,7 +173,11 @@
 
 -(void) newPitcher {
     //[[[UIAlertView alloc]initWithTitle:@"Not implemented" message:@"oops" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
-    [self performSegueWithIdentifier:@"PickANewPitcher" sender:self];
+    if ([pitcherList count] > 1) {
+        [self performSegueWithIdentifier:@"PickANewPitcher" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"AddANewPitcher" sender:self];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -178,6 +185,12 @@
         PitcherListTableViewController *theView = (PitcherListTableViewController *)segue.destinationViewController;
         theView.isModal = YES;
         theView.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"AddANewPitcher"]) {
+        Pitcher *pitcher = (Pitcher *)[NSEntityDescription insertNewObjectForEntityForName:@"Pitcher" inManagedObjectContext:self.appDelegate.managedObjectContext];
+        AddPitcherTableViewController *controller = (AddPitcherTableViewController *)segue.destinationViewController;
+        controller.pitcher = pitcher;
+        controller.delegate = self;
+        controller.isModal = YES;
     }
 }
 
@@ -194,10 +207,17 @@
 }
 
 -(IBAction)inningDoneButtonTapped:(id)sender {
-    Pitcher *nextPitcher = [self nextPitcher];
-    NSString *nextMessage = [NSString stringWithFormat:@"Switch to %@ %@.", nextPitcher.firstName, nextPitcher.lastName];
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"What's next?" delegate:self cancelButtonTitle:@"Nothing, the game's over." 
-                                         otherButtonTitles: nextMessage, @"Choose a different pitcher.", nil];
+    UIAlertView *alert;
+    if ([pitcherList count] > 1) {
+        Pitcher *nextPitcher = [self nextPitcher];
+        NSString *nextMessage = [NSString stringWithFormat:@"Switch to %@ %@.", nextPitcher.firstName, nextPitcher.lastName];
+        alert = [[UIAlertView alloc]initWithTitle:nil message:@"What's next?" delegate:self cancelButtonTitle:@"Nothing, the game's over." 
+                                  otherButtonTitles: @"Choose a different pitcher.", nextMessage,  nil];
+    } else {
+        alert = [[UIAlertView alloc]initWithTitle:nil message:@"What's next?" delegate:self cancelButtonTitle:@"Nothing, the game's over." 
+                                otherButtonTitles: @"Add a new pitcher.", nil];
+    }
+    
     [alert show];
 }
 
@@ -213,16 +233,19 @@
 // Called when a button is clicked. The view will be automatically dismissed after this call returns
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
-        case 1:
+        case 2:
             //next pitcher
             [self nextGame];
             break;
             
-        case 2:
+        case 1:
             //different pitcher
             [self newPitcher];
             break;
-            
+        
+        case 0:
+            [self dismissModalViewControllerAnimated:YES];
+            break;
         default:
             break;
     }
@@ -233,7 +256,7 @@
 // Called when we cancel a view (eg. the user clicks the Home button). This is not called when the user clicks the cancel button.
 // If not defined in the delegate, we simulate a click in the cancel button
 - (void)alertViewCancel:(UIAlertView *)alertView {
-    
+        
 }
 /*
 - (void)willPresentAlertView:(UIAlertView *)alertView;  // before animation and showing view
@@ -276,4 +299,18 @@
     currentGame.pitcher = pitcher;
     [self reset];
 }
+
+- (void)pitcherAddViewController:(AddPitcherTableViewController *)addPitcherViewController didAddPitcher:(Pitcher *)pitcher {
+    [[pitcher managedObjectContext] save:nil];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = [NSEntityDescription entityForName:@"Pitcher" inManagedObjectContext:appDelegate.managedObjectContext];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"battingOrder" ascending:YES];
+    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSError *error;
+    pitcherList = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
+    currentGame = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
+    currentGame.pitcher = pitcher;
+    [self reset];
+}
+
 @end

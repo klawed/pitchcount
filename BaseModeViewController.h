@@ -10,9 +10,10 @@
 #import "Pitcher.h"
 #import "AppDelegate.h"
 #import "PitcherListTableViewController.h"
+#import "AddPitcherTableViewController.h"
 #import <CoreData/CoreData.h>
 
-@interface BaseModeViewController : UIViewController<UIAlertViewDelegate, UIPickerViewDelegate,PitcherPickDelegate> {
+@interface BaseModeViewController : UIViewController<UIAlertViewDelegate, UIPickerViewDelegate,PitcherPickDelegate,PitcherAddDelegate> {
     Game *currentGame;
     /*IBOutlet UILabel *total;
     IBOutlet UILabel *strikes;

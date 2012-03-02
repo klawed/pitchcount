@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		38059E0314D93D7400905143 /* icon_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 38059E0214D93D7400905143 /* icon_info.png */; };
+		380F917F15011A560058BF8C /* StatisticsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380F917E15011A560058BF8C /* StatisticsHeaderView.xib */; };
+		380F918615013F2B0058BF8C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 380F918515013F2B0058BF8C /* icon@2x.png */; };
+		380F918815013F4C0058BF8C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 380F918715013F4C0058BF8C /* icon.png */; };
 		3830962E14D863F900DB7B61 /* table.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830962A14D863F900DB7B61 /* table.png */; };
 		3830963414D86A7100DB7B61 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830963314D86A7100DB7B61 /* Default.png */; };
 		3830963614D86A8C00DB7B61 /* icon_ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830963514D86A8C00DB7B61 /* icon_ball.png */; };
@@ -18,6 +21,7 @@
 		3830964314D8715F00DB7B61 /* StrikeZoneModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3830964114D8715F00DB7B61 /* StrikeZoneModeViewController.xib */; };
 		3830964514D8719C00DB7B61 /* strikezoneRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830964414D8719C00DB7B61 /* strikezoneRight.png */; };
 		384D092E14E419B5009FA89C /* BaseModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D092D14E419B5009FA89C /* BaseModeViewController.m */; };
+		3886CE1A14F7080900D3D2AD /* PitchCount.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3886CE1914F7080900D3D2AD /* PitchCount.sqlite */; };
 		38A1851D14E6B29C00454473 /* PlusMinusModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A1851C14E6B29C00454473 /* PlusMinusModeViewController.m */; };
 		38A1852614E6B81700454473 /* icon_minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A1852414E6B81700454473 /* icon_minus.png */; };
 		38A1852714E6B81700454473 /* icon_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A1852514E6B81700454473 /* icon_plus.png */; };
@@ -46,7 +50,6 @@
 		38E9FC3214D22B1A00B48985 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38E9FC3014D22B1A00B48985 /* DataModel.xcdatamodeld */; };
 		38E9FC3514D22F1B00B48985 /* PitcherListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9FC3414D22F1B00B48985 /* PitcherListTableViewController.m */; };
 		38E9FCD914D2650F00B48985 /* AddPitcherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9FCD814D2650F00B48985 /* AddPitcherTableViewController.m */; };
-		38FC9A3614E07AA100093227 /* tmp.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC9A3514E07AA100093227 /* tmp.m */; };
 		38FC9A4014E0BB3300093227 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC9A3F14E0BB3300093227 /* Game.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,9 @@
 
 /* Begin PBXFileReference section */
 		38059E0214D93D7400905143 /* icon_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_info.png; sourceTree = "<group>"; };
+		380F917E15011A560058BF8C /* StatisticsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsHeaderView.xib; sourceTree = "<group>"; };
+		380F918515013F2B0058BF8C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		380F918715013F4C0058BF8C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		3830962A14D863F900DB7B61 /* table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table.png; sourceTree = "<group>"; };
 		3830963314D86A7100DB7B61 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3830963514D86A8C00DB7B61 /* icon_ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ball.png; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 		3830964414D8719C00DB7B61 /* strikezoneRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strikezoneRight.png; sourceTree = "<group>"; };
 		384D092C14E419B5009FA89C /* BaseModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = BaseModeViewController.h; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		384D092D14E419B5009FA89C /* BaseModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModeViewController.m; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		3886CE1914F7080900D3D2AD /* PitchCount.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PitchCount.sqlite; sourceTree = "<group>"; };
 		38A1851B14E6B29C00454473 /* PlusMinusModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlusMinusModeViewController.h; sourceTree = "<group>"; };
 		38A1851C14E6B29C00454473 /* PlusMinusModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlusMinusModeViewController.m; sourceTree = "<group>"; };
 		38A1852414E6B81700454473 /* icon_minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_minus.png; sourceTree = "<group>"; };
@@ -112,8 +119,6 @@
 		38E9FC3414D22F1B00B48985 /* PitcherListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PitcherListTableViewController.m; sourceTree = "<group>"; };
 		38E9FCD714D2650F00B48985 /* AddPitcherTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPitcherTableViewController.h; sourceTree = "<group>"; };
 		38E9FCD814D2650F00B48985 /* AddPitcherTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPitcherTableViewController.m; sourceTree = "<group>"; };
-		38FC9A3414E07AA100093227 /* tmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tmp.h; sourceTree = "<group>"; };
-		38FC9A3514E07AA100093227 /* tmp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tmp.m; sourceTree = "<group>"; };
 		38FC9A3E14E0BB3300093227 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../Game.h; sourceTree = "<group>"; };
 		38FC9A3F14E0BB3300093227 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = ../Game.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,8 +187,6 @@
 				38C18ED214CB63FE00D0139E /* HomeViewController.m */,
 				38C18ED814CB63FE00D0139E /* StatisticsViewController.h */,
 				38C18ED914CB63FE00D0139E /* StatisticsViewController.m */,
-				38FC9A3414E07AA100093227 /* tmp.h */,
-				38FC9A3514E07AA100093227 /* tmp.m */,
 			);
 			name = "Main Views";
 			sourceTree = "<group>";
@@ -191,6 +194,8 @@
 		38A1852314E6B7B200454473 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				380F918715013F4C0058BF8C /* icon.png */,
+				380F918515013F2B0058BF8C /* icon@2x.png */,
 				38A1852A14E6BE0B00454473 /* tableBGRed.png */,
 				38A1852814E6BC4300454473 /* back_img.png */,
 				38A1852414E6B81700454473 /* icon_minus.png */,
@@ -256,6 +261,7 @@
 		38C18EC314CB63FD00D0139E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3886CE1914F7080900D3D2AD /* PitchCount.sqlite */,
 				38C18EC414CB63FD00D0139E /* PitchCount-Info.plist */,
 				38C18EC514CB63FD00D0139E /* InfoPlist.strings */,
 				38C18EC814CB63FD00D0139E /* main.m */,
@@ -296,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				38C6434C14DEEE77007D2E5A /* StatisticsTitleView.xib */,
+				380F917E15011A560058BF8C /* StatisticsHeaderView.xib */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -389,6 +396,10 @@
 				38A1852714E6B81700454473 /* icon_plus.png in Resources */,
 				38A1852914E6BC4300454473 /* back_img.png in Resources */,
 				38A1852B14E6BE0B00454473 /* tableBGRed.png in Resources */,
+				3886CE1A14F7080900D3D2AD /* PitchCount.sqlite in Resources */,
+				380F917F15011A560058BF8C /* StatisticsHeaderView.xib in Resources */,
+				380F918615013F2B0058BF8C /* icon@2x.png in Resources */,
+				380F918815013F4C0058BF8C /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +442,6 @@
 				38E9FC3514D22F1B00B48985 /* PitcherListTableViewController.m in Sources */,
 				38E9FCD914D2650F00B48985 /* AddPitcherTableViewController.m in Sources */,
 				3830964214D8715F00DB7B61 /* StrikeZoneModeViewController.m in Sources */,
-				38FC9A3614E07AA100093227 /* tmp.m in Sources */,
 				38FC9A4014E0BB3300093227 /* Game.m in Sources */,
 				384D092E14E419B5009FA89C /* BaseModeViewController.m in Sources */,
 				38A1851D14E6B29C00454473 /* PlusMinusModeViewController.m in Sources */,

@@ -124,19 +124,22 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[fetchedResultsController fetchedObjects] count];
+    return ([self isModal]) ? [[fetchedResultsController fetchedObjects] count] +1 : [[fetchedResultsController fetchedObjects] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    NSString *CellIdentifier = ([self isModal]  && indexPath.row == 0) ? @"AddPitcherCell" : @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        NSLog(@"in table, we have %d objects",  [[fetchedResultsController fetchedObjects] count]);
     }
-    Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex: indexPath.row];
+    if ([self isModal]  && indexPath.row == 0) {
+        return cell;
+    }
+    int curIndex = ([self isModal]) ? indexPath.row -1 : indexPath.row;
+    Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex: curIndex];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", pitcher.firstName, pitcher.lastName];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Age: %@", pitcher.age];
     // Configure the cell...
@@ -229,7 +232,8 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
+    int index = ([self isModal]) ? indexPath.row -1 : indexPath.row;
+    Pitcher *pitcher = (Pitcher *)[[fetchedResultsController fetchedObjects] objectAtIndex:index];
     [delegate pitcherListViewController:self didPickPitcher:pitcher];
     fetchedResultsController.delegate = nil;
     if (self.navigationController) {

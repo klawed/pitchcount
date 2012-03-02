@@ -14,7 +14,7 @@
 
 @implementation AddPitcherTableViewController
 
-@synthesize pitcher,delegate,isEdit;
+@synthesize pitcher,delegate,isEdit,isModal;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -88,7 +89,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return ([self isModal]) ? 4: 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -124,8 +125,26 @@
             UITextField *field = (UITextField *)[cell viewWithTag:1];
             field.text = [NSString stringWithFormat:@"%@", pitcher.age];
         }
+    } else if (indexPath.row == 3) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"DoneButton"];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DoneButton"];
+        }
+        UIButton *cancelButton = (UIButton *)[cell viewWithTag:1];
+        [cancelButton addTarget:self action:@selector(cancelButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+        UIButton *doneButton = (UIButton *)[cell viewWithTag:2];
+        [doneButton addTarget:self action:@selector(doneButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     }
     return cell;
+}
+
+-(void) cancelButtonTouched:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void) doneButtonTouched:(id)sender {
+    [self save:sender];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 /*

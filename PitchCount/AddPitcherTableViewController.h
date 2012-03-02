@@ -24,11 +24,17 @@
 
 @property (nonatomic, assign) BOOL isEdit;
 
+@property (nonatomic, assign) BOOL isModal;
+
 -(IBAction)save:(id)sender;
 @end
 
 @protocol PitcherAddDelegate <NSObject>
 
 - (void)pitcherAddViewController:(AddPitcherTableViewController *)addPitcherViewController didAddPitcher:(Pitcher *)pitcher;
+
+- (void)cancelButtonTouched:(id)sender;
+
+- (void)doneButtonTouched:(id)sender;
 
 @end

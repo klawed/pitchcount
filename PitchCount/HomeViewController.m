@@ -72,8 +72,8 @@
     datePicker.hidden = YES;
     datePicker.frame = DOWNFRAME;
     datePicker.datePickerMode = UIDatePickerModeDate;
-    UIImage *img = [UIImage imageNamed:@"tableBGRed.png"];
-	[[self tableView] setBackgroundColor:[UIColor colorWithPatternImage:img]];    
+//    UIImage *img = [UIImage imageNamed:@"tableBGRed.png"];
+//	[[self tableView] setBackgroundColor:[UIColor colorWithPatternImage:img]];    
 }
 
 - (void)viewDidUnload
@@ -294,7 +294,7 @@
         [fetchRequest setEntity:entity];
         
         // Edit the sort key as appropriate.
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"battingOrder" ascending:YES];
         NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
         
         [fetchRequest setSortDescriptors:sortDescriptors];

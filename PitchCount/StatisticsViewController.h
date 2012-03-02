@@ -10,10 +10,13 @@
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 #import "Game.h"
+#import "Pitcher.h"
 
 @interface StatisticsViewController : UITableViewController {
     AppDelegate *appDelegate;
+    NSArray *results;
     NSArray *gamesByDate;
+    NSArray *gamesByPitcher;
 
 }
 @property (nonatomic, retain) AppDelegate *appDelegate;
@@ -22,6 +25,11 @@
 
 @property (nonatomic, retain, getter = getManagedContext) NSManagedObjectContext *managedObjectContext;
 
+@property (nonatomic, retain) IBOutlet UISegmentedControl* titleView;
+
 -(void) initGames;
+
+-(IBAction)viewTypeTapped:(id)sender;
+
 
 @end

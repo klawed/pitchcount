@@ -19,7 +19,8 @@
     
     return YES;
 }
-							
+	
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*
@@ -82,7 +83,7 @@
         return persistentStoreCoordinator;
     }
     
-	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"Pitchers.sqlite"];
+	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"PitchCount.sqlite"];
 	/*
 	 Set up the store.
 	 For the sake of illustration, provide a pre-populated default store.
@@ -90,7 +91,7 @@
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	// If the expected store doesn't exist, copy the default store.
 	if (![fileManager fileExistsAtPath:storePath]) {
-		NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"Pitchers" ofType:@"sqlite"];
+		NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"PitchCount" ofType:@"sqlite"];
 		if (defaultStorePath) {
 			[fileManager copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
 		}
