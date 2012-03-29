@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Game.h"
 @interface GameStatistictsViewControllerViewController : UITableViewController
+
+@property (nonatomic, retain) Game *game;
 
 @end

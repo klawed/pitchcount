@@ -3,7 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
         <!--Home View Controller - Home-->
@@ -487,7 +487,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </view>
                                 <color key="backgroundColor" red="1" green="0.79607850313186646" blue="0.41568630933761597" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
-                                    <segue destination="3Ue-1P-dYc" kind="push" id="csS-M9-GhU"/>
+                                    <segue destination="3Ue-1P-dYc" kind="modal" identifier="GameSegue" modalTransitionStyle="flipHorizontal" id="csS-M9-GhU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1055,7 +1055,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nb8-q3-Gb1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="3Ue-1P-dYc" customClass="GameStatistictsViewControllerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sda-JF-Vl5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1211,6 +1211,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="warningCountdown" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="warningView" candidateClass="UIView"/>
             </relationships>
+        </class>
+        <class className="GameStatistictsViewControllerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameStatistictsViewControllerViewController.h"/>
         </class>
         <class className="HomeViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
