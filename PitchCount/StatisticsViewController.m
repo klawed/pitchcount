@@ -350,6 +350,8 @@
         theView.games = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pitcher = %@", selectedPitcher]];
         theView.pitcher = selectedPitcher;
 
+    } else if ([segue.identifier isEqualToString:@"GameSegue"]) {
+        
     }
 }
 @end

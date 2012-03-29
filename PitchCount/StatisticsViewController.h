@@ -12,6 +12,7 @@
 #import "Game.h"
 #import "Pitcher.h"
 #import "PitcherStatistictsViewController.h"
+#import "GameStatisticsViewController.h"
 
 @interface StatisticsViewController : UITableViewController {
     AppDelegate *appDelegate;

@@ -1049,11 +1049,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="647" y="734"/>
         </scene>
-        <!--Game Statisticts View Controller View Controller-->
+        <!--Game Statistics View Controller-->
         <scene sceneID="ct5-Ux-4ht">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nb8-q3-Gb1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="3Ue-1P-dYc" customClass="GameStatistictsViewControllerViewController" sceneMemberID="viewController">
+                <viewController id="3Ue-1P-dYc" customClass="GameStatisticsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sda-JF-Vl5">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1211,9 +1211,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="warningCountdown" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="warningView" candidateClass="UIView"/>
             </relationships>
-        </class>
-        <class className="GameStatistictsViewControllerViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameStatistictsViewControllerViewController.h"/>
         </class>
         <class className="HomeViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
