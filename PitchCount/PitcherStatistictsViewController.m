@@ -61,7 +61,7 @@
     CGRect tableRect = self.view.frame;
     tableRect.origin.x += tableBorderLeft; 
     tableRect.size.width -= 40;
-    self.tableView.frame = tableRect;
+    //self.tableView.frame = tableRect;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -164,9 +164,16 @@
         
         // Set the newly created shape layer as the mask for the image view's layer
         pitcherName.layer.mask = maskLayer;
+        
+        UITapGestureRecognizer *tp = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerTapped)];
+        [theView addGestureRecognizer:tp];
 
     }
     return theView;
+}
+
+-(void) headerTapped {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
