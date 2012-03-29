@@ -87,7 +87,6 @@
     [number setNumberStyle:NSNumberFormatterPercentStyle];
     
     self.percent.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
-    
 }
 
 -(void) checkWarning {
@@ -166,6 +165,7 @@
 }
 -(void) nextGame {
     Pitcher *nextPitcher = [self nextPitcher];
+    [[currentGame managedObjectContext] save:nil];
     currentGame = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
     currentGame.pitcher = nextPitcher;
     [self reset];

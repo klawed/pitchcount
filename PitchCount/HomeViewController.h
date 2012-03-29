@@ -17,17 +17,18 @@
 @interface HomeViewController : UITableViewController <PitcherPickDelegate, NSFetchedResultsControllerDelegate> {
     IBOutlet UINavigationBar *navigationBar;
     UIDatePicker *datePicker;
+    IBOutlet UIView* header;
     Pitcher *currentPitcher;
     AppDelegate *appDelegate;
 }
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, retain) IBOutlet UIView* header;
 @property (nonatomic, retain) Pitcher *currentPitcher;
 @property (nonatomic, retain) AppDelegate *appDelegate;
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 -(NSString *)todaysDate;
--(NSString*)ageForDate:(NSDate *)theDate;
 
 -(IBAction)toggleDatePicker:(id)sender;
 

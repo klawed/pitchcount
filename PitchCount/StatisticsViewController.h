@@ -11,12 +11,15 @@
 #import "AppDelegate.h"
 #import "Game.h"
 #import "Pitcher.h"
+#import "PitcherStatistictsViewController.h"
 
 @interface StatisticsViewController : UITableViewController {
     AppDelegate *appDelegate;
     NSArray *results;
     NSArray *gamesByDate;
     NSArray *gamesByPitcher;
+    UIView *tableHeader;
+    Pitcher *selectedPitcher;
 
 }
 @property (nonatomic, retain) AppDelegate *appDelegate;

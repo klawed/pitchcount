@@ -11,6 +11,7 @@
 		380F917F15011A560058BF8C /* StatisticsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380F917E15011A560058BF8C /* StatisticsHeaderView.xib */; };
 		380F918615013F2B0058BF8C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 380F918515013F2B0058BF8C /* icon@2x.png */; };
 		380F918815013F4C0058BF8C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 380F918715013F4C0058BF8C /* icon.png */; };
+		3811BAA315186B0C00091474 /* home_bkgrnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3811BAA215186B0C00091474 /* home_bkgrnd.png */; };
 		3830962E14D863F900DB7B61 /* table.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830962A14D863F900DB7B61 /* table.png */; };
 		3830963414D86A7100DB7B61 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830963314D86A7100DB7B61 /* Default.png */; };
 		3830963614D86A8C00DB7B61 /* icon_ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830963514D86A8C00DB7B61 /* icon_ball.png */; };
@@ -22,11 +23,15 @@
 		3830964514D8719C00DB7B61 /* strikezoneRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830964414D8719C00DB7B61 /* strikezoneRight.png */; };
 		384D092E14E419B5009FA89C /* BaseModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D092D14E419B5009FA89C /* BaseModeViewController.m */; };
 		3886CE1A14F7080900D3D2AD /* PitchCount.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3886CE1914F7080900D3D2AD /* PitchCount.sqlite */; };
+		389DC87315249F9600611CCE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389DC87215249F9600611CCE /* QuartzCore.framework */; };
 		38A1851D14E6B29C00454473 /* PlusMinusModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A1851C14E6B29C00454473 /* PlusMinusModeViewController.m */; };
 		38A1852614E6B81700454473 /* icon_minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A1852414E6B81700454473 /* icon_minus.png */; };
 		38A1852714E6B81700454473 /* icon_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A1852514E6B81700454473 /* icon_plus.png */; };
 		38A1852914E6BC4300454473 /* back_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A1852814E6BC4300454473 /* back_img.png */; };
-		38A1852B14E6BE0B00454473 /* tableBGRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A1852A14E6BE0B00454473 /* tableBGRed.png */; };
+		38B7C405151D44C000BF5EA1 /* HomeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B7C404151D44C000BF5EA1 /* HomeHeader.xib */; };
+		38B7C408151E52F800BF5EA1 /* PitcherStatistictsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B7C407151E52F800BF5EA1 /* PitcherStatistictsViewController.m */; };
+		38B7C40A151E5A4300BF5EA1 /* PitcherStatsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B7C409151E5A4300BF5EA1 /* PitcherStatsHeader.xib */; };
+		38B7C40C151E5C3800BF5EA1 /* baseBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 38B7C40B151E5C3800BF5EA1 /* baseBall.png */; };
 		38C18EBD14CB63FD00D0139E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C18EBC14CB63FD00D0139E /* UIKit.framework */; };
 		38C18EBF14CB63FD00D0139E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C18EBE14CB63FD00D0139E /* Foundation.framework */; };
 		38C18EC114CB63FD00D0139E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C18EC014CB63FD00D0139E /* CoreGraphics.framework */; };
@@ -68,6 +73,7 @@
 		380F917E15011A560058BF8C /* StatisticsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsHeaderView.xib; sourceTree = "<group>"; };
 		380F918515013F2B0058BF8C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		380F918715013F4C0058BF8C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		3811BAA215186B0C00091474 /* home_bkgrnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_bkgrnd.png; sourceTree = "<group>"; };
 		3830962A14D863F900DB7B61 /* table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table.png; sourceTree = "<group>"; };
 		3830963314D86A7100DB7B61 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3830963514D86A8C00DB7B61 /* icon_ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ball.png; sourceTree = "<group>"; };
@@ -81,12 +87,17 @@
 		384D092C14E419B5009FA89C /* BaseModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = BaseModeViewController.h; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		384D092D14E419B5009FA89C /* BaseModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModeViewController.m; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		3886CE1914F7080900D3D2AD /* PitchCount.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PitchCount.sqlite; sourceTree = "<group>"; };
+		389DC87215249F9600611CCE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		38A1851B14E6B29C00454473 /* PlusMinusModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlusMinusModeViewController.h; sourceTree = "<group>"; };
 		38A1851C14E6B29C00454473 /* PlusMinusModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlusMinusModeViewController.m; sourceTree = "<group>"; };
 		38A1852414E6B81700454473 /* icon_minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_minus.png; sourceTree = "<group>"; };
 		38A1852514E6B81700454473 /* icon_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_plus.png; sourceTree = "<group>"; };
 		38A1852814E6BC4300454473 /* back_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_img.png; sourceTree = "<group>"; };
-		38A1852A14E6BE0B00454473 /* tableBGRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableBGRed.png; sourceTree = "<group>"; };
+		38B7C404151D44C000BF5EA1 /* HomeHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeHeader.xib; sourceTree = "<group>"; };
+		38B7C406151E52F800BF5EA1 /* PitcherStatistictsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitcherStatistictsViewController.h; sourceTree = "<group>"; };
+		38B7C407151E52F800BF5EA1 /* PitcherStatistictsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PitcherStatistictsViewController.m; sourceTree = "<group>"; };
+		38B7C409151E5A4300BF5EA1 /* PitcherStatsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitcherStatsHeader.xib; sourceTree = "<group>"; };
+		38B7C40B151E5C3800BF5EA1 /* baseBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseBall.png; sourceTree = "<group>"; };
 		38C18EB814CB63FD00D0139E /* pitchcount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pitchcount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C18EBC14CB63FD00D0139E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		38C18EBE14CB63FD00D0139E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -128,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				389DC87315249F9600611CCE /* QuartzCore.framework in Frameworks */,
 				38E9FC2E14D1DDDC00B48985 /* CoreData.framework in Frameworks */,
 				38C18EBD14CB63FD00D0139E /* UIKit.framework in Frameworks */,
 				38C18EBF14CB63FD00D0139E /* Foundation.framework in Frameworks */,
@@ -158,6 +170,19 @@
 				38E9FC3014D22B1A00B48985 /* DataModel.xcdatamodeld */,
 			);
 			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		380F918915026ACF0058BF8C /* Other Views */ = {
+			isa = PBXGroup;
+			children = (
+				38E9FC3314D22F1B00B48985 /* PitcherListTableViewController.h */,
+				38E9FC3414D22F1B00B48985 /* PitcherListTableViewController.m */,
+				38E9FCD714D2650F00B48985 /* AddPitcherTableViewController.h */,
+				38E9FCD814D2650F00B48985 /* AddPitcherTableViewController.m */,
+				38B7C406151E52F800BF5EA1 /* PitcherStatistictsViewController.h */,
+				38B7C407151E52F800BF5EA1 /* PitcherStatistictsViewController.m */,
+			);
+			name = "Other Views";
 			sourceTree = "<group>";
 		};
 		3830962514D863C200DB7B61 /* Modes */ = {
@@ -194,9 +219,10 @@
 		38A1852314E6B7B200454473 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				38B7C40B151E5C3800BF5EA1 /* baseBall.png */,
+				3811BAA215186B0C00091474 /* home_bkgrnd.png */,
 				380F918715013F4C0058BF8C /* icon.png */,
 				380F918515013F2B0058BF8C /* icon@2x.png */,
-				38A1852A14E6BE0B00454473 /* tableBGRed.png */,
 				38A1852814E6BC4300454473 /* back_img.png */,
 				38A1852414E6B81700454473 /* icon_minus.png */,
 				38A1852514E6B81700454473 /* icon_plus.png */,
@@ -209,6 +235,7 @@
 		38C18EAD14CB63FD00D0139E = {
 			isa = PBXGroup;
 			children = (
+				389DC87215249F9600611CCE /* QuartzCore.framework */,
 				38E9FC2D14D1DDDC00B48985 /* CoreData.framework */,
 				38C18EC214CB63FD00D0139E /* PitchCount */,
 				38C18EEB14CB63FE00D0139E /* PitchCountTests */,
@@ -249,11 +276,8 @@
 				38C18ECC14CB63FD00D0139E /* AppDelegate.m */,
 				38C18ECE14CB63FD00D0139E /* MainStoryboard.storyboard */,
 				38357CDF14DBF8F7004AA98A /* Main Views */,
-				38E9FC3314D22F1B00B48985 /* PitcherListTableViewController.h */,
-				38E9FC3414D22F1B00B48985 /* PitcherListTableViewController.m */,
+				380F918915026ACF0058BF8C /* Other Views */,
 				38C18EC314CB63FD00D0139E /* Supporting Files */,
-				38E9FCD714D2650F00B48985 /* AddPitcherTableViewController.h */,
-				38E9FCD814D2650F00B48985 /* AddPitcherTableViewController.m */,
 			);
 			path = PitchCount;
 			sourceTree = "<group>";
@@ -303,6 +327,8 @@
 			children = (
 				38C6434C14DEEE77007D2E5A /* StatisticsTitleView.xib */,
 				380F917E15011A560058BF8C /* StatisticsHeaderView.xib */,
+				38B7C404151D44C000BF5EA1 /* HomeHeader.xib */,
+				38B7C409151E5A4300BF5EA1 /* PitcherStatsHeader.xib */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -395,11 +421,14 @@
 				38A1852614E6B81700454473 /* icon_minus.png in Resources */,
 				38A1852714E6B81700454473 /* icon_plus.png in Resources */,
 				38A1852914E6BC4300454473 /* back_img.png in Resources */,
-				38A1852B14E6BE0B00454473 /* tableBGRed.png in Resources */,
 				3886CE1A14F7080900D3D2AD /* PitchCount.sqlite in Resources */,
 				380F917F15011A560058BF8C /* StatisticsHeaderView.xib in Resources */,
 				380F918615013F2B0058BF8C /* icon@2x.png in Resources */,
 				380F918815013F4C0058BF8C /* icon.png in Resources */,
+				3811BAA315186B0C00091474 /* home_bkgrnd.png in Resources */,
+				38B7C405151D44C000BF5EA1 /* HomeHeader.xib in Resources */,
+				38B7C40A151E5A4300BF5EA1 /* PitcherStatsHeader.xib in Resources */,
+				38B7C40C151E5C3800BF5EA1 /* baseBall.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +475,7 @@
 				384D092E14E419B5009FA89C /* BaseModeViewController.m in Sources */,
 				38A1851D14E6B29C00454473 /* PlusMinusModeViewController.m in Sources */,
 				38C29CF614E6F33C00DE9FAB /* Pitcher.m in Sources */,
+				38B7C408151E52F800BF5EA1 /* PitcherStatistictsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +532,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Claude Keswani (7UAG3Z5TJA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Claude Keswani (7UAG3Z5TJA)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Claude Keswani (7UAG3Z5TJA)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -512,13 +542,13 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PROVISIONING_PROFILE = "2072073B-E59B-419B-B470-F8384CCA4ABA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2072073B-E59B-419B-B470-F8384CCA4ABA";
+				"PROVISIONING_PROFILE[sdk=*]" = "2072073B-E59B-419B-B470-F8384CCA4ABA";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -533,7 +563,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Claude Keswani (7UAG3Z5TJA)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

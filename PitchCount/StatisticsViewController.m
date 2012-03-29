@@ -1,4 +1,4 @@
-
+    
 //
 //  SecondViewController.m
 //  PitchCount
@@ -42,6 +42,10 @@
     titleView = (UISegmentedControl *)[nib objectAtIndex:0];
     [titleView addTarget:self action:@selector(viewTypeTapped:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = titleView;
+    
+    nib = [[NSBundle mainBundle] loadNibNamed:@"StatisticsHeaderView" owner:self options:nil];
+    tableHeader =(UIView *) [nib objectAtIndex:0];
+
     //NSError *error = nil;
 	/*
      if (![[self fetchedResultsController] performFetch:&error]) {
@@ -110,22 +114,61 @@
     return 0;
 }
 
+-(int) getTotalPitches:(NSArray *)filtered {
+    NSNumber *strikes = [filtered valueForKeyPath:@"@sum.strikes"];
+    NSNumber *balls = [filtered valueForKeyPath:@"@sum.balls"];
+    int total = [strikes intValue] + [balls intValue];
+    return total;
+}
+
+-(float) getPercent:(NSArray *)filtered {
+    NSNumber *strikes = [filtered valueForKeyPath:@"@sum.strikes"];
+    NSNumber *balls = [filtered valueForKeyPath:@"@sum.balls"];
+    float percent = [strikes floatValue]/([strikes floatValue] + [balls floatValue]);
+    return percent;
+}
+
 -(void) configureGameCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath
 {
     NSDate *theDate = (NSDate *)[gamesByDate objectAtIndex:indexPath.row];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MM/dd/YY"];
-    cell.textLabel.text = [dateFormat stringFromDate:theDate];
+    UILabel *dateLabel = (UILabel *)[cell viewWithTag:1];
+    dateLabel.text = [dateFormat stringFromDate:theDate];
+    
     NSArray *filtered = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"date = %@", theDate]];
-    NSNumber *total = [filtered valueForKeyPath:@"@sum.strikes"];
-    cell.detailTextLabel.text = [total description];
+    UILabel *totalLabel = (UILabel *)[cell viewWithTag:3];
+    totalLabel.text = [NSString stringWithFormat:@"%i",[self getTotalPitches:filtered]];
+    
+    UILabel *percentLabel = (UILabel *)[cell viewWithTag:2];
+    float perc = [self getPercent:filtered];
+    NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
+    [number setNumberStyle:NSNumberFormatterPercentStyle];
+    percentLabel.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
 }
 
+-(void) configurePitcherCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
+    Pitcher *pitcher = ((Pitcher *)[gamesByPitcher objectAtIndex:indexPath.row]);
+    UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
+    nameLabel.text = [NSString stringWithFormat:@"%@, %@", pitcher.lastName, pitcher.firstName];
+    
+    NSArray *filtered = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pitcher = %@", pitcher]];
+    UILabel *totalLabel = (UILabel *)[cell viewWithTag:3];
+    totalLabel.text = [NSString stringWithFormat:@"%i",[self getTotalPitches:filtered]];
+    
+    UILabel *percentLabel = (UILabel *)[cell viewWithTag:2];
+    float perc = [self getPercent:filtered];
+    NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
+    [number setNumberStyle:NSNumberFormatterPercentStyle];
+    percentLabel.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
+    
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *PitcherIdentifier = @"PitcherCell";
+    static NSString *GameIdentifier = @"GameCell";
+    NSString *CellIdentifier = (titleView.selectedSegmentIndex == GAMES) ? GameIdentifier : PitcherIdentifier;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
@@ -137,14 +180,15 @@
             break;
             
         case PITCHERS:
-            cell.textLabel.text = ((Pitcher *)[gamesByPitcher objectAtIndex:indexPath.row]).firstName;
+            [self configurePitcherCell:cell withIndexPath:indexPath];
             break;
         default:
             break;
     }
     
+    /* alternating row colors!!!
     UIView *myView = [[UIView alloc] init];
-    /*if ((indexPath.row % 2) == 0) {
+    if ((indexPath.row % 2) == 0) {
         myView.backgroundColor = [UIColor grayColor];
         cell.textLabel.backgroundColor = [UIColor grayColor];
     }
@@ -159,13 +203,16 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StatisticsHeaderView" owner:self options:nil];
-    return [nib objectAtIndex:0];
+    UILabel *theLabel = (UILabel *)[tableHeader viewWithTag:1];
+    theLabel.text = (titleView.selectedSegmentIndex == GAMES) ? @"Date" : @"Pitcher";
+    return tableHeader;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 35;
 }
+
+
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -206,18 +253,18 @@
  */
 
 #pragma mark - Table view delegate
-
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
+    
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+     
 }
-
+*/
 #pragma mark -
 #pragma mark Fetched results controller
 
@@ -289,5 +336,20 @@
             break;
     }
     [self.tableView reloadData];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"pitcherSegue"]) {
+
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        if (titleView.selectedSegmentIndex == PITCHERS) {
+            selectedPitcher = ((Pitcher *)[gamesByPitcher objectAtIndex:indexPath.row]);
+        }
+
+        PitcherStatistictsViewController* theView = (PitcherStatistictsViewController *)segue.destinationViewController;
+        theView.games = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pitcher = %@", selectedPitcher]];
+        theView.pitcher = selectedPitcher;
+
+    }
 }
 @end

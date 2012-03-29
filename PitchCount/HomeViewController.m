@@ -8,11 +8,11 @@
 
 #import "HomeViewController.h"
 
-#define UPFRAME    CGRectMake(0, 155, 320, 216)
+#define UPFRAME    CGRectMake(0, 200, 320, 216)
 #define DOWNFRAME  CGRectMake(0, 480, 320, 216)
 @implementation HomeViewController
 
-@synthesize datePicker, currentPitcher, appDelegate;
+@synthesize datePicker, currentPitcher, appDelegate, header;
 
 @synthesize fetchedResultsController;
 
@@ -47,13 +47,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+//    self.navigationController.navigationBarHidden = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    datePicker.hidden = YES;
+
     
     
 	NSError *error = nil;
@@ -72,7 +72,7 @@
     datePicker.hidden = YES;
     datePicker.frame = DOWNFRAME;
     datePicker.datePickerMode = UIDatePickerModeDate;
-//    UIImage *img = [UIImage imageNamed:@"tableBGRed.png"];
+//    UIImage *img = [UIImage imageNamed:@"home_bkgrnd.png"];
 //	[[self tableView] setBackgroundColor:[UIColor colorWithPatternImage:img]];    
 }
 
@@ -146,8 +146,8 @@
                 if (cell == nil) {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:dateIdentifier];
                 }
-                UIImage *img = [UIImage imageNamed:@"tableBGRed.png"];
-                [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
+                /*UIImage *img = [UIImage imageNamed:@"tableBGRed.png"];
+                [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];*/
 
                 UILabel *label;
                 label = (UILabel *)[cell viewWithTag:1];
@@ -199,23 +199,32 @@
 }
 
 
-/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return @"Pitcher Information";
+            return @"Pitch Count";
             break;
             
         default:
-            return @"no title";
+            return @"";
             break;
     }
-}*/
-/*
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return (section == 0) ? 62 : 0;
+}
+
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSArray *niblets = [[NSBundle mainBundle] loadNibNamed:@"HomeHeader" owner:self options:NULL];
+    
     switch (section) {
+            
         case 0:
-            [[NSBundle mainBundle] loadNibNamed:@"PitcherInfoHeader" owner:self options:nil];
-            return self.pitcherInfoHeader;
+            return [niblets objectAtIndex:0];
             break;
             
         default:
@@ -223,7 +232,7 @@
             break;
     }
 }
- */
+
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -278,6 +287,16 @@
 
 - (void)pitcherListViewController:(PitcherListTableViewController *)pitcherListViewController didPickPitcher:(Pitcher *)pitcher {
     self.currentPitcher = pitcher;
+    NSError *error = nil;
+	if (![[self fetchedResultsController] performFetch:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 
+		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+		 */
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+	}	
     [self.tableView reloadData];
 }
 
