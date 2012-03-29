@@ -12,7 +12,7 @@
 
 @implementation GameStatisticsViewController
 
-@synthesize game;
+@synthesize gameDate, allGames;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -73,8 +73,11 @@
     if (section == 0) {
         NSArray *niblets = [[NSBundle mainBundle] loadNibNamed:@"PitcherStatsHeader" owner:self options:NULL];
         theView = (UIView *)[niblets objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"MM/dd/YY"];
+
         UILabel *theLabel = (UILabel *)[theView viewWithTag:13];
-        theLabel.text = @"Game Date Here";//game.date;
+        theLabel.text =[dateFormat stringFromDate:gameDate];
         //[v.layer setCornerRadius:15.0f];
         //[[theView viewWithTag:1].layer setCornerRadius:10.0f];
         UIView *pitcherName = [theView viewWithTag:1];

@@ -10,6 +10,7 @@
 #import "Game.h"
 @interface GameStatisticsViewController : UITableViewController
 
-@property (nonatomic, retain) Game *game;
+@property (nonatomic, retain) NSDate *gameDate;
+@property (nonatomic, retain) NSArray *allGames;
 
 @end

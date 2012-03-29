@@ -339,19 +339,23 @@
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     if ([segue.identifier isEqualToString:@"pitcherSegue"]) {
-
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         if (titleView.selectedSegmentIndex == PITCHERS) {
             selectedPitcher = ((Pitcher *)[gamesByPitcher objectAtIndex:indexPath.row]);
         }
-
         PitcherStatistictsViewController* theView = (PitcherStatistictsViewController *)segue.destinationViewController;
         theView.games = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pitcher = %@", selectedPitcher]];
         theView.pitcher = selectedPitcher;
 
     } else if ([segue.identifier isEqualToString:@"GameSegue"]) {
+        NSDate *theDate = (NSDate *)[gamesByDate objectAtIndex:indexPath.row];
+
+        GameStatisticsViewController *theView = (GameStatisticsViewController *)segue.destinationViewController;
+        theView.gameDate = theDate;
         
+        NSArray *filtered = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"date = %@", theDate]];
+        theView.allGames = filtered;
     }
 }
 @end
