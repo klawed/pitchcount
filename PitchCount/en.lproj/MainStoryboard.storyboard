@@ -1049,16 +1049,69 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="647" y="734"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Statisticts View Controller View Controller-->
         <scene sceneID="ct5-Ux-4ht">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nb8-q3-Gb1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="3Ue-1P-dYc" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WrN-vg-eFf">
+                <viewController id="3Ue-1P-dYc" customClass="GameStatistictsViewControllerViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sda-JF-Vl5">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GameCell" rowHeight="23" id="jXj-Ce-8tB">
+                                <rect key="frame" x="0.0" y="22" width="320" height="23"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="22"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="fJE-YH-edp">
+                                            <rect key="frame" x="10" y="0.0" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="vIf-dk-pcf">
+                                            <rect key="frame" x="70" y="0.0" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="olp-zi-XCD">
+                                            <rect key="frame" x="144" y="0.0" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="ARV-aK-Fiz">
+                                            <rect key="frame" x="209" y="0.0" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="LfF-D4-zL7">
+                                            <rect key="frame" x="266" y="0.0" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.74509805439999999" green="0.61960786580000005" blue="0.41960787770000002" alpha="1" colorSpace="deviceRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xoB-Sk-krX" id="ed1-aA-KyH"/>
+                            <outlet property="delegate" destination="xoB-Sk-krX" id="PKc-Mo-WEr"/>
+                        </connections>
+                    </tableView>
                     <navigationItem key="navigationItem" id="lmm-23-nkx"/>
                 </viewController>
             </objects>
@@ -1130,72 +1183,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="icon_plus.png" width="78" height="59"/>
         <image name="strikezoneRight.png" width="280" height="358"/>
     </resources>
-    <classes>
-        <class className="AddPitcherTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddPitcherTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="save:"/>
-            </relationships>
-        </class>
-        <class className="BaseModeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseModeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addBall"/>
-                <relationship kind="action" name="addStrike"/>
-                <relationship kind="action" name="cancelTapped:"/>
-                <relationship kind="action" name="doneTapped:"/>
-                <relationship kind="action" name="inningCancelButtonTapped:"/>
-                <relationship kind="action" name="inningDoneButtonTapped:"/>
-                <relationship kind="action" name="removeBall"/>
-                <relationship kind="action" name="removeStrike"/>
-                <relationship kind="outlet" name="balls" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="inningPicker" candidateClass="UIView"/>
-                <relationship kind="outlet" name="percent" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pitcherName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="strikes" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="total" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="warning" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="warningCountdown" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="warningView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="HomeViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="toggleDatePicker:"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="header" candidateClass="UIView"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-            </relationships>
-        </class>
-        <class className="PitcherListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PitcherListTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="goHome:"/>
-                <relationship kind="action" name="selectPitcher:"/>
-            </relationships>
-        </class>
-        <class className="PitcherStatistictsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PitcherStatistictsViewController.h"/>
-        </class>
-        <class className="PlusMinusModeViewController" superclassName="BaseModeViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlusMinusModeViewController.h"/>
-        </class>
-        <class className="StatisticsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatisticsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="viewTypeTapped:"/>
-                <relationship kind="outlet" name="titleView" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="StrikeZoneModeViewController" superclassName="BaseModeViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StrikeZoneModeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapRecognized:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="wtf:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
