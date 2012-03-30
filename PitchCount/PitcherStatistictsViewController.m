@@ -148,47 +148,10 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView * theView;
-    if (section == 0) {
-        NSArray *niblets = [[NSBundle mainBundle] loadNibNamed:@"PitcherStatsHeader" owner:self options:NULL];
-        theView = (UIView *)[niblets objectAtIndex:0];
-        UILabel *theLabel = (UILabel *)[theView viewWithTag:13];
-        theLabel.text = [NSString stringWithFormat:@"%@ %@", pitcher.firstName, pitcher.lastName];
-        //[v.layer setCornerRadius:15.0f];
-        //[[theView viewWithTag:1].layer setCornerRadius:10.0f];
-        UIView *pitcherName = [theView viewWithTag:1];
-        // Create the path (with only the top-left corner rounded)
-        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:pitcherName.bounds 
-                                                       byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
-                                                             cornerRadii:CGSizeMake(10.0, 10.0)];
-        
-        // Create the shape layer and set its path
-        CAShapeLayer *maskLayer = [CAShapeLayer layer];
-        maskLayer.frame = pitcherName.bounds;
-        maskLayer.path = maskPath.CGPath;
-        
-        // Set the newly created shape layer as the mask for the image view's layer
-        pitcherName.layer.mask = maskLayer;
-        
-        UITapGestureRecognizer *tp = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerTapped)];
-        [theView addGestureRecognizer:tp];
-
-    }
+    UIView *theView = [super tableView:tableView viewForHeaderInSection:section];
+    UILabel *theLabel = (UILabel *)[theView viewWithTag:13];
+    theLabel.text = [NSString stringWithFormat:@"%@ %@", pitcher.firstName, pitcher.lastName];
     return theView;
-}
-
--(void) headerTapped {
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return (section == 0) ? 145: 0;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-    return 30;
 }
 
 /*

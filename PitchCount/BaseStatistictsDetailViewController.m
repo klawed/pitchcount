@@ -48,4 +48,45 @@
     return theView;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView * theView;
+    if (section == 0) {
+        NSArray *niblets = [[NSBundle mainBundle] loadNibNamed:@"PitcherStatsHeader" owner:self options:NULL];
+        theView = (UIView *)[niblets objectAtIndex:0];
+        UIView *pitcherName = [theView viewWithTag:1];
+        // Create the path (with only the top-left corner rounded)
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:pitcherName.bounds 
+                                                       byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
+                                                             cornerRadii:CGSizeMake(10.0, 10.0)];
+        
+        // Create the shape layer and set its path
+        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = pitcherName.bounds;
+        maskLayer.path = maskPath.CGPath;
+        
+        // Set the newly created shape layer as the mask for the image view's layer
+        pitcherName.layer.mask = maskLayer;
+        
+        UITapGestureRecognizer *tp = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerTapped)];
+        [theView addGestureRecognizer:tp];
+        
+    }
+    return theView;
+}
+
+-(void) headerTapped {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 30;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 145;
+}
+
+
 @end
