@@ -55,16 +55,42 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [allGames count];
 }
 
+-(void) configureCell:(UITableViewCell *)theCell withIndexPath:(NSIndexPath *)indexPath {
+    UILabel *pitcherLabel = (UILabel *)[theCell viewWithTag:1];
+    UILabel *inningsPitchedLabel = (UILabel *)[theCell viewWithTag:2];
+    UILabel *totalLabel = (UILabel *)[theCell viewWithTag:3];
+    UILabel *strikesLabel = (UILabel *)[theCell viewWithTag:4];
+    UILabel *strikePercentLabel = (UILabel *)[theCell viewWithTag:5];
+    Game *theGame = [allGames objectAtIndex:indexPath.row];
+    pitcherLabel.text = [NSString stringWithFormat:@"%@ %@", theGame.pitcher.firstName, theGame.pitcher.lastName];
+    
+    inningsPitchedLabel.text = [NSString stringWithFormat:@"%@", theGame.innings];
+    
+    
+    
+    totalLabel.text = [NSString stringWithFormat:@"%d", [theGame.balls intValue] + [theGame.strikes intValue]];
+    
+    strikesLabel.text = [NSString stringWithFormat:@"%d", [theGame.strikes intValue]];
+    NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
+    [number setNumberStyle:NSNumberFormatterPercentStyle];
+    
+    float balls = [theGame.balls floatValue];
+    float strikes = [theGame.strikes floatValue];
+    float perc = strikes / (strikes + balls);
+    strikePercentLabel.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
+    
+    
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"GameCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    
+    [self configureCell:cell withIndexPath:indexPath];
     return cell;
 }
 
@@ -91,6 +117,8 @@
         maskLayer.frame = pitcherName.bounds;
         maskLayer.path = maskPath.CGPath;
         
+        UILabel *pitcherLabel = (UILabel *)[theView viewWithTag:14];
+        pitcherLabel.text = @"Pitcher";
         // Set the newly created shape layer as the mask for the image view's layer
         pitcherName.layer.mask = maskLayer;
         
@@ -100,6 +128,34 @@
     }
     return theView;
 }
+
+
+ -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+     NSArray *niblets = [[NSBundle mainBundle] loadNibNamed:@"PitcherStatsFooter" owner:self options:NULL];
+     UIView *theView = (UIView *)[niblets objectAtIndex:0];
+     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:theView.bounds 
+                                                   byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight
+                                                         cornerRadii:CGSizeMake(10.0, 10.0)];
+    
+    // Create the shape layer and set its path
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = theView.bounds;
+    maskLayer.path = maskPath.CGPath;
+    theView.layer.mask = maskLayer;
+    
+     UILabel *ipTotalLabel = (UILabel *)[theView viewWithTag:2];
+     UILabel *totalTotalLabel = (UILabel *)[theView viewWithTag:3];
+     UILabel *strikesTotalLabel = (UILabel *)[theView viewWithTag:4];
+     UILabel *percentTotal =(UILabel *)[theView viewWithTag:5];
+
+     
+     return theView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 30;
+}
+
 -(void) headerTapped {
     [self dismissModalViewControllerAnimated:YES];
 }

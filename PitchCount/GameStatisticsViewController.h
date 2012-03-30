@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Game.h"
+#import "Pitcher.h"
 @interface GameStatisticsViewController : UITableViewController
 
 @property (nonatomic, retain) NSDate *gameDate;
