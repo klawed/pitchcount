@@ -23,6 +23,7 @@
 		3830964514D8719C00DB7B61 /* strikezoneRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830964414D8719C00DB7B61 /* strikezoneRight.png */; };
 		384D092E14E419B5009FA89C /* BaseModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D092D14E419B5009FA89C /* BaseModeViewController.m */; };
 		3886CE1A14F7080900D3D2AD /* PitchCount.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3886CE1914F7080900D3D2AD /* PitchCount.sqlite */; };
+		38972E1C1524F72800ADD444 /* GameStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38972E1B1524F72800ADD444 /* GameStatisticsViewController.m */; };
 		389DC87315249F9600611CCE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389DC87215249F9600611CCE /* QuartzCore.framework */; };
 		38A1851D14E6B29C00454473 /* PlusMinusModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A1851C14E6B29C00454473 /* PlusMinusModeViewController.m */; };
 		38A1852614E6B81700454473 /* icon_minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A1852414E6B81700454473 /* icon_minus.png */; };
@@ -50,6 +51,8 @@
 		38C18F0914CB753400D0139E /* PitcherInfoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C18F0814CB753400D0139E /* PitcherInfoHeader.xib */; };
 		38C29CF614E6F33C00DE9FAB /* Pitcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29CF514E6F33C00DE9FAB /* Pitcher.m */; };
 		38C6434D14DEEE77007D2E5A /* StatisticsTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C6434C14DEEE77007D2E5A /* StatisticsTitleView.xib */; };
+		38D1A16515252A0300845455 /* PitcherStatsFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38D1A16415252A0300845455 /* PitcherStatsFooter.xib */; };
+		38D1A1681525A41F00845455 /* BaseStatistictsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D1A1671525A41F00845455 /* BaseStatistictsDetailViewController.m */; };
 		38D677E614D333E0002EF95B /* DataModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 38E9FC3014D22B1A00B48985 /* DataModel.xcdatamodeld */; };
 		38E9FC2E14D1DDDC00B48985 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E9FC2D14D1DDDC00B48985 /* CoreData.framework */; };
 		38E9FC3214D22B1A00B48985 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38E9FC3014D22B1A00B48985 /* DataModel.xcdatamodeld */; };
@@ -87,6 +90,8 @@
 		384D092C14E419B5009FA89C /* BaseModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = BaseModeViewController.h; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		384D092D14E419B5009FA89C /* BaseModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModeViewController.m; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		3886CE1914F7080900D3D2AD /* PitchCount.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PitchCount.sqlite; sourceTree = "<group>"; };
+		38972E1A1524F72800ADD444 /* GameStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatisticsViewController.h; sourceTree = "<group>"; };
+		38972E1B1524F72800ADD444 /* GameStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatisticsViewController.m; sourceTree = "<group>"; };
 		389DC87215249F9600611CCE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		38A1851B14E6B29C00454473 /* PlusMinusModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlusMinusModeViewController.h; sourceTree = "<group>"; };
 		38A1851C14E6B29C00454473 /* PlusMinusModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlusMinusModeViewController.m; sourceTree = "<group>"; };
@@ -124,6 +129,9 @@
 		38C29CF414E6F33C00DE9FAB /* Pitcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pitcher.h; sourceTree = "<group>"; };
 		38C29CF514E6F33C00DE9FAB /* Pitcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pitcher.m; sourceTree = "<group>"; };
 		38C6434C14DEEE77007D2E5A /* StatisticsTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsTitleView.xib; sourceTree = "<group>"; };
+		38D1A16415252A0300845455 /* PitcherStatsFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitcherStatsFooter.xib; sourceTree = "<group>"; };
+		38D1A1661525A41F00845455 /* BaseStatistictsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = BaseStatistictsDetailViewController.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		38D1A1671525A41F00845455 /* BaseStatistictsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BaseStatistictsDetailViewController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		38E9FC2D14D1DDDC00B48985 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		38E9FC3114D22B1A00B48985 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		38E9FC3314D22F1B00B48985 /* PitcherListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitcherListTableViewController.h; sourceTree = "<group>"; };
@@ -181,6 +189,10 @@
 				38E9FCD814D2650F00B48985 /* AddPitcherTableViewController.m */,
 				38B7C406151E52F800BF5EA1 /* PitcherStatistictsViewController.h */,
 				38B7C407151E52F800BF5EA1 /* PitcherStatistictsViewController.m */,
+				38D1A1661525A41F00845455 /* BaseStatistictsDetailViewController.h */,
+				38D1A1671525A41F00845455 /* BaseStatistictsDetailViewController.m */,
+				38972E1A1524F72800ADD444 /* GameStatisticsViewController.h */,
+				38972E1B1524F72800ADD444 /* GameStatisticsViewController.m */,
 			);
 			name = "Other Views";
 			sourceTree = "<group>";
@@ -329,6 +341,7 @@
 				380F917E15011A560058BF8C /* StatisticsHeaderView.xib */,
 				38B7C404151D44C000BF5EA1 /* HomeHeader.xib */,
 				38B7C409151E5A4300BF5EA1 /* PitcherStatsHeader.xib */,
+				38D1A16415252A0300845455 /* PitcherStatsFooter.xib */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -429,6 +442,7 @@
 				38B7C405151D44C000BF5EA1 /* HomeHeader.xib in Resources */,
 				38B7C40A151E5A4300BF5EA1 /* PitcherStatsHeader.xib in Resources */,
 				38B7C40C151E5C3800BF5EA1 /* baseBall.png in Resources */,
+				38D1A16515252A0300845455 /* PitcherStatsFooter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +490,8 @@
 				38A1851D14E6B29C00454473 /* PlusMinusModeViewController.m in Sources */,
 				38C29CF614E6F33C00DE9FAB /* Pitcher.m in Sources */,
 				38B7C408151E52F800BF5EA1 /* PitcherStatistictsViewController.m in Sources */,
+				38972E1C1524F72800ADD444 /* GameStatisticsViewController.m in Sources */,
+				38D1A1681525A41F00845455 /* BaseStatistictsDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
