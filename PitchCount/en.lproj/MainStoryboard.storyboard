@@ -44,6 +44,10 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                             </timeZone>
+                            <connections>
+                                <action selector="datePicked:" destination="2Vw-G1-xpd" eventType="valueChanged" id="xtb-CT-xTF"/>
+                                <action selector="toggleDatePicker:" destination="2Vw-G1-xpd" eventType="touchUpInside" id="7vU-aP-wg1"/>
+                            </connections>
                         </datePicker>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DateCell" editingAccessoryType="detailDisclosureButton" id="256-tP-sRF">
@@ -1212,13 +1216,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="warningView" candidateClass="UIView"/>
             </relationships>
         </class>
-        <class className="GameStatisticsViewController" superclassName="UITableViewController">
+        <class className="BaseStatistictsDetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseStatistictsDetailViewController.h"/>
+        </class>
+        <class className="GameStatisticsViewController" superclassName="BaseStatistictsDetailViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameStatisticsViewController.h"/>
         </class>
         <class className="HomeViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
             <relationships>
+                <relationship kind="action" name="datePicked:"/>
                 <relationship kind="action" name="toggleDatePicker:"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
                 <relationship kind="outlet" name="header" candidateClass="UIView"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
@@ -1231,7 +1240,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="selectPitcher:"/>
             </relationships>
         </class>
-        <class className="PitcherStatistictsViewController" superclassName="UITableViewController">
+        <class className="PitcherStatistictsViewController" superclassName="BaseStatistictsDetailViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PitcherStatistictsViewController.h"/>
         </class>
         <class className="PlusMinusModeViewController" superclassName="BaseModeViewController">

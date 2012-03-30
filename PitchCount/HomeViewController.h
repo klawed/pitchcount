@@ -25,13 +25,13 @@
 @property (nonatomic, retain) IBOutlet UIView* header;
 @property (nonatomic, retain) Pitcher *currentPitcher;
 @property (nonatomic, retain) AppDelegate *appDelegate;
-
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 -(NSString *)todaysDate;
 
 -(IBAction)toggleDatePicker:(id)sender;
 
+-(IBAction)datePicked:(id)sender;
 
 - (void) strikeModeSelected;
 

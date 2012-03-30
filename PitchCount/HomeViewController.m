@@ -73,7 +73,8 @@
     datePicker.frame = DOWNFRAME;
     datePicker.datePickerMode = UIDatePickerModeDate;
 //    UIImage *img = [UIImage imageNamed:@"home_bkgrnd.png"];
-//	[[self tableView] setBackgroundColor:[UIColor colorWithPatternImage:img]];    
+//	[[self tableView] setBackgroundColor:[UIColor colorWithPatternImage:img]];  
+    
 }
 
 - (void)viewDidUnload
@@ -338,16 +339,28 @@
 	return appDelegate.managedObjectModel;
 }
 
+#pragma  mark -
+#pragma mark uipickerviewdelegate
+- (void)datePicked:(id)sender {
+    UITableViewCell *dateCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] ];
+    UILabel *dateLabel = (UILabel *)[dateCell viewWithTag:1];
+    dateLabel.text = [self formatDate:datePicker.date];
+}
 
 
 #pragma mark -
 #pragma mark helper methods
--(NSString*)todaysDate {
-    NSDate *today = [NSDate date];
+
+-(NSString*) formatDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMM dd, yyyy"];
-    NSString *date = [formatter stringFromDate:today];
-    return date;
+    NSString *dateString = [formatter stringFromDate:date];
+    return dateString;
+}
+
+-(NSString*)todaysDate {
+    NSDate *today = [NSDate date];
+    return [self formatDate:today];    
 }
 
 #pragma mark -
