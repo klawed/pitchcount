@@ -345,7 +345,7 @@
             selectedPitcher = ((Pitcher *)[gamesByPitcher objectAtIndex:indexPath.row]);
         }
         PitcherStatistictsViewController* theView = (PitcherStatistictsViewController *)segue.destinationViewController;
-        theView.games = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pitcher = %@", selectedPitcher]];
+        theView.dataSource = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pitcher = %@", selectedPitcher]];
         theView.pitcher = selectedPitcher;
 
     } else if ([segue.identifier isEqualToString:@"GameSegue"]) {
@@ -355,7 +355,7 @@
         theView.gameDate = theDate;
         
         NSArray *filtered = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"date = %@", theDate]];
-        theView.allGames = filtered;
+        theView.dataSource = filtered;
     }
 }
 @end

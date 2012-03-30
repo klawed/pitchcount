@@ -12,7 +12,7 @@
 
 @implementation PitcherStatistictsViewController
 
-@synthesize games, pitcher;
+@synthesize pitcher;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -95,7 +95,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [games count];
+    return [dataSource count];
 }
 
 -(void) configureCell:(UITableViewCell *)theCell withIndexPath:(NSIndexPath *)indexPath {
@@ -104,7 +104,7 @@
     UILabel *totalLabel = (UILabel *)[theCell viewWithTag:3];
     UILabel *strikesLabel = (UILabel *)[theCell viewWithTag:4];
     UILabel *strikePercentLabel = (UILabel *)[theCell viewWithTag:5];
-    Game *theGame = [games objectAtIndex:indexPath.row];
+    Game *theGame = [dataSource objectAtIndex:indexPath.row];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MM/dd/YY"];
     dateLabel.text = [dateFormat stringFromDate:theGame.date];
@@ -125,29 +125,6 @@
     strikePercentLabel.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
     
     
-}
-
-
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    NSArray *niblets = [[NSBundle mainBundle] loadNibNamed:@"PitcherStatsFooter" owner:self options:NULL];
-    UIView *theView = (UIView *)[niblets objectAtIndex:0];
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:theView.bounds 
-                                                   byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight
-                                                         cornerRadii:CGSizeMake(10.0, 10.0)];
-    
-    // Create the shape layer and set its path
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = theView.bounds;
-    maskLayer.path = maskPath.CGPath;
-    theView.layer.mask = maskLayer;
-    
-    UILabel *ipTotalLabel = (UILabel *)[theView viewWithTag:2];
-    UILabel *totalTotalLabel = (UILabel *)[theView viewWithTag:3];
-    UILabel *strikesTotalLabel = (UILabel *)[theView viewWithTag:4];
-    UILabel *percentTotal =(UILabel *)[theView viewWithTag:5];
-    
-    
-    return theView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

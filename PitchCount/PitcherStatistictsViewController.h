@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseStatistictsDetailViewController.h"
 #import "Pitcher.h"
 #import "Game.h"
 
-@interface PitcherStatistictsViewController : UITableViewController {
-    NSArray *games;
+@interface PitcherStatistictsViewController : BaseStatistictsDetailViewController {
 }
 
-@property (nonatomic, retain) NSArray* games;
 @property (nonatomic, retain) Pitcher* pitcher;
        
 - (void)configureCell:(UITableViewCell *)theCell withIndexPath:(NSIndexPath *)indexPath;

@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 #import "Pitcher.h"
-@interface GameStatisticsViewController : UITableViewController
+#import "BaseStatistictsDetailViewController.h"
+
+@interface GameStatisticsViewController : BaseStatistictsDetailViewController
 
 @property (nonatomic, retain) NSDate *gameDate;
-@property (nonatomic, retain) NSArray *allGames;
+
 
 @end

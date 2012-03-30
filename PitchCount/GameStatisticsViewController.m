@@ -12,7 +12,7 @@
 
 @implementation GameStatisticsViewController
 
-@synthesize gameDate, allGames;
+@synthesize gameDate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -55,7 +55,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [allGames count];
+    return [dataSource count];
 }
 
 -(void) configureCell:(UITableViewCell *)theCell withIndexPath:(NSIndexPath *)indexPath {
@@ -64,7 +64,7 @@
     UILabel *totalLabel = (UILabel *)[theCell viewWithTag:3];
     UILabel *strikesLabel = (UILabel *)[theCell viewWithTag:4];
     UILabel *strikePercentLabel = (UILabel *)[theCell viewWithTag:5];
-    Game *theGame = [allGames objectAtIndex:indexPath.row];
+    Game *theGame = [dataSource objectAtIndex:indexPath.row];
     pitcherLabel.text = [NSString stringWithFormat:@"%@ %@", theGame.pitcher.firstName, theGame.pitcher.lastName];
     
     inningsPitchedLabel.text = [NSString stringWithFormat:@"%@", theGame.innings];
@@ -130,28 +130,7 @@
 }
 
 
- -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-     NSArray *niblets = [[NSBundle mainBundle] loadNibNamed:@"PitcherStatsFooter" owner:self options:NULL];
-     UIView *theView = (UIView *)[niblets objectAtIndex:0];
-     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:theView.bounds 
-                                                   byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight
-                                                         cornerRadii:CGSizeMake(10.0, 10.0)];
-    
-    // Create the shape layer and set its path
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = theView.bounds;
-    maskLayer.path = maskPath.CGPath;
-    theView.layer.mask = maskLayer;
-    
-     UILabel *ipTotalLabel = (UILabel *)[theView viewWithTag:2];
-     UILabel *totalTotalLabel = (UILabel *)[theView viewWithTag:3];
-     UILabel *strikesTotalLabel = (UILabel *)[theView viewWithTag:4];
-     UILabel *percentTotal =(UILabel *)[theView viewWithTag:5];
-
-     
-     return theView;
-}
-
+ 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 30;
 }
