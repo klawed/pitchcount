@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1181</string>
+			<string key="NS.object.0">1179</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBUIImageView</string>
@@ -144,7 +144,7 @@
 						<string key="NSReuseIdentifierKey">_NS:196</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">2</int>
-							<bytes key="NSRGB">MC43NDExNzY0ODYgMC42MjM1Mjk0MzQyIDAuNDIzNTI5NDQ2MQA</bytes>
+							<bytes key="NSRGB">MC44IDAuNzE3NjQ3MDU4OCAwLjQ5MDE5NjA3ODQAA</bytes>
 						</object>
 						<int key="IBUIContentMode">4</int>
 						<int key="IBUITag">1</int>
@@ -279,7 +279,7 @@
 						<string key="NSReuseIdentifierKey">_NS:196</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">2</int>
-							<bytes key="NSRGB">MC45OTYwNzg0OTEyIDAuODMxMzcyNjE4NyAwLjUxNzY0NzA4NzYAA</bytes>
+							<bytes key="NSRGB">MC45NTY4NjI3NDUxIDAuNzg0MzEzNzI1NSAwLjUxNzY0NzA1ODgAA</bytes>
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -422,8 +422,16 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
-					<string key="className">PitcherStatistictsViewController</string>
+					<string key="className">BaseStatistictsDetailViewController</string>
 					<string key="superclassName">UITableViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BaseStatistictsDetailViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">PitcherStatistictsViewController</string>
+					<string key="superclassName">BaseStatistictsDetailViewController</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/PitcherStatistictsViewController.h</string>
@@ -443,6 +451,6 @@
 			<string key="NS.key.0">baseBall.png</string>
 			<string key="NS.object.0">{63, 62}</string>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">1181</string>
+		<string key="IBCocoaTouchPluginVersion">1179</string>
 	</data>
 </archive>
