@@ -85,7 +85,6 @@
     float perc = (currentBalls == 0 && currentStrikes == 0) ? 0 : (float)currentStrikes/((float)currentBalls+(float)currentStrikes);
     NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
     [number setNumberStyle:NSNumberFormatterPercentStyle];
-    
     self.percent.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
 }
 
@@ -163,16 +162,21 @@
     warningView.alpha = 0.0;
     
 }
+
+-(void) saveGame {
+    currentGame.strikes = [NSNumber numberWithInt:currentStrikes];
+    currentGame.balls = [NSNumber numberWithInt:currentBalls];
+    [[currentGame managedObjectContext] save:nil];
+}
 -(void) nextGame {
     Pitcher *nextPitcher = [self nextPitcher];
-    [[currentGame managedObjectContext] save:nil];
+    [self saveGame];
     currentGame = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
     currentGame.pitcher = nextPitcher;
     [self reset];
     }
 
 -(void) newPitcher {
-    //[[[UIAlertView alloc]initWithTitle:@"Not implemented" message:@"oops" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
     if ([pitcherList count] > 1) {
         [self performSegueWithIdentifier:@"PickANewPitcher" sender:self];
     } else {
@@ -244,6 +248,8 @@
             break;
         
         case 0:
+            //game over
+            [self saveGame];
             [self dismissModalViewControllerAnimated:YES];
             break;
         default:
@@ -282,9 +288,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     currentGame.innings = [NSNumber numberWithInteger:[(NSString *)[innings objectAtIndex:row] integerValue]];
-    currentGame.strikes = [NSNumber numberWithInt:currentStrikes];
-    currentGame.balls = [NSNumber numberWithInt:currentBalls];
-    [[currentGame managedObjectContext] save:nil];
+    [self saveGame];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {

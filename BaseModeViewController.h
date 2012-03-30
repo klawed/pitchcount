@@ -50,7 +50,7 @@
 -(void) removeBall;
 -(void) updatePercent;
 -(void) updateTotal;
-
+-(void) saveGame;
 -(void) nextGame;
 
 -(void) newPitcher;
