@@ -22,6 +22,8 @@
 		3830964314D8715F00DB7B61 /* StrikeZoneModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3830964114D8715F00DB7B61 /* StrikeZoneModeViewController.xib */; };
 		3830964514D8719C00DB7B61 /* strikezoneRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830964414D8719C00DB7B61 /* strikezoneRight.png */; };
 		384D092E14E419B5009FA89C /* BaseModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D092D14E419B5009FA89C /* BaseModeViewController.m */; };
+		387CE9AF152748B000A37CB6 /* button_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 387CE9AD152748B000A37CB6 /* button_cancel.png */; };
+		387CE9B0152748B000A37CB6 /* button_done.png in Resources */ = {isa = PBXBuildFile; fileRef = 387CE9AE152748B000A37CB6 /* button_done.png */; };
 		3886CE1A14F7080900D3D2AD /* PitchCount.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3886CE1914F7080900D3D2AD /* PitchCount.sqlite */; };
 		38972E1C1524F72800ADD444 /* GameStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38972E1B1524F72800ADD444 /* GameStatisticsViewController.m */; };
 		389DC87315249F9600611CCE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389DC87215249F9600611CCE /* QuartzCore.framework */; };
@@ -89,6 +91,8 @@
 		3830964414D8719C00DB7B61 /* strikezoneRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strikezoneRight.png; sourceTree = "<group>"; };
 		384D092C14E419B5009FA89C /* BaseModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = BaseModeViewController.h; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		384D092D14E419B5009FA89C /* BaseModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModeViewController.m; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		387CE9AD152748B000A37CB6 /* button_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_cancel.png; sourceTree = "<group>"; };
+		387CE9AE152748B000A37CB6 /* button_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_done.png; sourceTree = "<group>"; };
 		3886CE1914F7080900D3D2AD /* PitchCount.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PitchCount.sqlite; sourceTree = "<group>"; };
 		38972E1A1524F72800ADD444 /* GameStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatisticsViewController.h; sourceTree = "<group>"; };
 		38972E1B1524F72800ADD444 /* GameStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatisticsViewController.m; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 		38A1852314E6B7B200454473 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				387CE9AD152748B000A37CB6 /* button_cancel.png */,
+				387CE9AE152748B000A37CB6 /* button_done.png */,
 				38B7C40B151E5C3800BF5EA1 /* baseBall.png */,
 				3811BAA215186B0C00091474 /* home_bkgrnd.png */,
 				380F918715013F4C0058BF8C /* icon.png */,
@@ -443,6 +449,8 @@
 				38B7C40A151E5A4300BF5EA1 /* PitcherStatsHeader.xib in Resources */,
 				38B7C40C151E5C3800BF5EA1 /* baseBall.png in Resources */,
 				38D1A16515252A0300845455 /* PitcherStatsFooter.xib in Resources */,
+				387CE9AF152748B000A37CB6 /* button_cancel.png in Resources */,
+				387CE9B0152748B000A37CB6 /* button_done.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
