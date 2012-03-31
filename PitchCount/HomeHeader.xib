@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1181</string>
+			<string key="NS.object.0">1179</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBUIImageView</string>
@@ -46,7 +46,7 @@
 						<string key="NSReuseIdentifierKey">_NS:567</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">2</int>
-							<bytes key="NSRGB">MC45NDkwMTk2MDc4IDAuNjIzNTI5NDExOCAwLjAxOTYwNzg0MzE0AA</bytes>
+							<bytes key="NSRGB">MCAwLjI3MDU4ODIzNTMgMC4zNTY4NjI3NDUxAA</bytes>
 						</object>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -62,7 +62,6 @@
 						<string key="NSFrame">{{82, 14}, {248, 39}}</string>
 						<reference key="NSSuperview" ref="327623184"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -70,6 +69,10 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Pitch Count</string>
+						<object class="NSColor" key="IBUITextColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MQA</bytes>
+						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<float key="IBUIMinimumFontSize">13</float>
@@ -93,7 +96,7 @@
 				<string key="NSReuseIdentifierKey">_NS:196</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">2</int>
-					<bytes key="NSRGB">MC45OTYwNzg0OTEyIDAuOTY4NjI3NTEyNSAwLjc5MjE1NjkzNDcAA</bytes>
+					<bytes key="NSRGB">MC42NTA5ODAzOTIyIDAuMzA5ODAzOTIxNiAwLjIzNTI5NDExNzYAA</bytes>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
@@ -167,6 +170,6 @@
 			<string key="NS.key.0">icon.png</string>
 			<string key="NS.object.0">{58, 58}</string>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">1181</string>
+		<string key="IBCocoaTouchPluginVersion">1179</string>
 	</data>
 </archive>
