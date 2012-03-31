@@ -3,7 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
         <!--Home View Controller - Home-->
@@ -1044,7 +1044,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Guidelines" id="y7F-lN-iUt"/>
+                    <tabBarItem key="tabBarItem" title="Guidelines" image="icon_guidelines.png" id="y7F-lN-iUt"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="647" y="734"/>
@@ -1142,7 +1142,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kU0-Ee-2I8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="6T2-eQ-ZhR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="ily-ys-p9a"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="icon_home.png" id="ily-ys-p9a"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="Gud-Ow-Qel">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1161,7 +1161,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sn-3q-5nz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="DL8-if-EGQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Statistics" id="6"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="icon_stats.png" id="6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="dQM-P9-pdw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1179,9 +1179,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <resources>
         <image name="button_cancel.png" width="90" height="30"/>
         <image name="button_done.png" width="90" height="30"/>
+        <image name="icon_guidelines.png" width="24" height="24"/>
+        <image name="icon_home.png" width="22" height="22"/>
         <image name="icon_info.png" width="37" height="37"/>
         <image name="icon_minus.png" width="65" height="65"/>
         <image name="icon_plus.png" width="65" height="65"/>
+        <image name="icon_stats.png" width="23" height="18"/>
         <image name="strikezoneRight.png" width="280" height="358"/>
     </resources>
     <classes>
