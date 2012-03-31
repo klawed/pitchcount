@@ -23,7 +23,7 @@
     [v.layer setShadowOpacity:0.8];
     [v.layer setShadowRadius:3.0];
     [v.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
-    
+    /*
     v = warningView;
     [v.layer setCornerRadius:15.0f];
     [v.layer setBorderColor:[UIColor lightGrayColor].CGColor];
@@ -32,7 +32,7 @@
     [v.layer setShadowOpacity:0.8];
     [v.layer setShadowRadius:3.0];
     [v.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
-    
+    */
     pitcherName.text = [NSString stringWithFormat:@"%@ %@", currentGame.pitcher.firstName, currentGame.pitcher.lastName];
     self.tabBarController.tabBar.hidden = YES;
     weeklyLimit = [self weeklyLimitForPitcher];
