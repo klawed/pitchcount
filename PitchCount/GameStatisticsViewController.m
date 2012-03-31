@@ -95,12 +95,14 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-        UIView *theView = [super tableView:tableView viewForHeaderInSection:section];
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"MM/dd/YY"];
-        UILabel *theLabel = (UILabel *)[theView viewWithTag:13];
-        theLabel.text =[dateFormat stringFromDate:gameDate];
-        return theView;
+    UIView *theView = [super tableView:tableView viewForHeaderInSection:section];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM/dd/YY"];
+    UILabel *theLabel = (UILabel *)[theView viewWithTag:13];
+    theLabel.text =[dateFormat stringFromDate:gameDate];
+    theLabel = (UILabel *)[theView viewWithTag:14];
+    theLabel.text = @"Pitcher";
+    return theView;
 }
 
 /*
