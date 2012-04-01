@@ -47,7 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

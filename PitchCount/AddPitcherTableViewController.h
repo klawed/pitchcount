@@ -41,4 +41,5 @@
 
 - (void)doneButtonTouched:(id)sender;
 
+- (IBAction)goBack:(id)sender;
 @end
