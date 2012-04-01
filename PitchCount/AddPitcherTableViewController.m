@@ -14,13 +14,23 @@
 
 @implementation AddPitcherTableViewController
 
-@synthesize pitcher,delegate,isEdit,isModal;
+@synthesize pitcher,delegate,isEdit,isModal, appDelegate, managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        appDelegate = [[UIApplication sharedApplication] delegate];
+        managedObjectContext = appDelegate.managedObjectContext;
     }
     return self;
 }
@@ -203,6 +213,9 @@
     NSIndexPath *firstNamePath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell* cell = (UITableViewCell *)[(UITableView *)self.view cellForRowAtIndexPath:firstNamePath];
     UITextField *textField = (UITextField *)[cell viewWithTag:1];
+    Pitcher *pitcher = (Pitcher *)[NSEntityDescription insertNewObjectForEntityForName:@"Pitcher" inManagedObjectContext:self.managedObjectContext];
+    self.pitcher = pitcher;
+
     pitcher.firstName = textField.text;
     
     cell = (UITableViewCell *)[(UITableView *)self.view cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];

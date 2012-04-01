@@ -280,8 +280,8 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AddPitcher"]) {
         ((AddPitcherTableViewController *)segue.destinationViewController).delegate = self;
-        Pitcher *pitcher = (Pitcher *)[NSEntityDescription insertNewObjectForEntityForName:@"Pitcher" inManagedObjectContext:self.managedObjectContext];
-        ((AddPitcherTableViewController *)segue.destinationViewController).pitcher = pitcher;
+//        Pitcher *pitcher = (Pitcher *)[NSEntityDescription insertNewObjectForEntityForName:@"Pitcher" inManagedObjectContext:self.managedObjectContext];
+//        ((AddPitcherTableViewController *)segue.destinationViewController).pitcher = pitcher;
     }
 }
 

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 #import "Pitcher.h"
-
+#import "AppDelegate.h"
 //do we need this decleration?
 @protocol PitcherAddDelegate;
 
@@ -22,6 +23,9 @@
 
 @property (nonatomic, retain) Pitcher *pitcher;
 
+@property (nonatomic, retain) AppDelegate *appDelegate;
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, assign) BOOL isEdit;
 
 @property (nonatomic, assign) BOOL isModal;
