@@ -301,8 +301,10 @@
 #pragma mark PickPitcherDelegate
 
 - (void)pitcherListViewController:(PitcherListTableViewController *)pitcherListViewController didPickPitcher:(Pitcher *)pitcher {
+    NSDate *date = currentGame.date;
     currentGame = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
     currentGame.pitcher = pitcher;
+    currentGame.date = date;
     [self reset];
 }
 
@@ -314,8 +316,10 @@
     request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     NSError *error;
     pitcherList = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
+    NSDate *date = currentGame.date;
     currentGame = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
     currentGame.pitcher = pitcher;
+    currentGame.date = date;
     [self reset];
 }
 
