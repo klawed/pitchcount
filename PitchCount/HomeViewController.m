@@ -375,9 +375,6 @@
             return;
         }
         Game *game = (Game *)[NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:appDelegate.managedObjectContext];
-        NSTimeInterval time = floor([datePicker.date timeIntervalSinceReferenceDate] / 86400.0) * 86400.0;
-        NSDate *newDateTime = [NSDate dateWithTimeIntervalSinceReferenceDate:time];
-        //game.date = newDateTime;
         game.date = datePicker.date;
         game.pitcher = currentPitcher;
         NSMutableSet *games = [currentPitcher mutableSetValueForKey:@"games"];
