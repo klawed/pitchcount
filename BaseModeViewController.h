@@ -15,13 +15,6 @@
 
 @interface BaseModeViewController : UIViewController<UIAlertViewDelegate, UIPickerViewDelegate,PitcherPickDelegate,PitcherAddDelegate> {
     Game *currentGame;
-    /*IBOutlet UILabel *total;
-    IBOutlet UILabel *strikes;
-    IBOutlet UILabel *balls;
-    IBOutlet UILabel *percent;
-    IBOutlet UILabel *warning;
-    IBOutlet UILabel *warningCountdown;
-    IBOutlet UIImageView *warningImage;*/
     NSArray *innings;
     IBOutlet UIView *inningPicker;
     int currentStrikes;

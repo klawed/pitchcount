@@ -212,6 +212,10 @@
 
 -(IBAction)inningDoneButtonTapped:(id)sender {
     UIAlertView *alert;
+    UIPickerView *thePicker = (UIPickerView *)[inningPicker viewWithTag:1];
+    int row = [thePicker selectedRowInComponent:0];
+    currentGame.innings = [NSNumber numberWithInteger:[(NSString *)[innings objectAtIndex:row] integerValue]];
+    [self saveGame];
     if ([pitcherList count] > 1) {
         Pitcher *nextPitcher = [self nextPitcher];
         NSString *nextMessage = [NSString stringWithFormat:@"Switch to %@ %@.", nextPitcher.firstName, nextPitcher.lastName];
@@ -283,12 +287,6 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     return 9;
-}
-
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    currentGame.innings = [NSNumber numberWithInteger:[(NSString *)[innings objectAtIndex:row] integerValue]];
-    [self saveGame];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
