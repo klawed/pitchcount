@@ -837,6 +837,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="total" destination="Ijw-hM-2VF" id="arN-c2-2Dq"/>
                         <outlet property="warningCountdown" destination="lID-yn-cPD" id="Czz-aR-dae"/>
                         <outlet property="warningView" destination="9bA-OT-onK" id="jfO-S5-x3k"/>
+                        <segue destination="ak3-KZ-e6h" kind="modal" identifier="AddANewPitcher" id="QHe-vU-eh7"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1362,6 +1363,6 @@ Sounds wise.</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="BRi-uw-dfv"/>
-        <segue reference="536-T2-FQA"/>
+        <segue reference="QHe-vU-eh7"/>
     </inferredMetricsTieBreakers>
 </document>
