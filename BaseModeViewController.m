@@ -92,9 +92,13 @@
     int delta = (weeklyLimit) - (currentBalls + currentStrikes);
     bool overLimit = delta < 15;
     if (overLimit) {
+        NSString *warningMessage = (delta >= 0) ? 
+        [NSString stringWithFormat:@"%i pitches away from the recommended limit of %i.", delta, weeklyLimit] :
+        [NSString stringWithFormat:@"%i pitches over the recommended limit of %i.", abs(delta), weeklyLimit];
+        
     [UIView animateWithDuration:1.0 animations:^{
         warningView.alpha = 1.0;
-        warningCountdown.text = [NSString stringWithFormat:@"%i pitches away from the weekly recommended limit of %i.", delta, weeklyLimit];
+        warningCountdown.text = warningMessage;
     }];
     }
 }
