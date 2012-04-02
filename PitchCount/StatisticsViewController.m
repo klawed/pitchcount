@@ -135,7 +135,6 @@
     [dateFormat setDateFormat:@"MM/dd/YY"];
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:1];
     dateLabel.text = [dateFormat stringFromDate:theDate];
-    
     NSArray *filtered = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"date = %@", theDate]];
     UILabel *totalLabel = (UILabel *)[cell viewWithTag:3];
     totalLabel.text = [NSString stringWithFormat:@"%i",[self getTotalPitches:filtered]];
