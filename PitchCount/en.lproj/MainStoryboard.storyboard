@@ -76,11 +76,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </view>
                                 <color key="backgroundColor" red="0.85098039219999999" green="0.81960784310000001" blue="0.76862745099999996" alpha="1" colorSpace="deviceRGB"/>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PitcherCell" id="lNF-mG-tLo">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PitcherCell" id="lNF-mG-tLo">
                                 <rect key="frame" x="0.0" y="91" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="0.0" width="267" height="43"/>
+                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pitcher:" lineBreakMode="tailTruncation" minimumFontSize="10" id="wGI-4F-AN6">
@@ -142,7 +142,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <state key="normal" title="Strike Zone Mode">
+                                            <state key="normal" title="Strike Zone Mode" image="button_strikezone.png">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -169,7 +169,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <state key="normal" title="Calculator Mode">
+                                            <state key="normal" title="Calculator Mode" image="button_calculator.png">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -205,7 +205,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKZ-AI-4NG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="x8a-av-65v" customClass="PitcherListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fju-Ze-sAA">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.85098039219999999" green="0.81960784310000001" blue="0.76862745099999996" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
@@ -837,6 +837,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="total" destination="Ijw-hM-2VF" id="arN-c2-2Dq"/>
                         <outlet property="warningCountdown" destination="lID-yn-cPD" id="Czz-aR-dae"/>
                         <outlet property="warningView" destination="9bA-OT-onK" id="jfO-S5-x3k"/>
+                        <segue destination="ak3-KZ-e6h" kind="modal" identifier="AddANewPitcher" id="QHe-vU-eh7"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1272,8 +1273,10 @@ Sounds wise.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="button_calculator.png" width="300" height="45"/>
         <image name="button_cancel.png" width="90" height="30"/>
         <image name="button_done.png" width="90" height="30"/>
+        <image name="button_strikezone.png" width="300" height="45"/>
         <image name="icon_guidelines.png" width="24" height="24"/>
         <image name="icon_home.png" width="22" height="22"/>
         <image name="icon_info.png" width="37" height="37"/>
@@ -1361,7 +1364,7 @@ Sounds wise.</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BRi-uw-dfv"/>
+        <segue reference="7AG-LG-kxy"/>
         <segue reference="536-T2-FQA"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -22,11 +22,14 @@
 		3830964314D8715F00DB7B61 /* StrikeZoneModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3830964114D8715F00DB7B61 /* StrikeZoneModeViewController.xib */; };
 		3830964514D8719C00DB7B61 /* strikezoneRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830964414D8719C00DB7B61 /* strikezoneRight.png */; };
 		384D092E14E419B5009FA89C /* BaseModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D092D14E419B5009FA89C /* BaseModeViewController.m */; };
+		3875C3E0152BC84E00A56BF9 /* button_calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 3875C3DE152BC84E00A56BF9 /* button_calculator.png */; };
+		3875C3E1152BC84E00A56BF9 /* button_strikezone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3875C3DF152BC84E00A56BF9 /* button_strikezone.png */; };
 		387CE9AF152748B000A37CB6 /* button_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 387CE9AD152748B000A37CB6 /* button_cancel.png */; };
 		387CE9B0152748B000A37CB6 /* button_done.png in Resources */ = {isa = PBXBuildFile; fileRef = 387CE9AE152748B000A37CB6 /* button_done.png */; };
 		387CE9B715278F0500A37CB6 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 387CE9B615278F0500A37CB6 /* icon_home.png */; };
 		387CE9BA15278F2800A37CB6 /* icon_guidelines.png in Resources */ = {isa = PBXBuildFile; fileRef = 387CE9B815278F2800A37CB6 /* icon_guidelines.png */; };
 		387CE9BB15278F2800A37CB6 /* icon_stats.png in Resources */ = {isa = PBXBuildFile; fileRef = 387CE9B915278F2800A37CB6 /* icon_stats.png */; };
+		3882846A152A4DC100F51BDF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38828469152A4DC100F51BDF /* AudioToolbox.framework */; };
 		3886CE1A14F7080900D3D2AD /* PitchCount.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3886CE1914F7080900D3D2AD /* PitchCount.sqlite */; };
 		38972E1C1524F72800ADD444 /* GameStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38972E1B1524F72800ADD444 /* GameStatisticsViewController.m */; };
 		389DC87315249F9600611CCE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389DC87215249F9600611CCE /* QuartzCore.framework */; };
@@ -94,11 +97,14 @@
 		3830964414D8719C00DB7B61 /* strikezoneRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strikezoneRight.png; sourceTree = "<group>"; };
 		384D092C14E419B5009FA89C /* BaseModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = BaseModeViewController.h; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		384D092D14E419B5009FA89C /* BaseModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModeViewController.m; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		3875C3DE152BC84E00A56BF9 /* button_calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_calculator.png; sourceTree = "<group>"; };
+		3875C3DF152BC84E00A56BF9 /* button_strikezone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_strikezone.png; sourceTree = "<group>"; };
 		387CE9AD152748B000A37CB6 /* button_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_cancel.png; sourceTree = "<group>"; };
 		387CE9AE152748B000A37CB6 /* button_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_done.png; sourceTree = "<group>"; };
 		387CE9B615278F0500A37CB6 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home.png; sourceTree = "<group>"; };
 		387CE9B815278F2800A37CB6 /* icon_guidelines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_guidelines.png; sourceTree = "<group>"; };
 		387CE9B915278F2800A37CB6 /* icon_stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_stats.png; sourceTree = "<group>"; };
+		38828469152A4DC100F51BDF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3886CE1914F7080900D3D2AD /* PitchCount.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PitchCount.sqlite; sourceTree = "<group>"; };
 		38972E1A1524F72800ADD444 /* GameStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatisticsViewController.h; sourceTree = "<group>"; };
 		38972E1B1524F72800ADD444 /* GameStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatisticsViewController.m; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3882846A152A4DC100F51BDF /* AudioToolbox.framework in Frameworks */,
 				389DC87315249F9600611CCE /* QuartzCore.framework in Frameworks */,
 				38E9FC2E14D1DDDC00B48985 /* CoreData.framework in Frameworks */,
 				38C18EBD14CB63FD00D0139E /* UIKit.framework in Frameworks */,
@@ -241,6 +248,8 @@
 		38A1852314E6B7B200454473 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3875C3DE152BC84E00A56BF9 /* button_calculator.png */,
+				3875C3DF152BC84E00A56BF9 /* button_strikezone.png */,
 				387CE9B815278F2800A37CB6 /* icon_guidelines.png */,
 				387CE9B915278F2800A37CB6 /* icon_stats.png */,
 				387CE9B615278F0500A37CB6 /* icon_home.png */,
@@ -262,6 +271,7 @@
 		38C18EAD14CB63FD00D0139E = {
 			isa = PBXGroup;
 			children = (
+				38828469152A4DC100F51BDF /* AudioToolbox.framework */,
 				389DC87215249F9600611CCE /* QuartzCore.framework */,
 				38E9FC2D14D1DDDC00B48985 /* CoreData.framework */,
 				38C18EC214CB63FD00D0139E /* PitchCount */,
@@ -463,6 +473,8 @@
 				387CE9B715278F0500A37CB6 /* icon_home.png in Resources */,
 				387CE9BA15278F2800A37CB6 /* icon_guidelines.png in Resources */,
 				387CE9BB15278F2800A37CB6 /* icon_stats.png in Resources */,
+				3875C3E0152BC84E00A56BF9 /* button_calculator.png in Resources */,
+				3875C3E1152BC84E00A56BF9 /* button_strikezone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

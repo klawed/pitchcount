@@ -277,7 +277,7 @@
         [fetchRequest setEntity:entity];
         [fetchRequest setResultType:NSDictionaryResultType];
         // Edit the sort key as appropriate.
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
         NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
         NSDictionary *allAttributes = [entity attributesByName];
         

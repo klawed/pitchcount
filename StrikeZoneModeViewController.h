@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "Game.h"
 
 typedef enum {
@@ -33,6 +34,7 @@ typedef enum {
 
 @property (nonatomic, retain) id <DragViewChangeDelegate> delegate;
 
+
 -(void) panGestureRecognized:(UIPanGestureRecognizer *)gesture;
 
 -(void) doubleTapGestureRecognized:(UITapGestureRecognizer *)gesture;
@@ -42,11 +44,9 @@ typedef enum {
 #import "BaseModeViewController.h"
 
 @interface StrikeZoneModeViewController : BaseModeViewController<DragViewChangeDelegate> {
-        DragView *currentBall;
+    DragView *currentBall;
     NSMutableArray *allThrows;
-
 }
-
 
 -(IBAction)tapRecognized:(UITapGestureRecognizer *)sender;
 
