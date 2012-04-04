@@ -76,11 +76,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </view>
                                 <color key="backgroundColor" red="0.85098039219999999" green="0.81960784310000001" blue="0.76862745099999996" alpha="1" colorSpace="deviceRGB"/>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PitcherCell" id="lNF-mG-tLo">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PitcherCell" id="lNF-mG-tLo">
                                 <rect key="frame" x="0.0" y="91" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="0.0" width="267" height="43"/>
+                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pitcher:" lineBreakMode="tailTruncation" minimumFontSize="10" id="wGI-4F-AN6">
@@ -205,7 +205,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKZ-AI-4NG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="x8a-av-65v" customClass="PitcherListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fju-Ze-sAA">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.85098039219999999" green="0.81960784310000001" blue="0.76862745099999996" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
@@ -1355,7 +1355,6 @@ Sounds wise.</string>
             <relationships>
                 <relationship kind="action" name="tapRecognized:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="action" name="wtf:"/>
-                <relationship kind="outlet" name="strikeZoneImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
     </classes>
@@ -1365,7 +1364,7 @@ Sounds wise.</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="7AG-LG-kxy"/>
         <segue reference="536-T2-FQA"/>
-        <segue reference="BRi-uw-dfv"/>
     </inferredMetricsTieBreakers>
 </document>
