@@ -128,13 +128,15 @@
     [self updateStrikes];
     [self updatePercent];
     [self updateTotal];
+    [self checkWarning];
 }
 
 -(IBAction) removeBall {
     currentBalls--;
     [self updateBalls];
     [self updatePercent];
-    [self updateTotal];
+    [self updateTotal];    
+    [self checkWarning];
 }
 
 -(IBAction) addBall {
