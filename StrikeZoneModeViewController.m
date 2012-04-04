@@ -59,6 +59,7 @@
     if (!isActive) {
         [self removeGestureRecognizer:pan];
         pan = nil;
+        self.userInteractionEnabled = NO;
     } 
     _active = isActive;
 }
@@ -119,6 +120,11 @@
 
 -(IBAction)tapRecognized:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateRecognized) {
+        NSString *path = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Tock" ofType:@"aiff"];
+        SystemSoundID soundID;
+        AudioServicesCreateSystemSoundID((__bridge_retained CFURLRef)[NSURL fileURLWithPath:path], &soundID);
+        AudioServicesPlaySystemSound(soundID);
+        AudioServicesDisposeSystemSoundID(soundID);
         CGPoint point = [sender locationInView:self.view];
         NSLog(@"x: %f, y:%f", point.x, point.y);
         
@@ -146,17 +152,16 @@
                              } 
              ];
             }
-                                       [dragger setImage:[UIImage imageNamed:@"icon_ball.png"]];
-                    [dragger setUserInteractionEnabled:YES];
-                    dragger.hidden = YES;
-                    [self.view addSubview:dragger];
-                    
-                    [UIView beginAnimations:nil context:NULL];
-                    [UIView setAnimationDuration:.5];
-                    dragger.hidden = NO;
+            [dragger setImage:[UIImage imageNamed:@"icon_ball.png"]];
+            [dragger setUserInteractionEnabled:YES];
+            dragger.hidden = YES;
+            [self.view addSubview:dragger];
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:.5];
+            dragger.hidden = NO;
             dragger.transform = CGAffineTransformMakeScale(1.5, 1.5);
             currentBall = dragger;
-                    [UIView commitAnimations];
+            [UIView commitAnimations];
         }  
     }
         
