@@ -62,7 +62,7 @@
 		 
 		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
 		 */
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		abort();
 	}	
     if ([[fetchedResultsController fetchedObjects] count] != 0) {
@@ -73,7 +73,6 @@
     datePicker.datePickerMode = UIDatePickerModeDate;
 //    UIImage *img = [UIImage imageNamed:@"home_bkgrnd.png"];
 //	[[self tableView] setBackgroundColor:[UIColor colorWithPatternImage:img]];  
-    
 }
 
 - (void)viewDidUnload
@@ -141,6 +140,8 @@
     static NSString *strikeIdentifier = @"StrikeButton";
     static NSString *plusIdentifier = @"PlusButton";
     if (indexPath.section == 0) {
+        self.tableView.separatorColor = [UIColor blueColor];
+
             Pitcher *pitcher = currentPitcher;
             if (indexPath.row == 0) {
                 cell = [tableView dequeueReusableCellWithIdentifier:dateIdentifier];
@@ -177,6 +178,8 @@
                 }
             }
     } else if (indexPath.section == 1) {
+        self.tableView.separatorColor = [UIColor clearColor];
+        self.tableView.separatorColor = [UIColor clearColor];
         if (indexPath.row == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:strikeIdentifier];
             if (cell == nil) {
@@ -295,7 +298,7 @@
 		 
 		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
 		 */
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		abort();
 	}	
     [self.tableView reloadData];

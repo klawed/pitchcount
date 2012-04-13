@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
+   LastUpgradeVersion = "0430"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "38C18EB714CB63FD00D0139E"
-               BuildableName = "pitchcount.app"
-               BlueprintName = "pitchcount"
+               BuildableName = "PitchCount.app"
+               BlueprintName = "PitchCount"
                ReferencedContainer = "container:PitchCount.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,37 +43,38 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "38C18EB714CB63FD00D0139E"
-            BuildableName = "pitchcount.app"
-            BlueprintName = "pitchcount"
+            BuildableName = "PitchCount.app"
+            BlueprintName = "PitchCount"
             ReferencedContainer = "container:PitchCount.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "38C18EB714CB63FD00D0139E"
-            BuildableName = "pitchcount.app"
-            BlueprintName = "pitchcount"
+            BuildableName = "PitchCount.app"
+            BlueprintName = "PitchCount"
             ReferencedContainer = "container:PitchCount.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
             argument = "-com.apple.CoreData.SQLDebug"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "1"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
@@ -98,8 +100,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "38C18EB714CB63FD00D0139E"
-            BuildableName = "pitchcount.app"
-            BlueprintName = "pitchcount"
+            BuildableName = "PitchCount.app"
+            BlueprintName = "PitchCount"
             ReferencedContainer = "container:PitchCount.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -108,7 +110,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Distribution"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

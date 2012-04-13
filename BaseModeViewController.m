@@ -66,7 +66,7 @@
     int limit = 0;
     int age = [currentGame.pitcher.age intValue];
     if(age>=8 && age<=10){
-        limit = 20;  //52 
+        limit = 52;  //52 
     }else if(age>=11 && age<=12){
         limit = 68; 
     }else if(age>=13 && age<=14){
@@ -221,6 +221,8 @@
     UIPickerView *thePicker = (UIPickerView *)[inningPicker viewWithTag:1];
     int row = [thePicker selectedRowInComponent:0];
     currentGame.innings = [NSNumber numberWithInteger:[(NSString *)[innings objectAtIndex:row] integerValue]];
+    Pitcher *pitcher = currentGame.pitcher;
+    NSString *name = pitcher.firstName;
     [self saveGame];
     if ([pitcherList count] > 1) {
         Pitcher *nextPitcher = [self nextPitcher];

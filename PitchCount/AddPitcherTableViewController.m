@@ -209,12 +209,14 @@
 }
 
 -(IBAction)save:(id)sender {
+   
     NSIndexPath *firstNamePath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell* cell = (UITableViewCell *)[(UITableView *)self.view cellForRowAtIndexPath:firstNamePath];
     UITextField *textField = (UITextField *)[cell viewWithTag:1];
-    Pitcher *pitcher = (Pitcher *)[NSEntityDescription insertNewObjectForEntityForName:@"Pitcher" inManagedObjectContext:self.managedObjectContext];
-    self.pitcher = pitcher;
-
+    if (!isEdit) {
+        Pitcher *pitcher = (Pitcher *)[NSEntityDescription insertNewObjectForEntityForName:@"Pitcher" inManagedObjectContext:self.managedObjectContext];
+        self.pitcher = pitcher;
+    }
     pitcher.firstName = textField.text;
     
     cell = (UITableViewCell *)[(UITableView *)self.view cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
@@ -224,9 +226,11 @@
     cell = (UITableViewCell *)[(UITableView *)self.view cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     textField = (UITextField *)[cell viewWithTag:1];
     pitcher.age = [NSNumber numberWithInteger:[textField.text integerValue]];
-    NSLog(@"age = %@", pitcher.age);
-    //[pitcher.managedObjectContext save:nil];   
-    [self.delegate pitcherAddViewController:self didAddPitcher:pitcher];
+    if (isEdit) {
+        [pitcher.managedObjectContext save:nil];   
+    } else {
+        [self.delegate pitcherAddViewController:self didAddPitcher:pitcher];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 

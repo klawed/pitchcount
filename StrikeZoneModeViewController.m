@@ -28,7 +28,6 @@
     return self;
 }
 -(void) panGestureRecognized:(UIPanGestureRecognizer *)gesture {
-    NSLog(@"pan recognized");
     if ((gesture.state == UIGestureRecognizerStateChanged) ||
         (gesture.state == UIGestureRecognizerStateEnded)) {
         
@@ -126,8 +125,6 @@
         AudioServicesPlaySystemSound(soundID);
         AudioServicesDisposeSystemSoundID(soundID);
         CGPoint point = [sender locationInView:self.view];
-        NSLog(@"x: %f, y:%f", point.x, point.y);
-        
         if (CGRectContainsPoint(BALL_RECTANGLE, point)) {
             CGRect dragRect = CGRectMake(0.0f, 0.0f, 24.0f, 24.0f);
             dragRect.origin = point;
@@ -135,11 +132,11 @@
             [allThrows addObject:dragger];
             dragger.delegate = self;
             if (CGRectContainsPoint(STRIKE_RECTANGLE, point)) {
-                    NSLog(@"Strike!!!");
+//                    NSLog(@"Strike!!!");
                     [self addStrike];
                 dragger.throw = kStrike;
                 } else {
-                    NSLog(@"Ball!!!");
+//                    NSLog(@"Ball!!!");
                     [self addBall];
                     dragger.throw = kBall;
                 }
@@ -167,9 +164,7 @@
         
 }
 
--(IBAction)wtf:(id)sender{
-    NSLog(@"what the fuck?");
-}
+-(IBAction)wtf:(id)sender{}
 
 
 
@@ -178,13 +173,13 @@
 -(void) nextGame {
     [super nextGame];
     [self removeAllThrows];
-    NSLog(@"next game in strikezone");
+//    NSLog(@"next game in strikezone");
 }
 
 -(void) newPitcher {
     [super newPitcher];
     [self removeAllThrows];
-    NSLog(@"new Pitcher in strikezone");
+//    NSLog(@"new Pitcher in strikezone");
 }
 
 #pragma mark - DragViewChangeDelegate

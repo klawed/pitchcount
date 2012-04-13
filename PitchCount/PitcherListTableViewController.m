@@ -67,7 +67,7 @@
 		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
 		 */
 #warning implement better error handling here
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		abort();
 	}	
     self.managedObjectContext =  appDelegate.managedObjectContext;
@@ -182,13 +182,13 @@
 			 
 			 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
 			 */
-			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 			abort();
 		}
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        NSLog(@"edditing!!!");
+//        NSLog(@"edditing!!!");
     } 
 }
 
@@ -317,7 +317,7 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         case NSFetchedResultsChangeInsert:
            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
-            NSLog(@"we have %d objects", [[controller fetchedObjects]count]);
+//            NSLog(@"we have %d objects", [[controller fetchedObjects]count]);
             break;
             
         case NSFetchedResultsChangeDelete:
@@ -328,10 +328,11 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         case NSFetchedResultsChangeUpdate:
             //[self configureCell:[tableView cellForRowAtIndexPath:indexPath]
               //      atIndexPath:indexPath];
+             NSLog(@"we have %d objects", [[controller fetchedObjects]count]);
             break;
             
         case NSFetchedResultsChangeMove:
-            NSLog(@"we have %d objects", [[controller fetchedObjects]count]);
+//            NSLog(@"we have %d objects", [[controller fetchedObjects]count]);
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]

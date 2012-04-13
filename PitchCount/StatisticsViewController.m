@@ -325,11 +325,8 @@
 -(IBAction)viewTypeTapped:(id)sender {
     switch (titleView.selectedSegmentIndex) {
         case 0:
-            NSLog(@"games tpped");
             break;
-            
         case 1:
-            NSLog(@"pithcers tapped");
             break;
         default:
             break;

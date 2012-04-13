@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		38059E0314D93D7400905143 /* icon_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 38059E0214D93D7400905143 /* icon_info.png */; };
+		3806AA0E152E88A100999C23 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3806AA0D152E88A100999C23 /* Icon.png */; };
 		380F917F15011A560058BF8C /* StatisticsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380F917E15011A560058BF8C /* StatisticsHeaderView.xib */; };
-		380F918615013F2B0058BF8C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 380F918515013F2B0058BF8C /* icon@2x.png */; };
-		380F918815013F4C0058BF8C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 380F918715013F4C0058BF8C /* icon.png */; };
 		3811BAA315186B0C00091474 /* home_bkgrnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3811BAA215186B0C00091474 /* home_bkgrnd.png */; };
 		3830962E14D863F900DB7B61 /* table.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830962A14D863F900DB7B61 /* table.png */; };
 		3830963414D86A7100DB7B61 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830963314D86A7100DB7B61 /* Default.png */; };
@@ -22,6 +21,7 @@
 		3830964314D8715F00DB7B61 /* StrikeZoneModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3830964114D8715F00DB7B61 /* StrikeZoneModeViewController.xib */; };
 		3830964514D8719C00DB7B61 /* strikezoneRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3830964414D8719C00DB7B61 /* strikezoneRight.png */; };
 		384D092E14E419B5009FA89C /* BaseModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D092D14E419B5009FA89C /* BaseModeViewController.m */; };
+		3853CDBE152E3397003AFF51 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3853CDBD152E3397003AFF51 /* Icon@2x.png */; };
 		3875C3E0152BC84E00A56BF9 /* button_calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 3875C3DE152BC84E00A56BF9 /* button_calculator.png */; };
 		3875C3E1152BC84E00A56BF9 /* button_strikezone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3875C3DF152BC84E00A56BF9 /* button_strikezone.png */; };
 		387CE9AF152748B000A37CB6 /* button_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 387CE9AD152748B000A37CB6 /* button_cancel.png */; };
@@ -81,9 +81,8 @@
 
 /* Begin PBXFileReference section */
 		38059E0214D93D7400905143 /* icon_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_info.png; sourceTree = "<group>"; };
+		3806AA0D152E88A100999C23 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = PitchCount/Icon.png; sourceTree = "<group>"; };
 		380F917E15011A560058BF8C /* StatisticsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsHeaderView.xib; sourceTree = "<group>"; };
-		380F918515013F2B0058BF8C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		380F918715013F4C0058BF8C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		3811BAA215186B0C00091474 /* home_bkgrnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_bkgrnd.png; sourceTree = "<group>"; };
 		3830962A14D863F900DB7B61 /* table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table.png; sourceTree = "<group>"; };
 		3830963314D86A7100DB7B61 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -97,6 +96,8 @@
 		3830964414D8719C00DB7B61 /* strikezoneRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strikezoneRight.png; sourceTree = "<group>"; };
 		384D092C14E419B5009FA89C /* BaseModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = BaseModeViewController.h; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		384D092D14E419B5009FA89C /* BaseModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModeViewController.m; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		3853CDBD152E3397003AFF51 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "/Users/ckeswani/src/iOS/PitchCount/PitchCount/Icon@2x.png"; sourceTree = "<absolute>"; };
+		3853CDC7152E39F0003AFF51 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		3875C3DE152BC84E00A56BF9 /* button_calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_calculator.png; sourceTree = "<group>"; };
 		3875C3DF152BC84E00A56BF9 /* button_strikezone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_strikezone.png; sourceTree = "<group>"; };
 		387CE9AD152748B000A37CB6 /* button_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_cancel.png; sourceTree = "<group>"; };
@@ -119,7 +120,7 @@
 		38B7C407151E52F800BF5EA1 /* PitcherStatistictsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PitcherStatistictsViewController.m; sourceTree = "<group>"; };
 		38B7C409151E5A4300BF5EA1 /* PitcherStatsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitcherStatsHeader.xib; sourceTree = "<group>"; };
 		38B7C40B151E5C3800BF5EA1 /* baseBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseBall.png; sourceTree = "<group>"; };
-		38C18EB814CB63FD00D0139E /* pitchcount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pitchcount.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38C18EB814CB63FD00D0139E /* PitchCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C18EBC14CB63FD00D0139E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		38C18EBE14CB63FD00D0139E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		38C18EC014CB63FD00D0139E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -245,6 +246,15 @@
 			name = "Main Views";
 			sourceTree = "<group>";
 		};
+		3853CDBF152E349A003AFF51 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3806AA0D152E88A100999C23 /* Icon.png */,
+				3853CDBD152E3397003AFF51 /* Icon@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		38A1852314E6B7B200454473 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,8 +267,6 @@
 				387CE9AE152748B000A37CB6 /* button_done.png */,
 				38B7C40B151E5C3800BF5EA1 /* baseBall.png */,
 				3811BAA215186B0C00091474 /* home_bkgrnd.png */,
-				380F918715013F4C0058BF8C /* icon.png */,
-				380F918515013F2B0058BF8C /* icon@2x.png */,
 				38A1852814E6BC4300454473 /* back_img.png */,
 				38A1852414E6B81700454473 /* icon_minus.png */,
 				38A1852514E6B81700454473 /* icon_plus.png */,
@@ -271,6 +279,8 @@
 		38C18EAD14CB63FD00D0139E = {
 			isa = PBXGroup;
 			children = (
+				3853CDC7152E39F0003AFF51 /* Default@2x.png */,
+				3853CDBF152E349A003AFF51 /* Resources */,
 				38828469152A4DC100F51BDF /* AudioToolbox.framework */,
 				389DC87215249F9600611CCE /* QuartzCore.framework */,
 				38E9FC2D14D1DDDC00B48985 /* CoreData.framework */,
@@ -284,7 +294,7 @@
 		38C18EB914CB63FD00D0139E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				38C18EB814CB63FD00D0139E /* pitchcount.app */,
+				38C18EB814CB63FD00D0139E /* PitchCount.app */,
 				38C18EE414CB63FE00D0139E /* PitchCountTests.octest */,
 			);
 			name = Products;
@@ -374,9 +384,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		38C18EB714CB63FD00D0139E /* pitchcount */ = {
+		38C18EB714CB63FD00D0139E /* PitchCount */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 38C18EF614CB63FE00D0139E /* Build configuration list for PBXNativeTarget "pitchcount" */;
+			buildConfigurationList = 38C18EF614CB63FE00D0139E /* Build configuration list for PBXNativeTarget "PitchCount" */;
 			buildPhases = (
 				38C18EB414CB63FD00D0139E /* Sources */,
 				38C18EB514CB63FD00D0139E /* Frameworks */,
@@ -386,9 +396,9 @@
 			);
 			dependencies = (
 			);
-			name = pitchcount;
+			name = PitchCount;
 			productName = PitchCount;
-			productReference = 38C18EB814CB63FD00D0139E /* pitchcount.app */;
+			productReference = 38C18EB814CB63FD00D0139E /* PitchCount.app */;
 			productType = "com.apple.product-type.application";
 		};
 		38C18EE314CB63FE00D0139E /* PitchCountTests */ = {
@@ -416,7 +426,7 @@
 		38C18EAF14CB63FD00D0139E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 38C18EB214CB63FD00D0139E /* Build configuration list for PBXProject "PitchCount" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -430,7 +440,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				38C18EB714CB63FD00D0139E /* pitchcount */,
+				38C18EB714CB63FD00D0139E /* PitchCount */,
 				38C18EE314CB63FE00D0139E /* PitchCountTests */,
 			);
 		};
@@ -461,8 +471,6 @@
 				38A1852914E6BC4300454473 /* back_img.png in Resources */,
 				3886CE1A14F7080900D3D2AD /* PitchCount.sqlite in Resources */,
 				380F917F15011A560058BF8C /* StatisticsHeaderView.xib in Resources */,
-				380F918615013F2B0058BF8C /* icon@2x.png in Resources */,
-				380F918815013F4C0058BF8C /* icon.png in Resources */,
 				3811BAA315186B0C00091474 /* home_bkgrnd.png in Resources */,
 				38B7C405151D44C000BF5EA1 /* HomeHeader.xib in Resources */,
 				38B7C40A151E5A4300BF5EA1 /* PitcherStatsHeader.xib in Resources */,
@@ -475,6 +483,8 @@
 				387CE9BB15278F2800A37CB6 /* icon_stats.png in Resources */,
 				3875C3E0152BC84E00A56BF9 /* button_calculator.png in Resources */,
 				3875C3E1152BC84E00A56BF9 /* button_strikezone.png in Resources */,
+				3853CDBE152E3397003AFF51 /* Icon@2x.png in Resources */,
+				3806AA0E152E88A100999C23 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,7 +550,7 @@
 /* Begin PBXTargetDependency section */
 		38C18EEA14CB63FE00D0139E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 38C18EB714CB63FD00D0139E /* pitchcount */;
+			target = 38C18EB714CB63FD00D0139E /* PitchCount */;
 			targetProxy = 38C18EE914CB63FE00D0139E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -573,6 +583,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3853CDC0152E3700003AFF51 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Claude Keswani";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Claude Keswani";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "45D06B90-A836-4A02-9B5F-3D28E849FC4E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "45D06B90-A836-4A02-9B5F-3D28E849FC4E";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		3853CDC1152E3700003AFF51 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PitchCount/PitchCount-Prefix.pch";
+				INFOPLIST_FILE = "PitchCount/PitchCount-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Distribution;
+		};
+		3853CDC2152E3700003AFF51 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PitchCount.app/PitchCount";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PitchCount/PitchCount-Prefix.pch";
+				INFOPLIST_FILE = "PitchCountTests/PitchCountTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Distribution;
+		};
 		38C18EF414CB63FE00D0139E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -607,8 +668,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Claude Keswani (7UAG3Z5TJA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Claude Keswani (7UAG3Z5TJA)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Claude Keswani";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Claude Keswani";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = "";
@@ -617,8 +678,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "2072073B-E59B-419B-B470-F8384CCA4ABA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2072073B-E59B-419B-B470-F8384CCA4ABA";
+				PROVISIONING_PROFILE = "45D06B90-A836-4A02-9B5F-3D28E849FC4E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "45D06B90-A836-4A02-9B5F-3D28E849FC4E";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -688,15 +749,17 @@
 			buildConfigurations = (
 				38C18EF414CB63FE00D0139E /* Debug */,
 				38C18EF514CB63FE00D0139E /* Release */,
+				3853CDC0152E3700003AFF51 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		38C18EF614CB63FE00D0139E /* Build configuration list for PBXNativeTarget "pitchcount" */ = {
+		38C18EF614CB63FE00D0139E /* Build configuration list for PBXNativeTarget "PitchCount" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				38C18EF714CB63FE00D0139E /* Debug */,
 				38C18EF814CB63FE00D0139E /* Release */,
+				3853CDC1152E3700003AFF51 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -706,6 +769,7 @@
 			buildConfigurations = (
 				38C18EFA14CB63FE00D0139E /* Debug */,
 				38C18EFB14CB63FE00D0139E /* Release */,
+				3853CDC2152E3700003AFF51 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

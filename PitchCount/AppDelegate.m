@@ -90,7 +90,8 @@
 	 */
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	// If the expected store doesn't exist, copy the default store.
-	if (![fileManager fileExistsAtPath:storePath]) {
+    if (NO) {
+//	if (![fileManager fileExistsAtPath:storePath]) {
 		NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"PitchCount" ofType:@"sqlite"];
 		if (defaultStorePath) {
 			[fileManager copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
@@ -112,7 +113,7 @@
 		 * The schema for the persistent store is incompatible with current managed object model
 		 Check the error message to determine what the actual problem was.
 		 */
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		abort();
     }    
     
