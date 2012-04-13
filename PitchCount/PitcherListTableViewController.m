@@ -328,7 +328,6 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         case NSFetchedResultsChangeUpdate:
             //[self configureCell:[tableView cellForRowAtIndexPath:indexPath]
               //      atIndexPath:indexPath];
-             NSLog(@"we have %d objects", [[controller fetchedObjects]count]);
             break;
             
         case NSFetchedResultsChangeMove:
