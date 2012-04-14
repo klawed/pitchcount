@@ -136,6 +136,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     if ([self isModal]  && indexPath.row == 0) {
+        /*
+        UIToolbar *toolBar = (UIToolbar *)[cell viewWithTag:1];
+        UIBarButtonItem *addButton = (UIBarButtonItem *)[[toolBar items] objectAtIndex:0];
+        addButton.action = @selector(add:);
+         */
         return cell;
     }
     int curIndex = ([self isModal]) ? indexPath.row -1 : indexPath.row;
@@ -278,14 +283,17 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 #pragma mark - UI helper stuff
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"AddPitcher"]) {
+    if ([segue.identifier isEqualToString:@"AddPitcher"] || [segue.identifier isEqualToString:@"AddPitcherModal"]) {
         ((AddPitcherTableViewController *)segue.destinationViewController).delegate = self;
-//        Pitcher *pitcher = (Pitcher *)[NSEntityDescription insertNewObjectForEntityForName:@"Pitcher" inManagedObjectContext:self.managedObjectContext];
-//        ((AddPitcherTableViewController *)segue.destinationViewController).pitcher = pitcher;
+        if ([segue.identifier isEqualToString:@"AddPitcherModal"]) {
+            AddPitcherTableViewController *dest = (AddPitcherTableViewController *)segue.destinationViewController;
+            dest.isModal = YES;
+        }
+    
     }
 }
 
-- (void) add:(id)sender {
+- (IBAction) add:(id)sender {
     [self performSegueWithIdentifier:@"AddPitcher" sender:sender];
 }
 

@@ -28,7 +28,7 @@
 @property (nonatomic, retain) id <PitcherPickDelegate> delegate;
 @property (nonatomic) BOOL isModal;
 -(IBAction) selectPitcher:(id)sender;
-- (void) add:(id)sender;
+- (IBAction) add:(id)sender;
 -(IBAction) goHome:(id)sender;
 @end
 

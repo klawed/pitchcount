@@ -242,11 +242,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="Vrk-b1-y1X">
+                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" tag="1" contentMode="scaleToFill" barStyle="blackOpaque" id="Vrk-b1-y1X">
                                             <rect key="frame" x="0.0" y="-1" width="353" height="44"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <items>
-                                                <barButtonItem systemItem="add" id="R1P-iR-XAS"/>
+                                                <barButtonItem tag="10" systemItem="add" id="R1P-iR-XAS">
+                                                    <connections>
+                                                        <action selector="add:" destination="x8a-av-65v" id="7HQ-wi-pPU"/>
+                                                        <segue destination="ak3-KZ-e6h" kind="modal" identifier="AddPitcherModal" id="w2b-Pn-ZON"/>
+                                                    </connections>
+                                                </barButtonItem>
                                             </items>
                                         </toolbar>
                                     </subviews>
@@ -1285,79 +1290,6 @@ Sounds wise.</string>
         <image name="icon_stats.png" width="23" height="18"/>
         <image name="strikezoneRight.png" width="280" height="358"/>
     </resources>
-    <classes>
-        <class className="AddPitcherTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddPitcherTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="save:"/>
-            </relationships>
-        </class>
-        <class className="BaseModeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseModeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addBall"/>
-                <relationship kind="action" name="addStrike"/>
-                <relationship kind="action" name="cancelTapped:"/>
-                <relationship kind="action" name="doneTapped:"/>
-                <relationship kind="action" name="inningCancelButtonTapped:"/>
-                <relationship kind="action" name="inningDoneButtonTapped:"/>
-                <relationship kind="action" name="removeBall"/>
-                <relationship kind="action" name="removeStrike"/>
-                <relationship kind="outlet" name="balls" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="inningPicker" candidateClass="UIView"/>
-                <relationship kind="outlet" name="percent" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pitcherName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="strikes" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="total" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="warning" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="warningCountdown" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="warningView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="BaseStatistictsDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseStatistictsDetailViewController.h"/>
-        </class>
-        <class className="GameStatisticsViewController" superclassName="BaseStatistictsDetailViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameStatisticsViewController.h"/>
-        </class>
-        <class className="HomeViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="datePicked:"/>
-                <relationship kind="action" name="toggleDatePicker:"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="header" candidateClass="UIView"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-            </relationships>
-        </class>
-        <class className="PitcherListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PitcherListTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="goHome:"/>
-                <relationship kind="action" name="selectPitcher:"/>
-            </relationships>
-        </class>
-        <class className="PitcherStatistictsViewController" superclassName="BaseStatistictsDetailViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PitcherStatistictsViewController.h"/>
-        </class>
-        <class className="PlusMinusModeViewController" superclassName="BaseModeViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlusMinusModeViewController.h"/>
-        </class>
-        <class className="StatisticsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatisticsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="viewTypeTapped:"/>
-                <relationship kind="outlet" name="titleView" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="StrikeZoneModeViewController" superclassName="BaseModeViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StrikeZoneModeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapRecognized:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="wtf:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -1365,6 +1297,6 @@ Sounds wise.</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="7AG-LG-kxy"/>
-        <segue reference="QHe-vU-eh7"/>
+        <segue reference="w2b-Pn-ZON"/>
     </inferredMetricsTieBreakers>
 </document>
