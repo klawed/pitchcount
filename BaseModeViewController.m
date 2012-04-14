@@ -192,9 +192,8 @@
         theView.isModal = YES;
         theView.delegate = self;
     } else if ([segue.identifier isEqualToString:@"AddANewPitcher"]) {
-        Pitcher *pitcher = (Pitcher *)[NSEntityDescription insertNewObjectForEntityForName:@"Pitcher" inManagedObjectContext:self.appDelegate.managedObjectContext];
         AddPitcherTableViewController *controller = (AddPitcherTableViewController *)segue.destinationViewController;
-        controller.pitcher = pitcher;
+#warning implement this protocol!!!!!
         controller.delegate = self;
         controller.isModal = YES;
     }
