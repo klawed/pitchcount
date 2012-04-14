@@ -65,17 +65,13 @@
 -(int)weeklyLimitForPitcher {
     int limit = 0;
     int age = [currentGame.pitcher.age intValue];
-    if(age>=8 && age<=10){
-        limit = 52;  //52 
+    if(age<=10){
+        limit = 50;  //52 
     }else if(age>=11 && age<=12){
-        limit = 68; 
+        limit = 75; 
     }else if(age>=13 && age<=14){
-        limit = 76; 
-    }else if(age>=15 && age<=16){
-        limit = 91; 
-    }else if(age>=17 && age<=18){
-        limit = 106; 
-    }else if(age > 19){
+        limit = 75; 
+    }else {
         limit = 106; 
     }
     return limit;
