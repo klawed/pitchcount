@@ -150,7 +150,12 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *theView = [super tableView:tableView viewForHeaderInSection:section];
     UILabel *theLabel = (UILabel *)[theView viewWithTag:13];
-    theLabel.text = [NSString stringWithFormat:@"%@ %@", pitcher.firstName, pitcher.lastName];
+    @try {
+        theLabel.text = [NSString stringWithFormat:@"%@ %@", pitcher.firstName, pitcher.lastName];
+    }
+    @catch (NSException *exception) {
+        theLabel.text = @"";
+    }    
     return theView;
 }
 

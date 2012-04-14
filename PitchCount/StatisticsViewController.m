@@ -148,19 +148,24 @@
 
 -(void) configurePitcherCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
     Pitcher *pitcher = ((Pitcher *)[gamesByPitcher objectAtIndex:indexPath.row]);
+    
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
-    nameLabel.text = [NSString stringWithFormat:@"%@, %@", pitcher.lastName, pitcher.firstName];
-    
-    NSArray *filtered = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pitcher = %@", pitcher]];
     UILabel *totalLabel = (UILabel *)[cell viewWithTag:3];
-    totalLabel.text = [NSString stringWithFormat:@"%i",[self getTotalPitches:filtered]];
-    
     UILabel *percentLabel = (UILabel *)[cell viewWithTag:2];
-    float perc = [self getPercent:filtered];
-    NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
-    [number setNumberStyle:NSNumberFormatterPercentStyle];
-    percentLabel.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
-    
+    @try {
+        nameLabel.text = [NSString stringWithFormat:@"%@, %@", pitcher.lastName, pitcher.firstName];
+        NSArray *filtered = [results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pitcher = %@", pitcher]];
+        totalLabel.text = [NSString stringWithFormat:@"%i",[self getTotalPitches:filtered]];
+        float perc = [self getPercent:filtered];
+        NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
+        [number setNumberStyle:NSNumberFormatterPercentStyle];
+        percentLabel.text = [number stringFromNumber:[NSNumber numberWithFloat:perc]];
+    }
+    @catch (NSException *exception) {
+        nameLabel.text = @"Pitcher not found";
+        totalLabel.text = @"";
+        percentLabel.text = @"";
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
