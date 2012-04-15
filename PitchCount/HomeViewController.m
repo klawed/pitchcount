@@ -419,6 +419,25 @@
     [self.navigationController presentModalViewController:strikeMode animated:YES];             
 }
 
+-(void) presentNewPitcher {
+    AddPitcherTableViewController *addPitcher = (AddPitcherTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"AddPitcherViewController"];
+    addPitcher.delegate = self;
+    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController pushViewController:addPitcher animated:YES];
+}
 
-
+- (void)pitcherAddViewController:(AddPitcherTableViewController *)addPitcherViewController didAddPitcher:(Pitcher *)pitcher {
+    [[pitcher managedObjectContext] save:nil];
+    [self pitcherListViewController:nil didPickPitcher:pitcher];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (buttonIndex) {
+        case 0:
+            [self presentNewPitcher];
+            break;
+        case 1:
+            break;
+    }
+}
 @end

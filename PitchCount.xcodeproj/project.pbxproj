@@ -67,6 +67,7 @@
 		38E9FC3514D22F1B00B48985 /* PitcherListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9FC3414D22F1B00B48985 /* PitcherListTableViewController.m */; };
 		38E9FCD914D2650F00B48985 /* AddPitcherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9FCD814D2650F00B48985 /* AddPitcherTableViewController.m */; };
 		38FC9A4014E0BB3300093227 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC9A3F14E0BB3300093227 /* Game.m */; };
+		38FE2080153ACEA800EC01A8 /* BaseCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE207F153ACEA800EC01A8 /* BaseCustomSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,8 @@
 		38E9FCD814D2650F00B48985 /* AddPitcherTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPitcherTableViewController.m; sourceTree = "<group>"; };
 		38FC9A3E14E0BB3300093227 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../Game.h; sourceTree = "<group>"; };
 		38FC9A3F14E0BB3300093227 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = ../Game.m; sourceTree = "<group>"; };
+		38FE207E153ACEA800EC01A8 /* BaseCustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCustomSegue.h; sourceTree = "<group>"; };
+		38FE207F153ACEA800EC01A8 /* BaseCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCustomSegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +234,8 @@
 				3830962A14D863F900DB7B61 /* table.png */,
 				38A1851B14E6B29C00454473 /* PlusMinusModeViewController.h */,
 				38A1851C14E6B29C00454473 /* PlusMinusModeViewController.m */,
+				38FE207E153ACEA800EC01A8 /* BaseCustomSegue.h */,
+				38FE207F153ACEA800EC01A8 /* BaseCustomSegue.m */,
 			);
 			name = Modes;
 			sourceTree = "<group>";
@@ -534,6 +539,7 @@
 				38B7C408151E52F800BF5EA1 /* PitcherStatistictsViewController.m in Sources */,
 				38972E1C1524F72800ADD444 /* GameStatisticsViewController.m in Sources */,
 				38D1A1681525A41F00845455 /* BaseStatistictsDetailViewController.m in Sources */,
+				38FE2080153ACEA800EC01A8 /* BaseCustomSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
